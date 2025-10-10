@@ -52,6 +52,7 @@ a.sidebar-link {
   color: $sidebar-link-hover-color;
   background: $sidebar-link-hover-bg;
   border-left-color: $sidebar-link-hover-border-left-color;
+  font-weight: 600;
 
   i,
   svg {
@@ -61,7 +62,7 @@ a.sidebar-link {
 
 .sidebar-item.active > .sidebar-link,
 .sidebar-item.active .sidebar-link:hover {
-  color: $sidebar-link-active-color;
+  color: $white;
   background: $sidebar-link-active-bg;
   border-left-color: $sidebar-link-active-border-left-color;
 
@@ -71,11 +72,24 @@ a.sidebar-link {
   }
 }
 
+.sidebar-item.active:hover{
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar-logo {
+  width: 115px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
 // Sidebar brand
 .sidebar-brand {
   font-weight: $sidebar-brand-font-weight;
   font-size: $sidebar-brand-font-size;
-  padding: $sidebar-brand-padding-y $sidebar-brand-padding-x;
+  padding: $sidebar-brand-padding-y;
   display: block;
   color: $sidebar-brand-color;
 
