@@ -16,6 +16,10 @@
   direction: ltr;
 }
 
+.rounded{
+  border-radius: 1.2rem !important;
+}
+
 .navbar-align {
   margin-left: auto;
 }
@@ -57,7 +61,7 @@
 
   &:hover,
   &.active {
-    color: $primary;
+    color: $bg-secondary;
   }
 
   svg,
@@ -92,6 +96,18 @@
   a:focus {
     outline: 0;
   }
+}
+
+.txt-color-primary {
+  color: $white;
+}
+
+.txt-color-secondary {
+  color: $gray-500;
+}
+
+.txt-color-terce {
+  color: #fcd62bc4
 }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

@@ -99,6 +99,7 @@ $bg-secondary-hover: #{linear-gradient(
     rgba($bg-secondary, 0.2) 50%,
     rgba($black, 0) 100%
   )} !default;
+$bg-nav-footer: #272727 !default;
 
 $primary: $blue !default;
 $secondary: $gray-600 !default;
@@ -135,24 +136,9 @@ $social-colors: (
   "bitbucket": #0052cc,
 ) !default;
 
-.icon-bg {
-  display: inline-flex; // para que el padding funcione bien
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem; // tamaño del contenedor
-  height: 2.5rem;
-  background-color: $bg-secondary; // fondo negro
-  border-radius: 50%; // círculo
-  padding: 0.5rem;
-}
-
-.indicator {
-  background-color: $bg-secondary !important; // amarillo para el círculo
-}
-
 // Body
-$body-bg: #1f1f1f !default;
-$body-color: $dark !default;
+$body-bg: #161515 !default;
+$body-color: white !default;
 
 // Links
 $link-decoration: none !default;
@@ -214,10 +200,10 @@ $navbar-brand-font-weight: $font-weight-normal !default;
 $navbar-brand-font-size: 1.15rem !default;
 $navbar-brand-icon-color: $bg-secondary !default;
 
-$navbar-bg: #272727 !default;
+$navbar-bg: $bg-nav-footer !default;
 
 // Footer
-$footer-bg: #272727 !default;
+$footer-bg: $bg-nav-footer !default;
 
 // Forms
 $input-bg: $white !default;
@@ -346,7 +332,7 @@ $badge-padding-y: 0.3em !default;
 $badge-padding-x: 0.45em !default;
 
 // Dropdowns
-$dropdown-bg: #272727 !default;
+$dropdown-bg: #3f3f3f !default;
 
 // Main
 $main-box-shadow: inset 0.75rem 0px 1.5rem 0px rgba($black, 0.075);
@@ -367,6 +353,6 @@ $hamburger-width-middle: 24px !default;
 $hamburger-width-bottom: 16px !default;
 
 // Stats
-$stat-bg: lighten($primary, 35%) !default;
-$stat-icon-color: $primary !default;
+$stat-bg: lighten($bg-secondary, 35%) !default;
+$stat-icon-color: $bg-secondary !default;
 $stat-padding: $spacer * 0.75 !default;
