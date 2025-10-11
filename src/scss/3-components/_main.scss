@@ -35,9 +35,10 @@
 }
 
 
+// ------------------------------ Cuenta ----------------------------------
 
 .tittle-color{
-  color: $bg-secondary;
+  color: $bg-secondary ;
 }
 
 /* Botones del formulario */
@@ -70,5 +71,129 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+
+
+// ----------------- Usuarios y Roles -------------------------------------
+
+/* Page layout tweaks */
+.content { padding-bottom: 1rem; }
+
+/* Cards */
+.card {
+  border: 1px solid rgba(255, 193, 7, 0.06);
+  border-radius: 12px;
+}
+
+.card-header { background: transparent; }
+
+/* Inputs / selects (dark) */
+.form-control, .form-select {
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.02);
+  border-radius: 8px;
+  padding: .5rem .75rem;
+}
+
+.form-control:focus, .form-select:focus {
+  outline: none;
+  border-color: $bg-secondary;
+  box-shadow: 0 4px 18px rgba(255,193,7,0.08);
+}
+
+/* Buttons */
+.btn-warning {
+  background: $bg-secondary;
+  color: #000 !important;
+  border: none;
+  font-weight: 600;
+}
+.btn-warning:hover { background: darken($bg-secondary, 15%); transform: translateY(-1px); }
+
+/* Roles list */
+#rolesList .list-group-item {
+  background: transparent;
+  color: #e6e6e6;
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 8px;
+  margin-bottom: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .6rem .75rem;
+}
+.role-badge {
+  background: rgba(255,193,7,0.12);
+  color: $bg-secondary;
+  padding: .25rem .5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+/* Users table */
+.table-dark {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.table-dark thead th { background: transparent; border-bottom: 1px solid rgba(255,255,255,0.02); }
+
+/* Action buttons in table */
+.table-actions .btn {
+  padding: .28rem .5rem;
+  font-size: .82rem;
+}
+
+/* Inline form */
+#userFormWrap {
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Empty state */
+#emptyState { color: $dark; padding: 2rem 0; }
+
+/* Small responsive tweaks */
+@media (max-width: 768px) {
+  .card { border-radius: 8px; }
+  .btn-warning { font-size: .9rem; }
+}
+
+
+
+
+.content {
+  .card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(255, 193, 7, 0.2);
+    }
+  }
+
+  table {
+    th {
+      color: #b3b3b3;
+    }
+    td {
+      vertical-align: middle;
+    }
+  }
+
+  .btn-outline-light:hover {
+    background-color: $bg-secondary;
+    color: #000;
+  }
+
+  .list-group-item {
+    background-color: #1f1f1f;
+    border: none;
+    color: #fff;
+    &:hover {
+      background-color: #2a2a2a;
+    }
   }
 }
