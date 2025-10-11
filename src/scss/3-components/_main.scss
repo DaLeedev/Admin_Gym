@@ -10,3 +10,65 @@
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+/* 🎨 Estilos oscuros para formularios del panel */
+.form-control,
+.form-select {
+  background-color: #181818; /* Fondo oscuro */
+  color: $gray-500; /* Texto claro */
+  border: 1px solid #3d2f00; /* Borde gris tenue */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Placeholder más claro */
+.form-control::placeholder {
+  color: #a1a1a1;
+}
+
+/* Hover o focus con acento amarillo */
+.form-control:focus,
+.form-select:focus {
+  border-color: #ffc107a9; /* Amarillo Bootstrap */
+  box-shadow: 0 0 0 0.1rem rgba(255, 193, 7, 0.25);
+  background-color: #000000;
+  color: #fff;
+}
+
+
+
+.tittle-color{
+  color: $bg-secondary;
+}
+
+/* Botones del formulario */
+.btn-primary {
+  background-color: $bg-secondary;
+  border-color: $bg-secondary;
+  color: #000;
+  font-weight: 600;
+}
+.btn-primary:hover {
+  background-color: $bg-secondary;
+  border-color: $bg-secondary;
+}
+
+/* Fondo de inputs deshabilitados */
+.form-control:disabled {
+  background-color: #121213;
+  color: #aaa;
+}
+
+#passwordFields {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

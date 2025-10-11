@@ -133,3 +133,33 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error cargando parciales:", err);
     });
 });
+
+
+
+//-------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("togglePasswordFields");
+  const passwordSection = document.getElementById("passwordFields");
+
+  toggleBtn.addEventListener("click", () => {
+    const isVisible = passwordSection.style.display === "block";
+    passwordSection.style.display = isVisible ? "none" : "block";
+    toggleBtn.textContent = isVisible
+      ? "Cambiar contraseña"
+      : "Cancelar cambio de contraseña";
+  });
+
+  // Validación de fuerza de contraseña
+  const newPass = document.getElementById("newPassword");
+  const strengthText = document.getElementById("passwordStrength");
+
+  newPass?.addEventListener("input", (e) => {
+    const val = e.target.value;
+    if (val.length < 6) strengthText.textContent = "Fuerza: débil";
+    else if (/[A-Z]/.test(val) && /[0-9]/.test(val))
+      strengthText.textContent = "Fuerza: fuerte";
+    else strengthText.textContent = "Fuerza: media";
+  });
+});
+
