@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
+    />
+    <meta name="author" content="AdminKit" />
+    <meta
+      name="keywords"
+      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+    <link
+      rel="canonical"
+      href="https://demo-basic.adminkit.io/upgrade-to-pro.html"
+    />
+
+    <title>Upgrade to Pro | AdminKit Demo</title>
+
+    <link href="css/app.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="index.html">
+            <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
+          </a>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Páginas</li>
+
+            <li class="sidebar-item active">
+              <a class="sidebar-link" href="index.html">
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Panel principal</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="pages-profile.html">
+                <i class="align-middle" data-feather="user"></i>
+                <span class="align-middle">Cuenta</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="pages-sign-in.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Usuarios</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="pages-sign-up.html">
+                <i class="align-middle" data-feather="user-plus"></i>
+                <span class="align-middle">Clientes</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="pages-blank.html">
+                <i class="align-middle" data-feather="book"></i>
+                <span class="align-middle">Membresía</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">Tools & Components</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="ui-buttons.html">
+                <i class="align-middle" data-feather="square"></i>
+                <span class="align-middle">Buttons</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="ui-forms.html">
+                <i class="align-middle" data-feather="check-square"></i>
+                <span class="align-middle">Forms</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="ui-cards.html">
+                <i class="align-middle" data-feather="grid"></i>
+                <span class="align-middle">Cards</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="ui-typography.html">
+                <i class="align-middle" data-feather="align-left"></i>
+                <span class="align-middle">Typography</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="icons-feather.html">
+                <i class="align-middle" data-feather="coffee"></i>
+                <span class="align-middle">Icons</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">Plugins & Addons</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="charts-chartjs.html">
+                <i class="align-middle" data-feather="bar-chart-2"></i>
+                <span class="align-middle">Charts</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="maps-google.html">
+                <i class="align-middle" data-feather="map"></i>
+                <span class="align-middle">Maps</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="sidebar-cta">
+            <div class="sidebar-cta-content">
+              <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
+              <div class="mb-3 text-sm">
+                Are you looking for more components? Check out our premium
+                version.
+              </div>
+              <div class="d-grid">
+                <a href="upgrade-to-pro.html" class="btn btn-primary"
+                  >Upgrade to Pro</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="main">
+        <div id="navbar"></div>
+
+        <!-- main users page - insertar dentro de tu layout (ej. @section('content')) -->
+        <main class="content">
+          <div class="container-fluid p-0">
+            <!-- Título y controles -->
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 text-white mb-0">
+                <i data-feather="credit-card" class="me-2 tittle-color"></i
+                >Membresías
+              </h1>
+              <div class="d-flex gap-2">
+                <!-- Buscador -->
+                <div class="input-group input-group-sm">
+                  <span
+                    class="input-group-text bg-secondary border-0 text-muted"
+                  >
+                    <i data-feather="search" class="feather-sm"></i>
+                  </span>
+                  <input
+                    id="searchMemberships"
+                    class="form-control form-control-sm bg-dark text-white border-0"
+                    placeholder="Buscar membresía..."
+                  />
+                </div>
+                <!-- Nuevo cliente -->
+                <button
+                  id="btnAddMembership"
+                  class="btn btn-warning tittle-color btn-sm"
+                >
+                  <i data-feather="plus-circle" class="me-1"></i> Nueva
+                  membresía
+                </button>
+                <!-- Botón Clientes por Día -->
+                <button
+                  id="btnDailyClients"
+                  class="btn btn-info tittle-color btn-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#dailyClientsModal"
+                >
+                  <i data-feather="user" class="me-1"></i> Clientes por Día
+                </button>
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <!-- Filtros de membresía -->
+              <div class="col-lg-4">
+                <div class="card border-0 shadow-sm">
+                  <div
+                    class="card-header border-bottom border-secondary d-flex justify-content-between align-items-center"
+                  >
+                    <h6 class="mb-0 tittle-color">
+                      <i data-feather="filter" class="me-1"></i>Filtros
+                    </h6>
+                    <small class="text-muted">Rápido</small>
+                  </div>
+
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <button
+                        class="btn btn-sm btn-outline-success w-100 mb-2"
+                        data-filter="active"
+                      >
+                        Activas
+                      </button>
+                      <button
+                        class="btn btn-sm btn-outline-warning w-100 mb-2"
+                        data-filter="expiring"
+                      >
+                        Próximas a vencer
+                      </button>
+                      <button
+                        class="btn btn-sm btn-outline-danger w-100 mb-2"
+                        data-filter="expired"
+                      >
+                        Vencidas
+                      </button>
+                      <button
+                        class="btn btn-sm btn-outline-light w-100"
+                        data-filter="all"
+                      >
+                        Todas
+                      </button>
+                    </div>
+                    <hr class="border-secondary" />
+                    <div class="text-white small">
+                      <strong>Total membresías:</strong>
+                      <span id="membershipsCount">0</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tabla de membresías -->
+              <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                  <div
+                    class="card-header border-bottom border-secondary d-flex justify-content-between align-items-center"
+                  >
+                    <h6 class="mb-0 tittle-color">
+                      <i data-feather="list" class="me-1"></i>Membresías
+                    </h6>
+                  </div>
+
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-hover align-middle mb-0">
+                        <thead>
+                          <tr class="text-muted small">
+                            <th>Cliente</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                            <th>Fecha inicio</th>
+                            <th>Fecha fin</th>
+                            <th class="text-end">Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody id="membershipsTableBody">
+                          <!-- Membresías se generan dinámicamente -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Membresía -->
+          <div class="modal fade" id="membershipModal" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content bg-dark border-0 text-white shadow-lg">
+                <div class="modal-header border-secondary">
+                  <h5 class="modal-title text-warning">
+                    <i data-feather="plus-circle" class="me-1"></i> Membresía
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+
+                <div class="modal-body">
+                  <form id="membershipForm" class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label">Cliente *</label>
+                      <input
+                        type="text"
+                        class="form-control bg-secondary text-white border-0"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Tipo de membresía *</label>
+                      <select
+                        class="form-select bg-secondary text-white border-0"
+                        required
+                      >
+                        <option value="daily">Diaria</option>
+                        <option value="monthly">Mensual</option>
+                        <option value="quarterly">Trimestral</option>
+                        <option value="annual">Anual</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Fecha inicio *</label>
+                      <input
+                        type="date"
+                        class="form-control bg-secondary text-white border-0"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Fecha fin *</label>
+                      <input
+                        type="date"
+                        class="form-control bg-secondary text-white border-0"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Estado *</label>
+                      <select
+                        class="form-select bg-secondary text-white border-0"
+                        required
+                      >
+                        <option value="active">Activa</option>
+                        <option value="expiring">Próxima a vencer</option>
+                        <option value="expired">Vencida</option>
+                      </select>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="modal-footer border-secondary">
+                  <button class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cancelar
+                  </button>
+                  <button class="btn btn-warning" id="saveMembership">
+                    <i data-feather="save" class="me-1"></i>Guardar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Clientes por Día -->
+          <div class="modal fade" id="dailyClientsModal" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+              <div class="modal-content bg-dark border-0 text-white shadow-lg">
+                <div class="modal-header border-secondary">
+                  <h5 class="modal-title text-info">
+                    <i data-feather="user" class="me-1"></i> Clientes por Día
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="d-flex gap-2 mb-3">
+                    <input
+                      id="searchDailyClients"
+                      class="form-control form-control-sm bg-secondary text-white border-0"
+                      placeholder="Buscar cliente diario..."
+                    />
+                    <button class="btn btn-sm btn-info" id="btnAddDailyClient">
+                      <i data-feather="plus-circle" class="me-1"></i> Agregar
+                    </button>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                      <thead>
+                        <tr class="text-muted small">
+                          <th>Nombre</th>
+                          <th>Correo</th>
+                          <th>Teléfono</th>
+                          <th class="text-end">Acciones</th>
+                        </tr>
+                      </thead>
+                      <tbody id="dailyClientsTableBody">
+                        <!-- Clientes diarios se generan dinámicamente -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="modal-footer border-secondary">
+                  <span class="text-white small me-auto">
+                    Total clientes diarios:
+                    <span id="dailyClientsCount">0</span>
+                  </span>
+                  <button class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cerrar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Form Cliente Diario -->
+          <div class="modal fade" id="dailyClientFormModal" tabindex="-1">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+              <div class="modal-content bg-dark border-0 text-white shadow-lg">
+                <div class="modal-header border-secondary">
+                  <h5 class="modal-title text-info">
+                    <i data-feather="user-plus" class="me-1"></i> Cliente Diario
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form id="dailyClientForm" class="row g-3">
+                    <div class="col-md-12">
+                      <label class="form-label">Nombre *</label>
+                      <input
+                        type="text"
+                        class="form-control bg-secondary text-white border-0"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-12">
+                      <label class="form-label">Correo</label>
+                      <input
+                        type="email"
+                        class="form-control bg-secondary text-white border-0"
+                      />
+                    </div>
+                    <div class="col-md-12">
+                      <label class="form-label">Teléfono</label>
+                      <input
+                        type="tel"
+                        class="form-control bg-secondary text-white border-0"
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer border-secondary">
+                  <button class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cancelar
+                  </button>
+                  <button class="btn btn-info" id="saveDailyClient">
+                    <i data-feather="save" class="me-1"></i> Guardar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <div id="footer"></div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/membresia.js" defer></script>
+  </body>
+</html>
