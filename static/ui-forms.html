@@ -153,247 +153,194 @@
 
         <main class="content">
           <div class="container-fluid p-0">
-            <div class="mb-3">
-              <h1 class="h3 d-inline align-middle">Forms</h1>
-              <a
-                class="badge bg-dark text-white ms-2"
-                href="upgrade-to-pro.html"
-              >
-                Get more form examples
-              </a>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h1 class="h3 text-warning fw-bold mb-0">
+                <i data-feather="package" class="me-2"></i>Inventario de
+                Productos
+              </h1>
+              <button class="btn btn-warning text-dark fw-bold shadow-sm">
+                <i data-feather="plus-circle" class="me-1"></i>Nuevo Producto
+              </button>
             </div>
-            <div class="row">
-              <div class="col-12 col-lg-6">
-                <div class="card">
-                  <div class="card-header">
-                    <h5 class="card-title mb-0">Input</h5>
-                  </div>
-                  <div class="card-body">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Input"
-                    />
-                  </div>
-                </div>
 
-                <div class="card">
-                  <div class="card-header">
-                    <h5 class="card-title mb-0">Textarea</h5>
+            <!-- FILTROS Y ESTADÍSTICAS -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-8">
+                <div class="card bg-dark border-0 shadow-sm">
+                  <div
+                    class="card-header border-0 d-flex justify-content-between align-items-center"
+                  >
+                    <h5 class="text-warning mb-0">
+                      <i data-feather="filter" class="me-1"></i>Filtros
+                    </h5>
                   </div>
                   <div class="card-body">
-                    <textarea
-                      class="form-control"
-                      rows="2"
-                      placeholder="Textarea"
-                    ></textarea>
-                  </div>
-                </div>
-
-                <div class="card">
-                  <div class="card-header">
-                    <h5 class="card-title mb-0">Checkboxes</h5>
-                  </div>
-                  <div class="card-body">
-                    <div>
-                      <label class="form-check">
+                    <div class="row g-2">
+                      <div class="col-md-4">
+                        <select
+                          class="form-select bg-dark text-light border-secondary"
+                        >
+                          <option value="">Tipo de producto</option>
+                          <option>Proteínas</option>
+                          <option>Bebidas</option>
+                          <option>Ropa</option>
+                          <option>Accesorios</option>
+                          <option>Batidos</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <select
+                          class="form-select bg-dark text-light border-secondary"
+                        >
+                          <option value="">Disponibilidad</option>
+                          <option>En stock</option>
+                          <option>Bajo stock</option>
+                          <option>Agotado</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
                         <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value=""
+                          type="text"
+                          class="form-control bg-dark text-light border-secondary"
+                          placeholder="Buscar producto..."
                         />
-                        <span class="form-check-label">
-                          Option one is this and that&mdash;be sure to include
-                          why it's great
-                        </span>
-                      </label>
-                      <label class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value=""
-                          disabled
-                        />
-                        <span class="form-check-label">
-                          Option two is disabled
-                        </span>
-                      </label>
+                      </div>
                     </div>
-                    <div>
-                      <label class="form-check form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value="option1"
-                        />
-                        <span class="form-check-label"> 1 </span>
-                      </label>
-                      <label class="form-check form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value="option2"
-                        />
-                        <span class="form-check-label"> 2 </span>
-                      </label>
-                      <label class="form-check form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value="option3"
-                          disabled
-                        />
-                        <span class="form-check-label"> 3 </span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="card">
-                  <div class="card-header">
-                    <h5 class="card-title mb-0">Read only</h5>
-                  </div>
-                  <div class="card-body">
-                    <input
-                      class="form-control"
-                      type="text"
-                      placeholder="Readonly input"
-                      readonly
-                    />
                   </div>
                 </div>
               </div>
 
-              <div class="col-12 col-lg-6">
-                <div class="card">
-                  <div class="card-header">
-                    <h5 class="card-title mb-0">Radios</h5>
-                  </div>
-                  <div class="card-body">
-                    <div>
-                      <label class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          value="option1"
-                          name="radios-example"
-                          checked
-                        />
-                        <span class="form-check-label">
-                          Option one is this and that&mdash;be sure to include
-                          why it's great
-                        </span>
-                      </label>
-                      <label class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          value="option2"
-                          name="radios-example"
-                        />
-                        <span class="form-check-label">
-                          Option two can be something else and selecting it will
-                          deselect option one
-                        </span>
-                      </label>
-                      <label class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          value="option3"
-                          name="radios-example"
-                          disabled
-                        />
-                        <span class="form-check-label">
-                          Option three is disabled
-                        </span>
-                      </label>
+              <!-- TARJETAS DE RESUMEN -->
+              <div class="col-md-4">
+                <div class="row g-2">
+                  <div class="col-6">
+                    <div
+                      class="card bg-black border-warning text-center p-3 shadow-sm"
+                    >
+                      <h6 class="text-muted">Total Productos</h6>
+                      <h3 class="text-warning mb-0 fw-bold">256</h3>
                     </div>
-                    <div>
-                      <label class="form-check form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="inline-radios-example"
-                          value="option1"
-                        />
-                        <span class="form-check-label"> 1 </span>
-                      </label>
-                      <label class="form-check form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="inline-radios-example"
-                          value="option2"
-                        />
-                        <span class="form-check-label"> 2 </span>
-                      </label>
-                      <label class="form-check form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="inline-radios-example"
-                          value="option3"
-                          disabled
-                        />
-                        <span class="form-check-label"> 3 </span>
-                      </label>
+                  </div>
+                  <div class="col-6">
+                    <div
+                      class="card bg-black border-warning text-center p-3 shadow-sm"
+                    >
+                      <h6 class="text-muted">Stock Total</h6>
+                      <h3 class="text-warning mb-0 fw-bold">1,452</h3>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div
+                      class="card bg-black border-warning text-center p-3 shadow-sm"
+                    >
+                      <h6 class="text-muted">Ventas del Mes</h6>
+                      <h3 class="text-success mb-0 fw-bold">$4.250.000</h3>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                <div class="card">
-                  <div class="card-header">
-                    <h5 class="card-title mb-0">Selects</h5>
-                  </div>
-                  <div class="card-body">
-                    <select class="form-select mb-3">
-                      <option selected>Open this select menu</option>
-                      <option>One</option>
-                      <option>Two</option>
-                      <option>Three</option>
-                    </select>
-
-                    <select multiple class="form-control">
-                      <option>One</option>
-                      <option>Two</option>
-                      <option>Three</option>
-                      <option>Four</option>
-                    </select>
-                  </div>
+            <!-- TABLA DE PRODUCTOS -->
+            <div class="card bg-dark border-0 shadow-sm mb-4">
+              <div
+                class="card-header d-flex justify-content-between align-items-center border-0"
+              >
+                <h5 class="text-warning mb-0">
+                  <i data-feather="list" class="me-1"></i>Listado de Productos
+                </h5>
+                <div>
+                  <button class="btn btn-sm btn-outline-warning me-2">
+                    <i data-feather="file-text" class="me-1"></i>Exportar PDF
+                  </button>
+                  <button class="btn btn-sm btn-outline-success">
+                    <i data-feather="file" class="me-1"></i>Exportar Excel
+                  </button>
                 </div>
+              </div>
+              <div class="card-body table-responsive">
+                <table class="table table-dark table-hover align-middle mb-0">
+                  <thead class="text-warning border-secondary">
+                    <tr>
+                      <th>ID</th>
+                      <th>Producto</th>
+                      <th>Categoría</th>
+                      <th>Stock</th>
+                      <th>Precio</th>
+                      <th>Ventas</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-light">
+                    <tr>
+                      <td>#001</td>
+                      <td>Proteína Whey Gold</td>
+                      <td>Proteínas</td>
+                      <td><span class="badge bg-success">45</span></td>
+                      <td>$150.000</td>
+                      <td>23</td>
+                      <td><span class="badge bg-success">Activo</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-light me-1">
+                          <i data-feather="edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger">
+                          <i data-feather="trash-2"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>#002</td>
+                      <td>Guantes de Entrenamiento</td>
+                      <td>Accesorios</td>
+                      <td><span class="badge bg-warning">8</span></td>
+                      <td>$60.000</td>
+                      <td>12</td>
+                      <td><span class="badge bg-warning">Bajo Stock</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-light me-1">
+                          <i data-feather="edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger">
+                          <i data-feather="trash-2"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>#003</td>
+                      <td>Batido Natural Detox</td>
+                      <td>Batidos</td>
+                      <td><span class="badge bg-danger">0</span></td>
+                      <td>$25.000</td>
+                      <td>33</td>
+                      <td><span class="badge bg-danger">Agotado</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-light me-1">
+                          <i data-feather="edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger">
+                          <i data-feather="trash-2"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
 
-                <div class="card">
-                  <div class="card-header">
-                    <h5 class="card-title mb-0">Disabled</h5>
-                  </div>
-                  <div class="card-body">
-                    <div class="mb-3">
-                      <label class="form-label">Disabled input</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Disabled input"
-                        disabled
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label">Disabled select menu</label>
-                      <select class="form-control" disabled>
-                        <option>Disabled select</option>
-                      </select>
-                    </div>
-                    <label class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        disabled
-                      />
-                      <span class="form-check-label"> Can't check this </span>
-                    </label>
-                  </div>
-                </div>
+            <!-- GRÁFICO DE VENTAS -->
+            <div class="card bg-dark border-0 shadow-sm">
+              <div
+                class="card-header border-0 d-flex justify-content-between align-items-center"
+              >
+                <h5 class="text-warning mb-0">
+                  <i data-feather="bar-chart-2" class="me-1"></i>Ventas por
+                  Categoría
+                </h5>
+              </div>
+              <div class="card-body">
+                <canvas id="salesChart" height="120"></canvas>
               </div>
             </div>
           </div>
