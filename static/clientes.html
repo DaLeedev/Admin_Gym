@@ -196,56 +196,105 @@
             <div class="row g-3">
               <!-- Filtros -->
               <div class="col-lg-4">
-                <div class="card border-0 shadow-sm">
+                <div class="card border-0 shadow-lg ">
                   <div
-                    class="card-header border-bottom border-secondary d-flex justify-content-between align-items-center"
+                    class="card-header border-0 d-flex justify-content-between align-items-center"
                   >
-                    <h6 class="mb-0 tittle-color">
-                      <i data-feather="filter" class="me-1"></i>Filtros
+                    <h6 class="mb-0 text-warning fw-bold">
+                      <i data-feather="filter" class="me-1"></i>Filtros Rápidos - Membresías
                     </h6>
-                    <small class="text-muted">Rápido</small>
+                    <small class="text-muted">Selecciona uno</small>
                   </div>
+
                   <div class="card-body">
-                    <div class="mb-3 d-grid">
-                      <button
-                        class="btn btn-sm btn-outline-success mb-2"
-                        data-filter="active"
-                      >
-                        Activas
-                      </button>
-                      <button
-                        class="btn btn-sm btn-outline-warning mb-2"
-                        data-filter="expiring"
-                      >
-                        Próximas a vencer
-                      </button>
-                      <button
-                        class="btn btn-sm btn-outline-danger mb-2"
-                        data-filter="expired"
-                      >
-                        Vencidas
-                      </button>
-                      <button
-                        class="btn btn-sm btn-outline-primary mb-2"
-                        data-filter="daily"
-                      >
-                        Pagos diarios
-                      </button>
-                      <button
-                        class="btn btn-sm btn-outline-light"
-                        data-filter="all"
-                      >
-                        Todas
-                      </button>
+                    <div class="row g-2">
+                      <!-- Filtro Activas -->
+                      <div class="col-6">
+                        <button
+                          class="filter-btn btn btn-dark w-100 d-flex flex-column align-items-center justify-content-center"
+                        >
+                          <i
+                            data-feather="check-circle"
+                            class="text-success mb-1"
+                          ></i>
+                          <span class="small text-white">Activas</span>
+                        </button>
+                      </div>
+
+                      <!-- Próximas a vencer -->
+                      <div class="col-6">
+                        <button
+                          class="filter-btn btn btn-dark w-100 d-flex flex-column align-items-center justify-content-center"
+                        >
+                          <i data-feather="clock" class="text-warning mb-1"></i>
+                          <span class="small text-white"
+                            >Próximas a vencer</span
+                          >
+                        </button>
+                      </div>
+
+                      <!-- Vencidas -->
+                      <div class="col-6">
+                        <button
+                          class="filter-btn btn btn-dark w-100 d-flex flex-column align-items-center justify-content-center"
+                        >
+                          <i
+                            data-feather="x-circle"
+                            class="text-danger mb-1"
+                          ></i>
+                          <span class="small text-white">Vencidas</span>
+                        </button>
+                      </div>
+
+                      <!-- Pagos diarios -->
+                      <div class="col-6">
+                        <button
+                          class="filter-btn btn btn-dark w-100 d-flex flex-column align-items-center justify-content-center"
+                        >
+                          <i
+                            data-feather="calendar"
+                            class="text-primary mb-1"
+                          ></i>
+                          <span class="small text-white">Pagos diarios</span>
+                        </button>
+                      </div>
+
+                      <!-- Pagos en revisión -->
+                      <div class="col-6">
+                        <button
+                          class="filter-btn btn btn-dark w-100 d-flex flex-column align-items-center justify-content-center"
+                        >
+                          <i
+                            data-feather="refresh-ccw"
+                            class="text-warning mb-1"
+                          ></i>
+                          <span class="small text-white">En revisión</span>
+                        </button>
+                      </div>
+
+                      <!-- Todas -->
+                      <div class="col-6">
+                        <button
+                          class="filter-btn btn btn-dark w-100 d-flex flex-column align-items-center justify-content-center"
+                        >
+                          <i data-feather="grid" class="text-light mb-1"></i>
+                          <span class="small text-white">Todas</span>
+                        </button>
+                      </div>
                     </div>
-                    <hr class="border-secondary" />
-                    <div class="text-white small">
-                      <strong>Total clientes:</strong>
-                      <span id="clientsCount">0</span>
-                    </div>
-                    <div class="text-muted small mt-2">
-                      <strong>Filtrados:</strong>
-                      <span id="clientsFilteredLabel">Todos</span>
+
+                    <hr class="border-secondary mt-3" />
+                    <div
+                      class="d-flex justify-content-between mt-2 small text-white"
+                    >
+                      <div>
+                        <strong>Total clientes:</strong>
+                        <span id="clientsCount">0</span>
+                      </div>
+                      <div class="text-muted">
+                        <strong>Filtrados:</strong>
+                        <span id="clientsFilteredLabel">Todos</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -272,9 +321,9 @@
                           <tr class="text-muted small">
                             <th>Foto</th>
                             <th>Nombre</th>
-                            <th>Correo</th>
                             <th>Identificación</th>
                             <th>Membresía</th>
+                            <th>Estado</th>
                             <th>Último pago</th>
                             <th class="text-end">Acciones</th>
                           </tr>
@@ -541,6 +590,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/clientes.js"></script>
+    <script src="js/clientes.js" refer></script>
   </body>
 </html>

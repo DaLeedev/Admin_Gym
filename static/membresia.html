@@ -177,105 +177,89 @@
                     placeholder="Buscar membresía..."
                   />
                 </div>
-                <!-- Nuevo cliente -->
+                <!-- Nueva membresía -->
                 <button
                   id="btnAddMembership"
                   class="btn btn-warning tittle-color btn-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#membershipModal"
                 >
                   <i data-feather="plus-circle" class="me-1"></i> Nueva
                   membresía
                 </button>
-                <!-- Botón Clientes por Día -->
-                <button
-                  id="btnDailyClients"
-                  class="btn btn-info tittle-color btn-sm"
-                  data-bs-toggle="modal"
-                  data-bs-target="#dailyClientsModal"
-                >
-                  <i data-feather="user" class="me-1"></i> Clientes por Día
-                </button>
               </div>
             </div>
 
-            <div class="row g-3">
-              <!-- Filtros de membresía -->
-              <div class="col-lg-4">
-                <div class="card border-0 shadow-sm">
-                  <div
-                    class="card-header border-bottom border-secondary d-flex justify-content-between align-items-center"
-                  >
-                    <h6 class="mb-0 tittle-color">
-                      <i data-feather="filter" class="me-1"></i>Filtros
-                    </h6>
-                    <small class="text-muted">Rápido</small>
-                  </div>
-
-                  <div class="card-body">
-                    <div class="mb-3">
-                      <button
-                        class="btn btn-sm btn-outline-success w-100 mb-2"
-                        data-filter="active"
-                      >
-                        Activas
-                      </button>
-                      <button
-                        class="btn btn-sm btn-outline-warning w-100 mb-2"
-                        data-filter="expiring"
-                      >
-                        Próximas a vencer
-                      </button>
-                      <button
-                        class="btn btn-sm btn-outline-danger w-100 mb-2"
-                        data-filter="expired"
-                      >
-                        Vencidas
-                      </button>
-                      <button
-                        class="btn btn-sm btn-outline-light w-100"
-                        data-filter="all"
-                      >
-                        Todas
-                      </button>
-                    </div>
-                    <hr class="border-secondary" />
-                    <div class="text-white small">
-                      <strong>Total membresías:</strong>
-                      <span id="membershipsCount">0</span>
-                    </div>
-                  </div>
-                </div>
+            <!-- Tabla de membresías -->
+            <div class="card border-0 shadow-sm">
+              <div
+                class="card-header border-bottom border-secondary d-flex justify-content-between align-items-center"
+              >
+                <h6 class="mb-0 tittle-color">
+                  <i data-feather="list" class="me-1"></i>Listado de Membresías
+                </h6>
               </div>
 
-              <!-- Tabla de membresías -->
-              <div class="col-lg-8">
-                <div class="card border-0 shadow-sm">
-                  <div
-                    class="card-header border-bottom border-secondary d-flex justify-content-between align-items-center"
-                  >
-                    <h6 class="mb-0 tittle-color">
-                      <i data-feather="list" class="me-1"></i>Membresías
-                    </h6>
-                  </div>
-
-                  <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table table-hover align-middle mb-0">
-                        <thead>
-                          <tr class="text-muted small">
-                            <th>Cliente</th>
-                            <th>Tipo</th>
-                            <th>Estado</th>
-                            <th>Fecha inicio</th>
-                            <th>Fecha fin</th>
-                            <th class="text-end">Acciones</th>
-                          </tr>
-                        </thead>
-                        <tbody id="membershipsTableBody">
-                          <!-- Membresías se generan dinámicamente -->
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead>
+                      <tr class="text-muted small">
+                        <th>Nombre</th>
+                        <th>Duración</th>
+                        <th>Valor</th>
+                        <th>Estado</th>
+                        <th class="text-end">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="membershipsTableBody">
+                      <!-- Ejemplo temporal -->
+                      <tr>
+                        <td>Mensual</td>
+                        <td>30 días</td>
+                        <td>$80.000</td>
+                        <td>
+                          <span class="badge bg-success bg-opacity-75"
+                            >Activa</span
+                          >
+                        </td>
+                        <td class="text-end">
+                          <button
+                            class="btn btn-sm btn-outline-warning me-1"
+                            data-bs-toggle="modal"
+                            data-bs-target="#membershipModal"
+                          >
+                            <i data-feather="edit"></i>
+                          </button>
+                          <button class="btn btn-sm btn-outline-danger">
+                            <i data-feather="trash-2"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Diaria</td>
+                        <td>1 día</td>
+                        <td>$10.000</td>
+                        <td>
+                          <span class="badge bg-success bg-opacity-75"
+                            >Activa</span
+                          >
+                        </td>
+                        <td class="text-end">
+                          <button
+                            class="btn btn-sm btn-outline-warning me-1"
+                            data-bs-toggle="modal"
+                            data-bs-target="#membershipModal"
+                          >
+                            <i data-feather="edit"></i>
+                          </button>
+                          <button class="btn btn-sm btn-outline-danger">
+                            <i data-feather="trash-2"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
@@ -283,7 +267,7 @@
 
           <!-- Modal Membresía -->
           <div class="modal fade" id="membershipModal" tabindex="-1">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-md modal-dialog-centered">
               <div class="modal-content bg-dark border-0 text-white shadow-lg">
                 <div class="modal-header border-secondary">
                   <h5 class="modal-title text-warning">
@@ -298,51 +282,55 @@
 
                 <div class="modal-body">
                   <form id="membershipForm" class="row g-3">
-                    <div class="col-md-6">
-                      <label class="form-label">Cliente *</label>
+                    <div class="col-12">
+                      <label class="form-label">Nombre *</label>
                       <input
                         type="text"
                         class="form-control bg-secondary text-white border-0"
+                        placeholder="Ej: Mensual, Trimestral, Diaria..."
                         required
                       />
                     </div>
+
                     <div class="col-md-6">
-                      <label class="form-label">Tipo de membresía *</label>
+                      <label class="form-label">Duración *</label>
+                      <input
+                        type="number"
+                        class="form-control bg-secondary text-white border-0"
+                        placeholder="Ej: 30"
+                        required
+                      />
+                    </div>
+
+                    <div class="col-md-6">
+                      <label class="form-label">Unidad de tiempo *</label>
                       <select
                         class="form-select bg-secondary text-white border-0"
                         required
                       >
-                        <option value="daily">Diaria</option>
-                        <option value="monthly">Mensual</option>
-                        <option value="quarterly">Trimestral</option>
-                        <option value="annual">Anual</option>
+                        <option value="dias">Días</option>
+                        <option value="meses">Meses</option>
                       </select>
                     </div>
-                    <div class="col-md-6">
-                      <label class="form-label">Fecha inicio *</label>
+
+                    <div class="col-12">
+                      <label class="form-label">Valor base *</label>
                       <input
-                        type="date"
+                        type="number"
                         class="form-control bg-secondary text-white border-0"
+                        placeholder="Ej: 80000"
                         required
                       />
                     </div>
-                    <div class="col-md-6">
-                      <label class="form-label">Fecha fin *</label>
-                      <input
-                        type="date"
-                        class="form-control bg-secondary text-white border-0"
-                        required
-                      />
-                    </div>
-                    <div class="col-md-6">
+
+                    <div class="col-12">
                       <label class="form-label">Estado *</label>
                       <select
                         class="form-select bg-secondary text-white border-0"
                         required
                       >
-                        <option value="active">Activa</option>
-                        <option value="expiring">Próxima a vencer</option>
-                        <option value="expired">Vencida</option>
+                        <option value="activa">Activa</option>
+                        <option value="inactiva">Inactiva</option>
                       </select>
                     </div>
                   </form>
@@ -354,114 +342,6 @@
                   </button>
                   <button class="btn btn-warning" id="saveMembership">
                     <i data-feather="save" class="me-1"></i>Guardar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Modal Clientes por Día -->
-          <div class="modal fade" id="dailyClientsModal" tabindex="-1">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content bg-dark border-0 text-white shadow-lg">
-                <div class="modal-header border-secondary">
-                  <h5 class="modal-title text-info">
-                    <i data-feather="user" class="me-1"></i> Clientes por Día
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                  ></button>
-                </div>
-
-                <div class="modal-body">
-                  <div class="d-flex gap-2 mb-3">
-                    <input
-                      id="searchDailyClients"
-                      class="form-control form-control-sm bg-secondary text-white border-0"
-                      placeholder="Buscar cliente diario..."
-                    />
-                    <button class="btn btn-sm btn-info" id="btnAddDailyClient">
-                      <i data-feather="plus-circle" class="me-1"></i> Agregar
-                    </button>
-                  </div>
-
-                  <div class="table-responsive">
-                    <table class="table table-hover align-middle mb-0">
-                      <thead>
-                        <tr class="text-muted small">
-                          <th>Nombre</th>
-                          <th>Correo</th>
-                          <th>Teléfono</th>
-                          <th class="text-end">Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody id="dailyClientsTableBody">
-                        <!-- Clientes diarios se generan dinámicamente -->
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="modal-footer border-secondary">
-                  <span class="text-white small me-auto">
-                    Total clientes diarios:
-                    <span id="dailyClientsCount">0</span>
-                  </span>
-                  <button class="btn btn-secondary" data-bs-dismiss="modal">
-                    Cerrar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal Form Cliente Diario -->
-          <div class="modal fade" id="dailyClientFormModal" tabindex="-1">
-            <div class="modal-dialog modal-md modal-dialog-centered">
-              <div class="modal-content bg-dark border-0 text-white shadow-lg">
-                <div class="modal-header border-secondary">
-                  <h5 class="modal-title text-info">
-                    <i data-feather="user-plus" class="me-1"></i> Cliente Diario
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <form id="dailyClientForm" class="row g-3">
-                    <div class="col-md-12">
-                      <label class="form-label">Nombre *</label>
-                      <input
-                        type="text"
-                        class="form-control bg-secondary text-white border-0"
-                        required
-                      />
-                    </div>
-                    <div class="col-md-12">
-                      <label class="form-label">Correo</label>
-                      <input
-                        type="email"
-                        class="form-control bg-secondary text-white border-0"
-                      />
-                    </div>
-                    <div class="col-md-12">
-                      <label class="form-label">Teléfono</label>
-                      <input
-                        type="tel"
-                        class="form-control bg-secondary text-white border-0"
-                      />
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer border-secondary">
-                  <button class="btn btn-secondary" data-bs-dismiss="modal">
-                    Cancelar
-                  </button>
-                  <button class="btn btn-info" id="saveDailyClient">
-                    <i data-feather="save" class="me-1"></i> Guardar
                   </button>
                 </div>
               </div>
