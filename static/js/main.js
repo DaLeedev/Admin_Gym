@@ -161,6 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
       strengthText.textContent = "Fuerza: fuerte";
     else strengthText.textContent = "Fuerza: media";
   });
+  
 });
 
 

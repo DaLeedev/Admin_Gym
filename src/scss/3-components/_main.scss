@@ -11,6 +11,168 @@
   border-bottom-left-radius: 0;
 }
 
+
+/* 🔒 Sidebar fijo y alto completo */
+/* 📦 Sidebar base */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #1c1f26;
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
+  transition: all 0.3s ease;
+  z-index: 1;
+  transform: translateX(0);
+}
+
+/* 📱 Cuando se oculta el sidebar */
+.wrapper.sidebar-collapsed #sidebar {
+  transform: translateX(calc(-1 * var(--sidebar-width)));
+}
+
+/* 🧱 Contenido principal */
+main.content {
+  margin-left: 250px;
+  transition: all 0.3s ease;
+}
+
+/* 💡 Cuando el sidebar se oculta, el contenido ocupa todo el ancho */
+body.sidebar-collapsed main.content {
+  margin-left: 0;
+}
+
+body.sidebar-collapsed .footer {
+  margin-left: 0;
+}
+
+
+.wrapper.sidebar-collapsed .sidebar {
+  margin-left: -260px;
+}
+
+.wrapper.sidebar-collapsed .main {
+  margin-left: 0;
+}
+
+/* 📱 Ajustes automáticos para pantallas pequeñas */
+@media (max-width: 992px) {
+  #sidebar {
+    left: -250px;
+  }
+
+  #sidebar.active {
+    left: 0;
+  }
+
+  main.content {
+    margin-left: 0;
+  }
+
+  .footer {
+    margin-left: 0;
+  }
+}
+
+
+
+
+/* --- Cuando el sidebar está colapsado --- */
+.wrapper.sidebar-collapsed .sidebar {
+  margin-left: -260px; /* oculta el sidebar */
+}
+
+
+.wrapper.sidebar-collapsed .main {
+  margin-left: 0; /* contenido se expande */
+}
+
+// ------------------------ Dashboard Calendar -------------------------------
+
+
+/* 🔢 Cambiar color y tamaño de los números */
+.flatpickr-day {
+  color: #fff !important; /* color del texto (números) */
+  font-weight: 600;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+/* 📅 Hover moderno al pasar el mouse */
+.flatpickr-day:hover {
+  background-color: #ffcc00 !important; /* color de fondo hover */
+  color: #000 !important;
+  transform: scale(1.1);
+  border-radius: 8px;
+}
+
+/* 🔘 Día seleccionado */
+.flatpickr-day.selected {
+  background-color: $bg-secondary !important;
+  color: #000 !important;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+/* 🚫 Días deshabilitados */
+.flatpickr-day.disabled {
+  color: #666 !important;
+  opacity: 0.4;
+}
+
+/* 🗓️ Encabezado del mes */
+.flatpickr-months .flatpickr-month {
+  background-color: $bg-secondary !important;
+  color: #000000 !important;
+  font-size: 12px;
+  font-weight: 800 !important;
+  border-radius: 6px;
+  padding-inline: 4px !important;
+}
+
+.flatpickr-weekdays {
+  background-color: transparent !important;
+  border-radius: 8px 8px 0 0;
+  color: red !important;
+}
+
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  color: #fffb00 !important; /* amarillo principal */
+  font-size: 16px !important; /* tamaño del ícono más pequeño */
+  line-height: 1 !important;
+  padding: 6px !important; /* reduce el área del botón */
+  width: 22px !important;
+  height: 28px !important;
+  background-color: rgba(63, 63, 63, 0.253) !important; /* fondo sutil */
+  border-radius: 30% !important;
+  transition: all 0.25s ease-in-out;
+  margin-top: 7px;
+}
+
+/* Hover moderno */
+.flatpickr-prev-month:hover,
+.flatpickr-next-month:hover {
+  color: #000 !important;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+}
+
+
+.flatpickr-weekday {
+  color: #ffffff !important;
+  font-size: 13px !important;
+  letter-spacing: 0.5px;
+  background: transparent !important;
+}
+
+
+
+
+
+
+
 /* 🎨 Estilos oscuros para formularios del panel */
 .form-control,
 .form-select {

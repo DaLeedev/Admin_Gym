@@ -1,9 +1,13 @@
 .navbar {
   border-bottom: $navbar-border-bottom;
   box-shadow: $navbar-box-shadow;
+  margin-left: 260px;
+  transition: all 0.3s ease;
+  z-index: 1;
 
-  @include media-breakpoint-down(md) {
+  @media (max-width: 992px) {
     width: 100vw;
+    margin-left: 0;
   }
 }
 

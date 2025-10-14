@@ -1,3 +1,6 @@
+// -------------------------------
+// Hamburguesa normal
+// -------------------------------
 .hamburger,
 .hamburger:before,
 .hamburger:after {
@@ -8,23 +11,27 @@
   background: $gray-700;
   display: block;
   content: '';
-  transition: $transition-appearance-fast;
+  transition: all 0.3s ease;
 }
 
 .hamburger {
   position: relative;
-}
+  transition: transform 0.3s ease;
 
-.hamburger:before {
-  top: -7.5px;
-  width: $hamburger-width-top;
-  position: absolute;
-}
+  &:before,
+  &:after {
+    position: absolute;
+  }
 
-.hamburger:after {
-  bottom: -7.5px;
-  width: $hamburger-width-bottom;
-  position: absolute;
+  &:before {
+    top: -7.5px;
+    width: $hamburger-width-top;
+  }
+
+  &:after {
+    bottom: -7.5px;
+    width: $hamburger-width-bottom;
+  }
 }
 
 .sidebar-toggle:hover {
@@ -41,4 +48,23 @@
   &:after {
     right: 0;
   }
+}
+
+// -------------------------------
+// Estado activo (sidebar oculto)
+// -------------------------------
+.wrapper.sidebar-collapsed .hamburger {
+  background: transparent; // desaparece la línea del medio
+}
+
+.wrapper.sidebar-collapsed .hamburger:before {
+  transform: rotate(45deg);
+  top: 0;
+  width: $hamburger-width-middle;
+}
+
+.wrapper.sidebar-collapsed .hamburger:after {
+  transform: rotate(-45deg);
+  bottom: 0;
+  width: $hamburger-width-middle;
 }
