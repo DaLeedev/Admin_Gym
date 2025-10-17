@@ -36,7 +36,70 @@
 
   <body>
     <div class="wrapper">
-      <div id="sidebar-container"></div>
+      <!-- sidebar.html -->
+      <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="index.html">
+            <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
+          </a>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Páginas</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="index.html">
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Panel principal</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="profile.html">
+                <i class="align-middle" data-feather="user"></i>
+                <span class="align-middle">Cuenta</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="usuarios.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Usuarios</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="contabilidad.html">
+                <i class="align-middle" data-feather="user-plus"></i>
+                <span class="align-middle">Contabilidad</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">Componentes</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="membresia.html">
+                <i class="align-middle" data-feather="star"></i>
+                <span class="align-middle">Membresía</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="clientes.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Clientes</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="productos.html">
+                <i class="align-middle" data-feather="grid"></i>
+                <span class="align-middle">Productos</span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
 
       <div class="main">
         <div id="navbar"></div>
@@ -65,15 +128,22 @@
                   />
                 </div>
 
-                <!-- Botón Clientes por Día -->
-                <button id="btnDailyClients" class="btn btn-info btn-sm">
-                  <i data-feather="calendar" class="me-1"></i> Clientes por día
+                <!-- Nuevo cliente -->
+
+                <button
+                  type="button"
+                  class="btn btn-info btn-sm text-white shadow-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#dailyPaymentModal"
+                >
+                  <i data-feather="dollar-sign" class="me-1"></i> Pago diario
                 </button>
 
-                <!-- Nuevo cliente -->
                 <button
-                  id="btnAddClient"
+                  type="button"
                   class="btn btn-warning tittle-color btn-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#clientFormModal"
                 >
                   <i data-feather="user-plus" class="me-1"></i> Nuevo cliente
                 </button>
@@ -83,12 +153,13 @@
             <div class="row g-3">
               <!-- Filtros -->
               <div class="col-lg-4">
-                <div class="card border-0 shadow-lg ">
+                <div class="card border-0 shadow-lg">
                   <div
                     class="card-header border-0 d-flex justify-content-between align-items-center"
                   >
                     <h6 class="mb-0 text-warning fw-bold">
-                      <i data-feather="filter" class="me-1"></i>Filtros Rápidos - Membresías
+                      <i data-feather="filter" class="me-1"></i>Filtros Rápidos
+                      - Membresías
                     </h6>
                     <small class="text-muted">Selecciona uno</small>
                   </div>
@@ -216,11 +287,205 @@
                           </tr>
                         </thead>
                         <tbody id="clientsTableBody">
-                          <!-- Se llena dinámicamente -->
+                          <!-- Cliente 1 -->
+                          <tr>
+                            <td>
+                              <img
+                                src="https://randomuser.me/api/portraits/men/45.jpg"
+                                alt="Foto"
+                                class="rounded-circle"
+                                style="
+                                  width: 45px;
+                                  height: 45px;
+                                  object-fit: cover;
+                                "
+                              />
+                            </td>
+                            <td class="fw-semibold text-white">Carlos Pérez</td>
+                            <td class="text-muted">CC 1032456789</td>
+                            <td>
+                              <span class="badge bg-success bg-opacity-75"
+                                >Mensual</span
+                              >
+                            </td>
+                            <td>
+                              <span class="badge bg-success bg-opacity-75"
+                                >Activa</span
+                              >
+                            </td>
+                            <td>10/10/2025</td>
+                            <td class="text-end">
+                              <button
+                                class="btn btn-sm btn-outline-info me-1"
+                                data-bs-toggle="modal"
+                                data-bs-target="#clientViewModal"
+                              >
+                                <i data-feather="eye"></i>
+                              </button>
+                              <button
+                                class="btn btn-sm btn-outline-warning me-1"
+                                data-bs-toggle="modal"
+                                data-bs-target="#clientFormModal"
+                              >
+                                <i data-feather="edit"></i>
+                              </button>
+                              <button
+                                class="btn btn-sm btn-outline-danger"
+                                data-bs-toggle="modal"
+                                data-bs-target="#confirmDeleteModal"
+                              >
+                                <i data-feather="trash-2"></i>
+                              </button>
+                            </td>
+                          </tr>
+
+                          <!-- Cliente 2 -->
+                          <tr>
+                            <td>
+                              <img
+                                src="https://randomuser.me/api/portraits/women/68.jpg"
+                                alt="Foto"
+                                class="rounded-circle"
+                                style="
+                                  width: 45px;
+                                  height: 45px;
+                                  object-fit: cover;
+                                "
+                              />
+                            </td>
+                            <td class="fw-semibold text-white">María López</td>
+                            <td class="text-muted">CC 1098765432</td>
+                            <td>
+                              <span class="badge bg-primary bg-opacity-75"
+                                >Pago diario</span
+                              >
+                            </td>
+                            <td>
+                              <span
+                                class="badge bg-warning bg-opacity-75 text-dark"
+                                >Pendiente</span
+                              >
+                            </td>
+                            <td>14/10/2025</td>
+                            <td class="text-end">
+                              <button
+                                class="btn btn-sm btn-outline-info me-1"
+                                data-bs-toggle="modal"
+                                data-bs-target="#clientViewModal"
+                              >
+                                <i data-feather="eye"></i>
+                              </button>
+                              <button
+                                class="btn btn-sm btn-outline-warning me-1"
+                                data-bs-toggle="modal"
+                                data-bs-target="#clientFormModal"
+                              >
+                                <i data-feather="edit"></i>
+                              </button>
+                              <button
+                                class="btn btn-sm btn-outline-danger"
+                                data-bs-toggle="modal"
+                                data-bs-target="#confirmDeleteModal"
+                              >
+                                <i data-feather="trash-2"></i>
+                              </button>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+                  <!-- Modal: Registrar Pago Diario -->
+          <div class="modal fade" id="dailyPaymentModal" tabindex="-1">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+              <div class="modal-content bg-dark border-0 text-white shadow-lg">
+                <div class="modal-header border-secondary">
+                  <h5 class="modal-title text-info">
+                    <i data-feather="dollar-sign" class="me-1"></i> Registrar
+                    Pago Diario
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+
+                <form id="dailyPaymentForm" class="modal-body row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Nombre del cliente</label>
+                    <input
+                      id="dailyClientName"
+                      type="text"
+                      class="form-control text-white border-0"
+                      placeholder="Ej: Juan Pérez"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Identificación</label>
+                    <input
+                      id="dailyClientId"
+                      type="text"
+                      class="form-control text-white border-0"
+                      placeholder="Ej: 1234567890"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Método de pago</label>
+                    <select
+                      id="dailyPaymentMethod"
+                      class="form-select text-white border-0"
+                      required
+                    >
+                      <option value="">Seleccione</option>
+                      <option value="efectivo">Efectivo</option>
+                      <option value="transferencia">Transferencia</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Estado</label>
+                    <input
+                      id="dailyPaymentStatus"
+                      type="text"
+                      class="form-control text-white border-0"
+                      value="Completado"
+                      readonly
+                    />
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label">Valor del día</label>
+                    <input
+                      id="dailyPaymentValue"
+                      type="text"
+                      class="form-control text-warning fw-bold border-0"
+                      value="$10.000"
+                      readonly
+                    />
+                  </div>
+                </form>
+
+                <div class="modal-footer border-secondary">
+                  <button class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cancelar
+                  </button>
+                  <button
+                    id="saveDailyPaymentBtn"
+                    class="btn btn-info text-white"
+                  >
+                    <i data-feather="save" class="me-1"></i> Registrar pago
+                  </button>
                 </div>
               </div>
             </div>
@@ -250,7 +515,7 @@
                       id="clientPhoto"
                       type="file"
                       accept="image/*"
-                      class="form-control bg-secondary text-white border-0"
+                      class="form-control text-white border-0"
                     />
                     <img
                       id="clientPhotoPreview"
@@ -271,7 +536,7 @@
                     <input
                       id="clientName"
                       type="text"
-                      class="form-control bg-secondary text-white border-0"
+                      class="form-control text-white border-0"
                       required
                     />
                   </div>
@@ -281,7 +546,7 @@
                     <input
                       id="clientEmail"
                       type="email"
-                      class="form-control bg-secondary text-white border-0"
+                      class="form-control text-white border-0"
                     />
                   </div>
 
@@ -290,7 +555,7 @@
                     <input
                       id="clientPhone"
                       type="tel"
-                      class="form-control bg-secondary text-white border-0"
+                      class="form-control text-white border-0"
                     />
                   </div>
 
@@ -299,7 +564,7 @@
                     <input
                       id="clientIdNumber"
                       type="text"
-                      class="form-control bg-secondary text-white border-0"
+                      class="form-control text-white border-0"
                     />
                   </div>
 
@@ -307,7 +572,7 @@
                     <label class="form-label">Tipo de membresía</label>
                     <select
                       id="clientMembershipType"
-                      class="form-select bg-secondary text-white border-0"
+                      class="form-select text-white border-0"
                     >
                       <option value="">-- Ninguna / Pago diario --</option>
                       <option value="monthly">Mensual</option>
@@ -321,7 +586,7 @@
                     <input
                       id="clientMembershipStart"
                       type="date"
-                      class="form-control bg-secondary text-white border-0"
+                      class="form-control text-white border-0"
                     />
                   </div>
 
@@ -330,7 +595,7 @@
                     <input
                       id="clientMembershipEnd"
                       type="date"
-                      class="form-control bg-secondary text-white border-0"
+                      class="form-control text-white border-0"
                     />
                   </div>
 
@@ -338,7 +603,7 @@
                     <label class="form-label">Método de pago</label>
                     <select
                       id="paymentMethod"
-                      class="form-select bg-secondary text-white border-0"
+                      class="form-select text-white border-0"
                     >
                       <option value="">Seleccione</option>
                       <option value="efectivo">Efectivo</option>
@@ -352,7 +617,7 @@
                     <label class="form-label">Estado del pago</label>
                     <select
                       id="paymentStatus"
-                      class="form-select bg-secondary text-white border-0"
+                      class="form-select text-white border-0"
                     >
                       <option value="completado">Completado</option>
                       <option value="pendiente">Pendiente</option>
@@ -364,7 +629,7 @@
                     <input
                       id="membershipPrice"
                       type="text"
-                      class="form-control bg-secondary text-white border-0"
+                      class="form-control text-white border-0"
                       readonly
                     />
                   </div>
@@ -422,7 +687,7 @@
                           id="btnRenewMembership"
                           class="btn btn-outline-warning btn-sm"
                         >
-                          Renovar / Agregar membresía
+                          Renovar membresía
                         </button>
                       </div>
                     </div>
@@ -431,6 +696,8 @@
                       <div class="mb-3">
                         <strong>Contacto:</strong>
                         <p id="viewContact" class="mb-1"></p>
+                        <strong>Correo:</strong>
+                        <p id="viewEmail" class="mb-1"></p>
                         <strong>Estado de membresía:</strong>
                         <p id="viewMembership" class="mb-1"></p>
                         <strong>Último pago:</strong>
@@ -469,7 +736,6 @@
               </div>
             </div>
           </div>
-        </main>
 
         <div id="footer"></div>
       </div>

@@ -4,6 +4,7 @@
   transition: $sidebar-transition;
   direction: ltr;
   background: $sidebar-bg;
+  margin-top: 20px;
 }
 
 .sidebar-content {
@@ -79,7 +80,7 @@ a.sidebar-link {
 }
 
 .sidebar-logo {
-  width: 115px;
+  width: 140px;
   height: auto;
   display: block;
   margin: 0 auto;

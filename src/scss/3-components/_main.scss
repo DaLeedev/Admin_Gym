@@ -1,3 +1,14 @@
+$modal-zindex: 1050;
+$modal-backdrop-color: rgba(0, 0, 0, 0.5);
+$modal-transition: 0.3s;
+$modal-border-radius: 0.3rem;
+$modal-bg: $dark;
+$modal-header-bg: $dark;
+$modal-footer-bg: $dark;
+$modal-max-width: 500px;
+
+
+
 .main {
   display: flex;
   width: 100%;
@@ -6,89 +17,138 @@
   transition: $sidebar-transition;
   background: $body-bg;
   flex-direction: column;
-  overflow: hidden;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-
-
-/* 🔒 Sidebar fijo y alto completo */
-/* 📦 Sidebar base */
-#sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: #1c1f26;
-  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
-  transition: all 0.3s ease;
-  z-index: 1;
-  transform: translateX(0);
-}
-
-/* 📱 Cuando se oculta el sidebar */
-.wrapper.sidebar-collapsed #sidebar {
-  transform: translateX(calc(-1 * var(--sidebar-width)));
-}
-
-/* 🧱 Contenido principal */
-main.content {
-  margin-left: 250px;
-  transition: all 0.3s ease;
-}
-
-/* 💡 Cuando el sidebar se oculta, el contenido ocupa todo el ancho */
-body.sidebar-collapsed main.content {
-  margin-left: 0;
-}
-
-body.sidebar-collapsed .footer {
-  margin-left: 0;
-}
-
-
-.wrapper.sidebar-collapsed .sidebar {
-  margin-left: -260px;
-}
-
-.wrapper.sidebar-collapsed .main {
-  margin-left: 0;
-}
-
-/* 📱 Ajustes automáticos para pantallas pequeñas */
-@media (max-width: 992px) {
-  #sidebar {
-    left: -250px;
-  }
-
-  #sidebar.active {
-    left: 0;
-  }
-
-  main.content {
-    margin-left: 0;
-  }
-
-  .footer {
-    margin-left: 0;
-  }
-}
-
-
-
-
-/* --- Cuando el sidebar está colapsado --- */
-.wrapper.sidebar-collapsed .sidebar {
-  margin-left: -260px; /* oculta el sidebar */
-}
-
-
-.wrapper.sidebar-collapsed .main {
-  margin-left: 0; /* contenido se expande */
-}
-
 // ------------------------ Dashboard Calendar -------------------------------
+
+
+
+/* ---------------------- MODAL------------------------- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: $modal-zindex;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: $modal-backdrop-color;
+  transition: opacity $modal-transition ease;
+
+  &.show {
+    display: block;
+    opacity: 1;
+  }
+
+  .modal-dialog {
+    position: relative;
+    margin: 3rem auto;
+    max-width: $modal-max-width;
+    width: 90%;
+    pointer-events: none;
+    transition: transform $modal-transition ease;
+    transform: translateY(-50px);
+
+    .modal-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background-color: $modal-bg;
+      border-radius: $modal-border-radius;
+      pointer-events: all;
+      box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-bottom: 1px solid #dee2e6;
+        background-color: $modal-header-bg;
+
+        .modal-title {
+          margin: 0;
+          font-size: 1.25rem;
+        }
+
+        .close {
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+      }
+
+      .modal-body {
+        position: relative;
+        padding: 1rem;
+
+        #input {
+          background-color: $black;
+        }
+      }
+
+      .modal-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0.75rem;
+        border-top: 1px solid #dee2e6;
+        background-color: $modal-footer-bg;
+
+        .btn + .btn {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+/* Animación modal show */
+.modal.show .modal-dialog {
+  transform: translateY(0);
+}
+
+
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(69%) sepia(99%) saturate(719%) hue-rotate(9deg) brightness(104%) contrast(104%);
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+
+
+.filter-btn.active {
+  background-color: #ffc1072a !important;
+  color: #000 !important;
+  border-color: #ffc10777 !important;
+}
+
+
+
+
+.fade-in-row {
+  opacity: 0;
+  transform: translateY(5px);
+  animation: fadeInRow 0.4s ease forwards;
+}
+
+@keyframes fadeInRow {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
 /* 🔢 Cambiar color y tamaño de los números */

@@ -36,7 +36,69 @@
 
   <body>
     <div class="wrapper">
-      <div id="sidebar-container"></div>
+      <!-- sidebar.html -->
+      <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="index.html">
+            <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
+          </a>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Páginas</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="index.html">
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Panel principal</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="profile.html">
+                <i class="align-middle" data-feather="user"></i>
+                <span class="align-middle">Cuenta</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="usuarios.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Usuarios</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="contabilidad.html">
+                <i class="align-middle" data-feather="user-plus"></i>
+                <span class="align-middle">Contabilidad</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">Componentes</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="membresia.html">
+                <i class="align-middle" data-feather="star"></i>
+                <span class="align-middle">Membresía</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="clientes.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Clientes</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="productos.html">
+                <i class="align-middle" data-feather="grid"></i>
+                <span class="align-middle">Productos</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
       <div class="main">
         <div id="navbar"></div>
@@ -62,12 +124,14 @@
                       height="128"
                     />
                     <h5 class="text-white mb-0">Christina Mason</h5>
-                    <p class="small mb-2 tittle-color ">Administrador</p>
+                    <p class="small mb-2 tittle-color">Administrador</p>
                     <p class="text-muted small mb-2">
                       Fecha de registro: 15/04/2023
                     </p>
 
-                    <button class="btn btn-outline-warning tittle-color btn-sm mb-2">
+                    <button
+                      class="btn btn-outline-warning tittle-color btn-sm mb-2"
+                    >
                       <i data-feather="upload" class="me-1"></i> Cambiar foto
                     </button>
                   </div>
@@ -145,9 +209,7 @@
                         </div>
                         <div class="col-md-6">
                           <label class="form-label text-white">Turno</label>
-                          <select
-                            class="form-select  text-white border-0"
-                          >
+                          <select class="form-select text-white border-0">
                             <option>Mañana</option>
                             <option>Tarde</option>
                             <option>Noche</option>
@@ -227,7 +289,10 @@
                       </div>
 
                       <div class="mt-2">
-                        <button type="submit" class="btn btn-warning text-black px-4">
+                        <button
+                          type="submit"
+                          class="btn btn-warning text-black px-4"
+                        >
                           <i data-feather="save" class="me-1"></i> Guardar
                           cambios
                         </button>

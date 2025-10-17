@@ -36,7 +36,90 @@
 
   <body>
     <div class="wrapper">
-      <div id="sidebar-container"></div>
+      <!-- sidebar.html -->
+      <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="index.html">
+            <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
+          </a>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Páginas</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="index.html">
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Panel principal</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="profile.html">
+                <i class="align-middle" data-feather="user"></i>
+                <span class="align-middle">Cuenta</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="usuarios.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Usuarios</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="contabilidad.html">
+                <i class="align-middle" data-feather="user-plus"></i>
+                <span class="align-middle">Contabilidad</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">Componentes</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="membresia.html">
+                <i class="align-middle" data-feather="star"></i>
+                <span class="align-middle">Membresía</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="clientes.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Clientes</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="productos.html">
+                <i class="align-middle" data-feather="grid"></i>
+                <span class="align-middle">Productos</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="maps-google.html">
+                <i class="align-middle" data-feather="map"></i>
+                <span class="align-middle">Maps</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="clientes.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Clientes</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="ventas.html">
+                <i class="align-middle" data-feather="grid"></i>
+                <span class="align-middle">Ventas</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
       <div class="main">
         <div id="navbar"></div>
@@ -62,7 +145,12 @@
                     placeholder="Buscar usuario..."
                   />
                 </div>
-                <button id="btnOpenAddUser" class="btn btn-warning tittle-color btn-sm">
+                <button
+                  id="btnOpenAddUser"
+                  class="btn btn-warning tittle-color btn-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addUserModal"
+                >
                   <i data-feather="user-plus" class="me-1"></i> Nuevo usuario
                 </button>
               </div>
@@ -166,9 +254,7 @@
 
                   <div class="card-body">
                     <div class="table-responsive">
-                      <table
-                        class="table table-hover align-middle mb-0"
-                      >
+                      <table class="table table-hover align-middle mb-0">
                         <thead>
                           <tr class="text-muted small">
                             <th>Nombre</th>
@@ -243,6 +329,111 @@
             </div>
           </div>
         </main>
+        <!-- Modal: Agregar Nuevo Usuario -->
+        <div
+          class="modal fade"
+          id="addUserModal"
+          tabindex="-1"
+          aria-labelledby="addUserModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 shadow-lg">
+              <!-- Encabezado -->
+              <div class="modal-header border-secondary">
+                <h5 class="modal-title tittle-color" id="addUserModalLabel">
+                  <i data-feather="user-plus" class="me-1"></i> Nuevo usuario
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+
+              <!-- Cuerpo -->
+              <div class="modal-body">
+                <form id="formAddUser">
+                  <div class="mb-3">
+                    <label for="userName" class="form-label text-white"
+                      >Nombre completo</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control bg-dark text-white border-secondary"
+                      id="userName"
+                      placeholder="Ej. Laura Martínez"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="userEmail" class="form-label text-white"
+                      >Correo electrónico</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control bg-dark text-white border-secondary"
+                      id="userEmail"
+                      placeholder="usuario@correo.com"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="userRole" class="form-label text-white"
+                      >Rol</label
+                    >
+                    <select
+                      id="userRole"
+                      class="form-select bg-dark text-white border-secondary"
+                      required
+                    >
+                      <option value="" selected disabled>
+                        Seleccione un rol
+                      </option>
+                      <option value="Administrador">Administrador</option>
+                      <option value="Entrenador">Entrenador</option>
+                      <option value="Recepcion">Recepción</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="userPassword" class="form-label text-white"
+                      >Contraseña</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control bg-dark text-white border-secondary"
+                      id="userPassword"
+                      placeholder="********"
+                      required
+                    />
+                  </div>
+                </form>
+              </div>
+
+              <!-- Pie -->
+              <div class="modal-footer border-secondary">
+                <button
+                  type="button"
+                  class="btn btn-outline-light"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  form="formAddUser"
+                  class="btn btn-warning tittle-color"
+                >
+                  <i data-feather="save" class="me-1"></i> Guardar usuario
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div id="footer"></div>
       </div>

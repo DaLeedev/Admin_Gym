@@ -2,21 +2,14 @@ footer.footer {
   padding: $spacer $spacer*0.875;
   direction: ltr;
   background: $footer-bg;
-  margin-left: 260px;
   transition: all 0.3s ease;
+}
 
-  ul {
+ul {
     margin-bottom: 0;
   }
-
-  @media (max-width: 992px) {
-    width: 100vw;
-    margin-left: 0;
-  }
-}
 
 #footer {
   margin-top: 0 !important;
   padding-top: 0 !important;
-  z-index: 1;
 }

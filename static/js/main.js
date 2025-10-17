@@ -1,82 +1,193 @@
-// main.js - reemplaza el actual con esto
+document.addEventListener("DOMContentLoaded", async () => {
+  /* ============================================================
+     📈 LINE CHART – Ventas Mensuales
+  ============================================================ */
+  const ctxLine = document.getElementById("chartjs-dashboard-line");
+  if (ctxLine) {
+    const ctx = ctxLine.getContext("2d");
+    const gradient = ctx.createLinearGradient(0, 8, 0, 200);
+    gradient.addColorStop(0, "rgba(255, 213, 79, 0.7)");
+    gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
 
-// Carga parcial (devuelve Promise)
-const loadPartial = (id, file) => {
-  const container = document.getElementById(id);
-  if (!container) return Promise.resolve();
-  return fetch(`/components/${file}`)
-    .then((res) => {
-      if (!res.ok) throw new Error(`Error ${res.status}`);
-      return res.text();
-    })
-    .then((html) => {
-      container.innerHTML = html;
-    })
-    .catch((err) => {
-      console.error(`Error cargando ${file}:`, err);
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: [
+          "Ene",
+          "Feb",
+          "Mar",
+          "Abr",
+          "May",
+          "Jun",
+          "Jul",
+          "Ago",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dic",
+        ],
+        datasets: [
+          {
+            label: "Ganancias ($)",
+            fill: true,
+            backgroundColor: gradient,
+            borderColor: "#ffc800d8",
+            data: [
+              2115, 1562, 1584, 1892, 1587, 1923, 2566, 2448, 2805, 3438, 2917,
+              3327,
+            ],
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: "rgba(0,0,0,0)" } },
+          y: {
+            ticks: { stepSize: 1000 },
+            grid: { color: "rgba(0,0,0,0)" },
+          },
+        },
+      },
     });
-};
-
-// Normaliza path (quita query/hash, maneja slash final)
-const normalizePath = (p) => {
-  if (!p) return "/index.html";
-  try {
-    const u = new URL(p, window.location.origin);
-    p = u.pathname;
-  } catch (e) {
-    // p puede ser relativo, ok
   }
-  p = p.split(/[?#]/)[0]; // quitar query/hash
-  if (p.endsWith("/")) p = p.slice(0, -1);
-  if (p === "") p = "/";
-  return p;
-};
 
-const getFileName = (path) => {
-  // path: '/admin/pages-profile.html' -> 'pages-profile.html'
-  if (!path) return "index.html";
-  const parts = path.split("/");
-  let last = parts.pop();
-  if (!last) last = parts.pop(); // por si termina en '/'
-  return last || "index.html";
-};
+  /* ============================================================
+     📊 BAR CHART – Datos Anuales
+  ============================================================ */
+  const barCanvas = document.getElementById("chartjs-dashboard-bar");
+  if (barCanvas) {
+    new Chart(barCanvas, {
+      type: "bar",
+      data: {
+        labels: [
+          "Ene",
+          "Feb",
+          "Mar",
+          "Abr",
+          "May",
+          "Jun",
+          "Jul",
+          "Ago",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dic",
+        ],
+        datasets: [
+          {
+            label: "Este año",
+            backgroundColor: "#ffc800d8",
+            borderColor: "#ffc800d8",
+            hoverBackgroundColor: "#ffc8007a",
+            hoverBorderColor: "#ffc800d2",
+            data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
+            barPercentage: 0.75,
+            categoryPercentage: 0.5,
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: {
+            grid: { display: false },
+            ticks: { stepSize: 20 },
+          },
+          x: { grid: { color: "transparent" } },
+        },
+      },
+    });
+  }
 
-// Marca el enlace activo: aplica .active al <li> (sidebar-item / nav-item) y al <a>
-const setActiveLink = () => {
-  const currentPath = normalizePath(window.location.pathname); // e.g. '/index.html' or '/'
-  const currentFile = getFileName(currentPath); // 'index.html' o 'pages-profile.html'
+  /* ============================================================
+     📅 FLATPICKR – Calendario Dashboard
+  ============================================================ */
+  const calendar = document.getElementById("datetimepicker-dashboard");
+  if (calendar) {
+    flatpickr(calendar, {
+      inline: true,
+      dateFormat: "Y-m-d",
+      defaultDate: "today",
+      locale: {
+        firstDayOfWeek: 1,
+        weekdays: {
+          shorthand: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
+          longhand: [
+            "Domingo",
+            "Lunes",
+            "Martes",
+            "Miércoles",
+            "Jueves",
+            "Viernes",
+            "Sábado",
+          ],
+        },
+        months: {
+          shorthand: [
+            "Ene",
+            "Feb",
+            "Mar",
+            "Abr",
+            "May",
+            "Jun",
+            "Jul",
+            "Ago",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dic",
+          ],
+          longhand: [
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre",
+          ],
+        },
+      },
+    });
+  }
 
-  // Quitar active previos
-  document
-    .querySelectorAll("#sidebar .sidebar-item.active")
-    .forEach((li) => li.classList.remove("active"));
-  document
-    .querySelectorAll("#sidebar .sidebar-link.active")
-    .forEach((a) => a.classList.remove("active"));
-  document
-    .querySelectorAll("#navbar .nav-item.active")
-    .forEach((li) => li.classList.remove("active"));
-  document
-    .querySelectorAll("#navbar .nav-link.active")
-    .forEach((a) => a.classList.remove("active"));
+  /* ============================================================
+     🧭 NAVBAR Y FOOTER DINÁMICOS
+  ============================================================ */
+  try {
+    await Promise.all([
+      loadPartial("navbar", "navbar.html"),
+      loadPartial("footer", "footer.html"),
+    ]);
 
-  // Procesa sidebar (li.sidebar-item)
-  document.querySelectorAll("#sidebar .sidebar-item").forEach((li) => {
-    const a = li.querySelector("a.sidebar-link") || li.querySelector("a");
-    if (!a) return;
-    const href = a.getAttribute("href") || "";
-    if (!href || href === "#" || href.startsWith("javascript:")) return;
+    if (window.feather) feather.replace();
 
-    const linkPath = normalizePath(href);
-    const linkFile = getFileName(linkPath);
+    initSidebarToggle();
+    setActiveLink();
+    window.addEventListener("popstate", setActiveLink);
+  } catch (err) {
+    console.error("Error cargando parciales:", err);
+  }
+});
 
-    if (linkFile === currentFile) {
-      li.classList.add("active");
-      a.classList.add("active");
-    }
-  });
+/* ============================================================
+   🔧 FUNCIONES AUXILIARES
+============================================================ */
+const normalizePath = (path) => path.replace(/^\/|\/$/g, "").toLowerCase();
 
-  // Procesa navbar nav-items (si tienes enlaces en el navbar)
+const getFileName = (path) => path.split("/").pop().split("?")[0].split("#")[0];
+
+const currentFile = getFileName(window.location.pathname);
+
+function setActiveLink() {
   document.querySelectorAll("#navbar .nav-item").forEach((li) => {
     const a = li.querySelector("a.nav-link, a");
     if (!a) return;
@@ -85,83 +196,32 @@ const setActiveLink = () => {
 
     const linkPath = normalizePath(href);
     const linkFile = getFileName(linkPath);
-
     if (linkFile === currentFile) {
       li.classList.add("active");
       a.classList.add("active");
+    } else {
+      li.classList.remove("active");
+      a.classList.remove("active");
     }
   });
+}
 
-  // DEBUG opcional: ver qué archivo detecta la página
-  // console.log("setActiveLink -> currentFile:", currentFile);
-};
+// 🔹 Cargar componentes parciales (navbar/footer)
+async function loadPartial(id, file) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const response = await fetch(file);
+  if (!response.ok) throw new Error(`No se pudo cargar ${file}`);
+  el.innerHTML = await response.text();
+}
 
-// Toggle sidebar
-const toggleSidebar = (e) => {
-  if (e) e.preventDefault();
-  const sidebar = document.querySelector(".sidebar");
-  if (sidebar) sidebar.classList.toggle("collapsed");
-};
-
-const initSidebarToggle = () => {
-  // Delegación segura: elimina listener previo y lo reasigna
+// 🔹 Inicializa el toggle del sidebar
+function initSidebarToggle() {
   const toggle = document.querySelector(".js-sidebar-toggle");
-  if (!toggle) return;
-  toggle.removeEventListener("click", toggleSidebar);
-  toggle.addEventListener("click", toggleSidebar);
-};
-
-// Init: carga todos los parciales y luego ejecuta las inicializaciones
-document.addEventListener("DOMContentLoaded", () => {
-  Promise.all([
-    loadPartial("navbar", "navbar.html"),
-    loadPartial("footer", "footer.html"),
-  ])
-    .then(() => {
-      // Reemplazar icons feather si procede
-      if (window.feather) feather.replace();
-
-      // Inicia toggle y marcas
-      initSidebarToggle();
-      setActiveLink();
-
-      // Si tu aplicación usa history API (pushState), actualiza active al navegar
-      window.addEventListener("popstate", setActiveLink);
-    })
-
-    .catch((err) => {
-      console.error("Error cargando parciales:", err);
+  const sidebar = document.querySelector("#sidebar");
+  if (toggle && sidebar) {
+    toggle.addEventListener("click", () => {
+      sidebar.classList.toggle("collapsed");
     });
-});
-
-
-
-//-------------------------------------------------------------------
-
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById("togglePasswordFields");
-  const passwordSection = document.getElementById("passwordFields");
-
-  toggleBtn.addEventListener("click", () => {
-    const isVisible = passwordSection.style.display === "block";
-    passwordSection.style.display = isVisible ? "none" : "block";
-    toggleBtn.textContent = isVisible
-      ? "Cambiar contraseña"
-      : "Cancelar cambio de contraseña";
-  });
-
-  // Validación de fuerza de contraseña
-  const newPass = document.getElementById("newPassword");
-  const strengthText = document.getElementById("passwordStrength");
-
-  newPass?.addEventListener("input", (e) => {
-    const val = e.target.value;
-    if (val.length < 6) strengthText.textContent = "Fuerza: débil";
-    else if (/[A-Z]/.test(val) && /[0-9]/.test(val))
-      strengthText.textContent = "Fuerza: fuerte";
-    else strengthText.textContent = "Fuerza: media";
-  });
-  
-});
-
-
+  }
+}

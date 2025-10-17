@@ -36,7 +36,69 @@
 
   <body>
     <div class="wrapper">
-      <div id="sidebar-container"></div>
+      <!-- sidebar.html -->
+      <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="index.html">
+            <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
+          </a>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Páginas</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="index.html">
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Panel principal</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="profile.html">
+                <i class="align-middle" data-feather="user"></i>
+                <span class="align-middle">Cuenta</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="usuarios.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Usuarios</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="contabilidad.html">
+                <i class="align-middle" data-feather="user-plus"></i>
+                <span class="align-middle">Contabilidad</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">Componentes</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="membresia.html">
+                <i class="align-middle" data-feather="star"></i>
+                <span class="align-middle">Membresía</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="clientes.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Clientes</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="productos.html">
+                <i class="align-middle" data-feather="grid"></i>
+                <span class="align-middle">Productos</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
       <div class="main">
         <div id="navbar"></div>
@@ -57,13 +119,13 @@
                   <input
                     id="filterStart"
                     type="date"
-                    class="form-control form-control-sm bg-secondary text-white border-0"
+                    class="form-control bg-dark form-control-sm text-white border-0"
                   />
                   <span class="text-muted mx-1">—</span>
                   <input
                     id="filterEnd"
                     type="date"
-                    class="form-control form-control-sm bg-secondary text-white border-0"
+                    class="form-control bg-dark form-control-sm text-white border-0"
                   />
                   <button id="applyFilter" class="btn btn-sm btn-info ms-2">
                     Aplicar
@@ -135,6 +197,29 @@
                   <div class="card-body d-flex align-items-center gap-3">
                     <div class="icon-box">
                       <i
+                        data-feather="credit-card"
+                        class="feather-lg text-info"
+                      ></i>
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="small text-muted">Total pagos diarios</div>
+                      <div id="totalDailyPayments" class="h4 mb-0 text-white">
+                        $0
+                      </div>
+                    </div>
+                    <div
+                      id="dailyDelta"
+                      class="text-end small text-success"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <div class="card border-0 shadow-sm h-100 bg-dark-card">
+                  <div class="card-body d-flex align-items-center gap-3">
+                    <div class="icon-box">
+                      <i
                         data-feather="dollar-sign"
                         class="feather-lg tittle-color"
                       ></i>
@@ -185,20 +270,29 @@
                   >
                     <h6 class="mb-0 tittle-color">
                       <i data-feather="pie-chart" class="me-1"></i>Distribución
-                      membresías
+                      de ganancias
                     </h6>
-                    <small class="text-muted">% por tipo</small>
+                    <small class="text-muted">% por fuente</small>
                   </div>
+
                   <div class="card-body d-flex flex-column align-items-center">
                     <canvas
-                      id="membershipDoughnut"
-                      width="200"
-                      height="200"
+                      id="earningsDoughnut"
+                      width="220"
+                      height="220"
                     ></canvas>
+
                     <div
-                      id="membershipLegend"
+                      id="earningsLegend"
                       class="mt-3 small text-white"
                     ></div>
+                  </div>
+
+                  <div
+                    class="card-footer border-top border-secondary text-center text-muted small"
+                  >
+                    <span class="text-success fw-bold">↑ 8.5%</span> más
+                    ingresos este mes
                   </div>
                 </div>
               </div>
@@ -256,19 +350,27 @@
 
               <div class="col-12 col-lg-6">
                 <div class="card border-0 shadow-sm bg-dark-card">
-                  <div class="card-header border-bottom border-secondary">
+                  <div
+                    class="card-header border-bottom border-secondary d-flex justify-content-between align-items-center"
+                  >
                     <h6 class="mb-0 tittle-color">
                       <i data-feather="list" class="me-1"></i>Últimos registros
                     </h6>
+                    <button id="btnViewAll" class="btn btn-sm btn-outline-info">
+                      Ver todo
+                    </button>
                   </div>
                   <div class="card-body p-0">
                     <div class="table-responsive">
-                      <table class="table table-dark table-hover mb-0 small">
+                      <table
+                        class="table table-dark table-hover mb-0 small align-middle"
+                      >
                         <thead class="text-muted">
                           <tr>
                             <th>Fecha</th>
                             <th>Concepto</th>
                             <th class="text-end">Valor</th>
+                            <th class="text-center">Acción</th>
                           </tr>
                         </thead>
                         <tbody id="latestRecords">
@@ -283,295 +385,56 @@
           </div>
         </main>
 
+        <div class="modal fade" id="recordDetailModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div
+              class="modal-content bg-dark text-white border border-secondary"
+            >
+              <div class="modal-header">
+                <h5 class="modal-title text-info">Detalle del Registro</h5>
+                <button
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p><strong>Fecha:</strong> <span id="detailDate"></span></p>
+                <p>
+                  <strong>Concepto:</strong> <span id="detailConcept"></span>
+                </p>
+                <p><strong>Valor:</strong> <span id="detailValue"></span></p>
+                <p>
+                  <strong>Método de pago:</strong>
+                  <span id="detailMethod"></span>
+                </p>
+                <p><strong>Estado:</strong> <span id="detailStatus"></span></p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div id="footer"></div>
       </div>
     </div>
 
-    <script src="js/app.js"></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/loadsidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      defer
+    ></script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Line chart
-        new Chart(document.getElementById("chartjs-line"), {
-          type: "line",
-          data: {
-            labels: [
-              "Jan",
-              "Feb",
-              "Mar",
-              "Apr",
-              "May",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sep",
-              "Oct",
-              "Nov",
-              "Dec",
-            ],
-            datasets: [
-              {
-                label: "Sales ($)",
-                fill: true,
-                backgroundColor: "transparent",
-                borderColor: window.theme.primary,
-                data: [
-                  2115, 1562, 1584, 1892, 1487, 2223, 2966, 2448, 2905, 3838,
-                  2917, 3327,
-                ],
-              },
-              {
-                label: "Orders",
-                fill: true,
-                backgroundColor: "transparent",
-                borderColor: "#adb5bd",
-                borderDash: [4, 4],
-                data: [
-                  958, 724, 629, 883, 915, 1214, 1476, 1212, 1554, 2128, 1466,
-                  1827,
-                ],
-              },
-            ],
-          },
-          options: {
-            maintainAspectRatio: false,
-            legend: {
-              display: false,
-            },
-            tooltips: {
-              intersect: false,
-            },
-            hover: {
-              intersect: true,
-            },
-            plugins: {
-              filler: {
-                propagate: false,
-              },
-            },
-            scales: {
-              xAxes: [
-                {
-                  reverse: true,
-                  gridLines: {
-                    color: "rgba(0,0,0,0.05)",
-                  },
-                },
-              ],
-              yAxes: [
-                {
-                  ticks: {
-                    stepSize: 500,
-                  },
-                  display: true,
-                  borderDash: [5, 5],
-                  gridLines: {
-                    color: "rgba(0,0,0,0)",
-                    fontColor: "#fff",
-                  },
-                },
-              ],
-            },
-          },
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Bar chart
-        new Chart(document.getElementById("chartjs-bar"), {
-          type: "bar",
-          data: {
-            labels: [
-              "Jan",
-              "Feb",
-              "Mar",
-              "Apr",
-              "May",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sep",
-              "Oct",
-              "Nov",
-              "Dec",
-            ],
-            datasets: [
-              {
-                label: "Last year",
-                backgroundColor: window.theme.primary,
-                borderColor: window.theme.primary,
-                hoverBackgroundColor: window.theme.primary,
-                hoverBorderColor: window.theme.primary,
-                data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
-                barPercentage: 0.75,
-                categoryPercentage: 0.5,
-              },
-              {
-                label: "This year",
-                backgroundColor: "#dee2e6",
-                borderColor: "#dee2e6",
-                hoverBackgroundColor: "#dee2e6",
-                hoverBorderColor: "#dee2e6",
-                data: [69, 66, 24, 48, 52, 51, 44, 53, 62, 79, 51, 68],
-                barPercentage: 0.75,
-                categoryPercentage: 0.5,
-              },
-            ],
-          },
-          options: {
-            maintainAspectRatio: false,
-            legend: {
-              display: false,
-            },
-            scales: {
-              yAxes: [
-                {
-                  gridLines: {
-                    display: false,
-                  },
-                  stacked: false,
-                  ticks: {
-                    stepSize: 20,
-                  },
-                },
-              ],
-              xAxes: [
-                {
-                  stacked: false,
-                  gridLines: {
-                    color: "transparent",
-                  },
-                },
-              ],
-            },
-          },
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Doughnut chart
-        new Chart(document.getElementById("chartjs-doughnut"), {
-          type: "doughnut",
-          data: {
-            labels: ["Social", "Search Engines", "Direct", "Other"],
-            datasets: [
-              {
-                data: [260, 125, 54, 146],
-                backgroundColor: [
-                  window.theme.primary,
-                  window.theme.success,
-                  window.theme.warning,
-                  "#dee2e6",
-                ],
-                borderColor: "transparent",
-              },
-            ],
-          },
-          options: {
-            maintainAspectRatio: false,
-            cutoutPercentage: 65,
-            legend: {
-              display: false,
-            },
-          },
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Pie chart
-        new Chart(document.getElementById("chartjs-pie"), {
-          type: "pie",
-          data: {
-            labels: ["Social", "Search Engines", "Direct", "Other"],
-            datasets: [
-              {
-                data: [260, 125, 54, 146],
-                backgroundColor: [
-                  window.theme.primary,
-                  window.theme.warning,
-                  window.theme.danger,
-                  "#dee2e6",
-                ],
-                borderColor: "transparent",
-              },
-            ],
-          },
-          options: {
-            maintainAspectRatio: false,
-            legend: {
-              display: false,
-            },
-          },
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Radar chart
-        new Chart(document.getElementById("chartjs-radar"), {
-          type: "radar",
-          data: {
-            labels: ["Speed", "Reliability", "Comfort", "Safety", "Efficiency"],
-            datasets: [
-              {
-                label: "Model X",
-                backgroundColor: "rgba(0, 123, 255, 0.2)",
-                borderColor: window.theme.primary,
-                pointBackgroundColor: window.theme.primary,
-                pointBorderColor: "#fff",
-                pointHoverBackgroundColor: "#fff",
-                pointHoverBorderColor: window.theme.primary,
-                data: [70, 53, 82, 60, 33],
-              },
-              {
-                label: "Model S",
-                backgroundColor: "rgba(220, 53, 69, 0.2)",
-                borderColor: window.theme.danger,
-                pointBackgroundColor: window.theme.danger,
-                pointBorderColor: "#fff",
-                pointHoverBackgroundColor: "#fff",
-                pointHoverBorderColor: window.theme.danger,
-                data: [35, 38, 65, 85, 84],
-              },
-            ],
-          },
-          options: {
-            maintainAspectRatio: false,
-          },
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Polar Area chart
-        new Chart(document.getElementById("chartjs-polar-area"), {
-          type: "polarArea",
-          data: {
-            labels: ["Speed", "Reliability", "Comfort", "Safety", "Efficiency"],
-            datasets: [
-              {
-                label: "Model S",
-                data: [35, 38, 65, 70, 24],
-                backgroundColor: [
-                  window.theme.primary,
-                  window.theme.success,
-                  window.theme.danger,
-                  window.theme.warning,
-                  window.theme.info,
-                ],
-              },
-            ],
-          },
-          options: {
-            maintainAspectRatio: false,
-          },
-        });
-      });
-    </script>
+    <script src="js/app.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/loadsidebar.js" defer></script>
+    <script src="js/contabilidad.js" defer></script>
   </body>
 </html>
