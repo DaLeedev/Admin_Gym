@@ -97,6 +97,12 @@
               </a>
             </li>
 
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="confirmacion-pagos.html">
+                <i class="align-middle" data-feather="check-circle"></i>
+                <span class="align-middle">Confirmación de Pagos</span>
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -401,341 +407,338 @@
           </div>
         </main>
 
-                  <!-- Modal: Registrar Pago Diario -->
-          <div class="modal fade" id="dailyPaymentModal" tabindex="-1">
-            <div class="modal-dialog modal-md modal-dialog-centered">
-              <div class="modal-content bg-dark border-0 text-white shadow-lg">
-                <div class="modal-header border-secondary">
-                  <h5 class="modal-title text-info">
-                    <i data-feather="dollar-sign" class="me-1"></i> Registrar
-                    Pago Diario
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                  ></button>
+        <!-- Modal: Registrar Pago Diario -->
+        <div class="modal fade" id="dailyPaymentModal" tabindex="-1">
+          <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 text-white shadow-lg">
+              <div class="modal-header border-secondary">
+                <h5 class="modal-title text-info">
+                  <i data-feather="dollar-sign" class="me-1"></i> Registrar Pago
+                  Diario
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+
+              <form id="dailyPaymentForm" class="modal-body row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Nombre del cliente</label>
+                  <input
+                    id="dailyClientName"
+                    type="text"
+                    class="form-control text-white border-0"
+                    placeholder="Ej: Juan Pérez"
+                    required
+                  />
                 </div>
 
-                <form id="dailyPaymentForm" class="modal-body row g-3">
-                  <div class="col-md-6">
-                    <label class="form-label">Nombre del cliente</label>
-                    <input
-                      id="dailyClientName"
-                      type="text"
-                      class="form-control text-white border-0"
-                      placeholder="Ej: Juan Pérez"
-                      required
-                    />
-                  </div>
+                <div class="col-md-6">
+                  <label class="form-label">Identificación</label>
+                  <input
+                    id="dailyClientId"
+                    type="text"
+                    class="form-control text-white border-0"
+                    placeholder="Ej: 1234567890"
+                    required
+                  />
+                </div>
 
-                  <div class="col-md-6">
-                    <label class="form-label">Identificación</label>
-                    <input
-                      id="dailyClientId"
-                      type="text"
-                      class="form-control text-white border-0"
-                      placeholder="Ej: 1234567890"
-                      required
-                    />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">Método de pago</label>
-                    <select
-                      id="dailyPaymentMethod"
-                      class="form-select text-white border-0"
-                      required
-                    >
-                      <option value="">Seleccione</option>
-                      <option value="efectivo">Efectivo</option>
-                      <option value="transferencia">Transferencia</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">Estado</label>
-                    <input
-                      id="dailyPaymentStatus"
-                      type="text"
-                      class="form-control text-white border-0"
-                      value="Completado"
-                      readonly
-                    />
-                  </div>
-
-                  <div class="col-12">
-                    <label class="form-label">Valor del día</label>
-                    <input
-                      id="dailyPaymentValue"
-                      type="text"
-                      class="form-control text-warning fw-bold border-0"
-                      value="$10.000"
-                      readonly
-                    />
-                  </div>
-                </form>
-
-                <div class="modal-footer border-secondary">
-                  <button class="btn btn-secondary" data-bs-dismiss="modal">
-                    Cancelar
-                  </button>
-                  <button
-                    id="saveDailyPaymentBtn"
-                    class="btn btn-info text-white"
+                <div class="col-md-6">
+                  <label class="form-label">Método de pago</label>
+                  <select
+                    id="dailyPaymentMethod"
+                    class="form-select text-white border-0"
+                    required
                   >
-                    <i data-feather="save" class="me-1"></i> Registrar pago
-                  </button>
+                    <option value="">Seleccione</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="transferencia">Transferencia</option>
+                  </select>
                 </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Estado</label>
+                  <input
+                    id="dailyPaymentStatus"
+                    type="text"
+                    class="form-control text-white border-0"
+                    value="Completado"
+                    readonly
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">Valor del día</label>
+                  <input
+                    id="dailyPaymentValue"
+                    type="text"
+                    class="form-control text-warning fw-bold border-0"
+                    value="$10.000"
+                    readonly
+                  />
+                </div>
+              </form>
+
+              <div class="modal-footer border-secondary">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">
+                  Cancelar
+                </button>
+                <button
+                  id="saveDailyPaymentBtn"
+                  class="btn btn-info text-white"
+                >
+                  <i data-feather="save" class="me-1"></i> Registrar pago
+                </button>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Modal: Agregar / Editar Cliente -->
-          <div class="modal fade" id="clientFormModal" tabindex="-1">
-            <div class="modal-dialog modal-md modal-dialog-centered">
-              <div class="modal-content bg-dark border-0 text-white shadow-lg">
-                <div class="modal-header border-secondary">
-                  <h5 class="modal-title text-warning">
-                    <i data-feather="user-plus" class="me-1"></i> Cliente
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                  ></button>
+        <!-- Modal: Agregar / Editar Cliente -->
+        <div class="modal fade" id="clientFormModal" tabindex="-1">
+          <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 text-white shadow-lg">
+              <div class="modal-header border-secondary">
+                <h5 class="modal-title text-warning">
+                  <i data-feather="user-plus" class="me-1"></i> Cliente
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+
+              <form id="clientForm" class="modal-body row g-3">
+                <input type="hidden" id="clientId" />
+
+                <div class="col-md-4 text-center">
+                  <label class="form-label">Foto</label>
+                  <input
+                    id="clientPhoto"
+                    type="file"
+                    accept="image/*"
+                    class="form-control text-white border-0"
+                  />
+                  <img
+                    id="clientPhotoPreview"
+                    src=""
+                    alt=""
+                    class="rounded-circle mt-2"
+                    style="
+                      width: 70px;
+                      height: 70px;
+                      display: none;
+                      object-fit: cover;
+                    "
+                  />
                 </div>
 
-                <form id="clientForm" class="modal-body row g-3">
-                  <input type="hidden" id="clientId" />
+                <div class="col-md-8">
+                  <label class="form-label">Nombre completo *</label>
+                  <input
+                    id="clientName"
+                    type="text"
+                    class="form-control text-white border-0"
+                    required
+                  />
+                </div>
 
+                <div class="col-md-6">
+                  <label class="form-label">Correo</label>
+                  <input
+                    id="clientEmail"
+                    type="email"
+                    class="form-control text-white border-0"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Teléfono</label>
+                  <input
+                    id="clientPhone"
+                    type="tel"
+                    class="form-control text-white border-0"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Identificación</label>
+                  <input
+                    id="clientIdNumber"
+                    type="text"
+                    class="form-control text-white border-0"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Tipo de membresía</label>
+                  <select
+                    id="clientMembershipType"
+                    class="form-select text-white border-0"
+                  >
+                    <option value="">-- Ninguna / Pago diario --</option>
+                    <option value="monthly">Mensual</option>
+                    <option value="quarterly">Trimestral</option>
+                    <option value="annual">Anual</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Fecha inicio</label>
+                  <input
+                    id="clientMembershipStart"
+                    type="date"
+                    class="form-control text-white border-0"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Fecha fin</label>
+                  <input
+                    id="clientMembershipEnd"
+                    type="date"
+                    class="form-control text-white border-0"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Método de pago</label>
+                  <select
+                    id="paymentMethod"
+                    class="form-select text-white border-0"
+                  >
+                    <option value="">Seleccione</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="transferencia">Transferencia</option>
+                    <option value="tarjeta">Tarjeta</option>
+                    <option value="pendiente">Pendiente</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Estado del pago</label>
+                  <select
+                    id="paymentStatus"
+                    class="form-select text-white border-0"
+                  >
+                    <option value="completado">Completado</option>
+                    <option value="pendiente">Pendiente</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Precio</label>
+                  <input
+                    id="membershipPrice"
+                    type="text"
+                    class="form-control text-white border-0"
+                    readonly
+                  />
+                </div>
+              </form>
+
+              <div class="modal-footer border-secondary">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">
+                  Cancelar
+                </button>
+                <button id="saveClientBtn" class="btn btn-warning">
+                  <i data-feather="save" class="me-1"></i> Guardar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal: Ver Cliente -->
+        <div class="modal fade" id="clientViewModal" tabindex="-1">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 text-white shadow-lg">
+              <div class="modal-header border-secondary">
+                <h5 class="modal-title text-warning">
+                  <i data-feather="user" class="me-1"></i> Perfil del cliente
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="row g-3">
                   <div class="col-md-4 text-center">
-                    <label class="form-label">Foto</label>
-                    <input
-                      id="clientPhoto"
-                      type="file"
-                      accept="image/*"
-                      class="form-control text-white border-0"
-                    />
                     <img
-                      id="clientPhotoPreview"
-                      src=""
-                      alt=""
-                      class="rounded-circle mt-2"
-                      style="
-                        width: 70px;
-                        height: 70px;
-                        display: none;
-                        object-fit: cover;
-                      "
+                      id="viewPhoto"
+                      src="https://via.placeholder.com/150"
+                      alt="Avatar"
+                      class="rounded-circle mb-2"
+                      style="width: 130px; height: 130px; object-fit: cover"
                     />
+                    <h4 id="viewName" class="text-white mt-2 mb-0"></h4>
+                    <div id="viewIdNumber" class="text-muted small mb-2"></div>
+                    <div class="d-grid gap-2">
+                      <button
+                        id="btnRegisterDailyPayment"
+                        class="btn btn-info btn-sm"
+                      >
+                        Registrar pago diario
+                      </button>
+                      <button
+                        id="btnRenewMembership"
+                        class="btn btn-outline-warning btn-sm"
+                      >
+                        Renovar membresía
+                      </button>
+                    </div>
                   </div>
 
                   <div class="col-md-8">
-                    <label class="form-label">Nombre completo *</label>
-                    <input
-                      id="clientName"
-                      type="text"
-                      class="form-control text-white border-0"
-                      required
-                    />
+                    <div class="mb-3">
+                      <strong>Contacto:</strong>
+                      <p id="viewContact" class="mb-1"></p>
+                      <strong>Correo:</strong>
+                      <p id="viewEmail" class="mb-1"></p>
+                      <strong>Estado de membresía:</strong>
+                      <p id="viewMembership" class="mb-1"></p>
+                      <strong>Último pago:</strong>
+                      <p id="viewLastPayment" class="mb-1"></p>
+                    </div>
+                    <hr class="border-secondary" />
                   </div>
+                </div>
+              </div>
+              <div class="modal-footer border-secondary">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                  <div class="col-md-6">
-                    <label class="form-label">Correo</label>
-                    <input
-                      id="clientEmail"
-                      type="email"
-                      class="form-control text-white border-0"
-                    />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">Teléfono</label>
-                    <input
-                      id="clientPhone"
-                      type="tel"
-                      class="form-control text-white border-0"
-                    />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">Identificación</label>
-                    <input
-                      id="clientIdNumber"
-                      type="text"
-                      class="form-control text-white border-0"
-                    />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">Tipo de membresía</label>
-                    <select
-                      id="clientMembershipType"
-                      class="form-select text-white border-0"
-                    >
-                      <option value="">-- Ninguna / Pago diario --</option>
-                      <option value="monthly">Mensual</option>
-                      <option value="quarterly">Trimestral</option>
-                      <option value="annual">Anual</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">Fecha inicio</label>
-                    <input
-                      id="clientMembershipStart"
-                      type="date"
-                      class="form-control text-white border-0"
-                    />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">Fecha fin</label>
-                    <input
-                      id="clientMembershipEnd"
-                      type="date"
-                      class="form-control text-white border-0"
-                    />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">Método de pago</label>
-                    <select
-                      id="paymentMethod"
-                      class="form-select text-white border-0"
-                    >
-                      <option value="">Seleccione</option>
-                      <option value="efectivo">Efectivo</option>
-                      <option value="transferencia">Transferencia</option>
-                      <option value="tarjeta">Tarjeta</option>
-                      <option value="pendiente">Pendiente</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">Estado del pago</label>
-                    <select
-                      id="paymentStatus"
-                      class="form-select text-white border-0"
-                    >
-                      <option value="completado">Completado</option>
-                      <option value="pendiente">Pendiente</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">Precio</label>
-                    <input
-                      id="membershipPrice"
-                      type="text"
-                      class="form-control text-white border-0"
-                      readonly
-                    />
-                  </div>
-                </form>
-
-                <div class="modal-footer border-secondary">
+        <!-- Modal Confirmar Eliminar -->
+        <div class="modal fade" id="confirmDeleteModal" tabindex="-1">
+          <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 text-white shadow-lg">
+              <div class="modal-body text-center">
+                <p class="mb-3">
+                  ¿Estás seguro que deseas eliminar este cliente?
+                </p>
+                <div class="d-flex justify-content-center gap-2">
                   <button class="btn btn-secondary" data-bs-dismiss="modal">
                     Cancelar
                   </button>
-                  <button id="saveClientBtn" class="btn btn-warning">
-                    <i data-feather="save" class="me-1"></i> Guardar
+                  <button id="confirmDeleteBtn" class="btn btn-danger">
+                    Eliminar
                   </button>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- Modal: Ver Cliente -->
-          <div class="modal fade" id="clientViewModal" tabindex="-1">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-              <div class="modal-content bg-dark border-0 text-white shadow-lg">
-                <div class="modal-header border-secondary">
-                  <h5 class="modal-title text-warning">
-                    <i data-feather="user" class="me-1"></i> Perfil del cliente
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <div class="row g-3">
-                    <div class="col-md-4 text-center">
-                      <img
-                        id="viewPhoto"
-                        src="https://via.placeholder.com/150"
-                        alt="Avatar"
-                        class="rounded-circle mb-2"
-                        style="width: 130px; height: 130px; object-fit: cover"
-                      />
-                      <h4 id="viewName" class="text-white mt-2 mb-0"></h4>
-                      <div
-                        id="viewIdNumber"
-                        class="text-muted small mb-2"
-                      ></div>
-                      <div class="d-grid gap-2">
-                        <button
-                          id="btnRegisterDailyPayment"
-                          class="btn btn-info btn-sm"
-                        >
-                          Registrar pago diario
-                        </button>
-                        <button
-                          id="btnRenewMembership"
-                          class="btn btn-outline-warning btn-sm"
-                        >
-                          Renovar membresía
-                        </button>
-                      </div>
-                    </div>
-
-                    <div class="col-md-8">
-                      <div class="mb-3">
-                        <strong>Contacto:</strong>
-                        <p id="viewContact" class="mb-1"></p>
-                        <strong>Correo:</strong>
-                        <p id="viewEmail" class="mb-1"></p>
-                        <strong>Estado de membresía:</strong>
-                        <p id="viewMembership" class="mb-1"></p>
-                        <strong>Último pago:</strong>
-                        <p id="viewLastPayment" class="mb-1"></p>
-                      </div>
-                      <hr class="border-secondary" />
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer border-secondary">
-                  <button class="btn btn-secondary" data-bs-dismiss="modal">
-                    Cerrar
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal Confirmar Eliminar -->
-          <div class="modal fade" id="confirmDeleteModal" tabindex="-1">
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-              <div class="modal-content bg-dark border-0 text-white shadow-lg">
-                <div class="modal-body text-center">
-                  <p class="mb-3">
-                    ¿Estás seguro que deseas eliminar este cliente?
-                  </p>
-                  <div class="d-flex justify-content-center gap-2">
-                    <button class="btn btn-secondary" data-bs-dismiss="modal">
-                      Cancelar
-                    </button>
-                    <button id="confirmDeleteBtn" class="btn btn-danger">
-                      Eliminar
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
 
         <div id="footer"></div>
       </div>
