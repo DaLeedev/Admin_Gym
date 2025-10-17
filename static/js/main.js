@@ -164,8 +164,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   ============================================================ */
   try {
     await Promise.all([
-      loadPartial("navbar", "navbar.html"),
-      loadPartial("footer", "footer.html"),
+      loadPartial("navbar", "../components/navbar.html"),
+      loadPartial("footer", "../components/footer.html"),
     ]);
 
     if (window.feather) feather.replace();
