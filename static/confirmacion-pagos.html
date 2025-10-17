@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
+    />
+    <meta name="author" content="AdminKit" />
+    <meta
+      name="keywords"
+      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+    <link
+      rel="canonical"
+      href="https://demo-basic.adminkit.io/charts-chartjs.html"
+    />
+
+    <title>Chart.js | AdminKit Demo</title>
+
+    <link href="css/app.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- sidebar.html -->
+      <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="index.html">
+            <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
+          </a>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Páginas</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="index.html">
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Panel principal</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="profile.html">
+                <i class="align-middle" data-feather="user"></i>
+                <span class="align-middle">Cuenta</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="usuarios.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Usuarios</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="contabilidad.html">
+                <i class="align-middle" data-feather="user-plus"></i>
+                <span class="align-middle">Contabilidad</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">Componentes</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="membresia.html">
+                <i class="align-middle" data-feather="star"></i>
+                <span class="align-middle">Membresía</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="clientes.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Clientes</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="productos.html">
+                <i class="align-middle" data-feather="grid"></i>
+                <span class="align-middle">Productos</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="ventas.html">
+                <i class="align-middle" data-feather="shopping-cart"></i>
+                <span class="align-middle">Ventas</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item active">
+              <a class="sidebar-link" href="confirmacion-pagos.html">
+                <i class="align-middle" data-feather="check-circle"></i>
+                <span class="align-middle">Confirmación de Pagos</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="main">
+        <div id="navbar"></div>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <!-- ENCABEZADO -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h1 class="h3 text-warning fw-bold mb-0">
+                <i data-feather="check-circle" class="me-2"></i>Confirmación de
+                Pagos
+              </h1>
+
+              <button
+                class="btn btn-warning text-dark fw-bold shadow-sm"
+                id="refreshPayments"
+              >
+                <i data-feather="refresh-cw" class="me-1"></i>Actualizar
+              </button>
+            </div>
+
+            <!-- TARJETAS DE RESUMEN -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <div
+                  class="card bg-black border-warning text-center p-3 shadow-sm"
+                >
+                  <h6 class="text-muted">Pagos Pendientes</h6>
+                  <h3 class="text-warning mb-0 fw-bold" id="pendingPayments">
+                    5
+                  </h3>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div
+                  class="card bg-black border-success text-center p-3 shadow-sm"
+                >
+                  <h6 class="text-muted">Pagos Confirmados</h6>
+                  <h3 class="text-success mb-0 fw-bold" id="confirmedPayments">
+                    12
+                  </h3>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div
+                  class="card bg-black border-danger text-center p-3 shadow-sm"
+                >
+                  <h6 class="text-muted">Pagos Rechazados</h6>
+                  <h3 class="text-danger mb-0 fw-bold" id="rejectedPayments">
+                    1
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- FILTROS -->
+            <div class="card border-0 shadow-sm mb-4">
+              <div
+                class="card-header border-0 d-flex justify-content-between align-items-center"
+              >
+                <h5 class="text-warning mb-0">
+                  <i data-feather="filter" class="me-1"></i>Filtros
+                </h5>
+              </div>
+              <div class="card-body">
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <select
+                      id="filterStatus"
+                      class="form-select text-light border-secondary bg-dark"
+                    >
+                      <option value="">Estado del Pago</option>
+                      <option>Pendiente</option>
+                      <option>Confirmado</option>
+                      <option>Rechazado</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      id="filterUser"
+                      type="text"
+                      class="form-control text-light border-secondary bg-dark"
+                      placeholder="Buscar por usuario..."
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      id="filterDate"
+                      type="date"
+                      class="form-control text-light border-secondary bg-dark"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TABLA DE PAGOS -->
+            <div class="card border-0 shadow-sm mb-4">
+              <div
+                class="card-header border-0 d-flex justify-content-between align-items-center"
+              >
+                <h5 class="text-warning mb-0">
+                  <i data-feather="dollar-sign" class="me-1"></i>Pagos
+                  Pendientes de Confirmación
+                </h5>
+              </div>
+              <div class="card-body table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                  <thead class="text-warning border-secondary">
+                    <tr>
+                      <th>ID</th>
+                      <th>Usuario</th>
+                      <th>Monto</th>
+                      <th>Método</th>
+                      <th>Fecha</th>
+                      <th>Estado</th>
+                      <th>Comprobante</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="paymentsTable" class="text-light">
+                    <tr>
+                      <td>#001</td>
+                      <td>Carlos Gómez</td>
+                      <td>$120.000</td>
+                      <td>Transferencia</td>
+                      <td>2025-10-12</td>
+                      <td>
+                        <span class="badge bg-warning text-dark"
+                          >Pendiente</span
+                        >
+                      </td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-info view-proof"
+                          data-bs-toggle="modal"
+                          data-bs-target="#proofModal"
+                        >
+                          <i data-feather="image"></i>
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-success me-1 confirm-btn"
+                        >
+                          <i data-feather="check"></i>
+                        </button>
+                        <button
+                          class="btn btn-sm btn-outline-danger reject-btn"
+                        >
+                          <i data-feather="x"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- MODAL COMPROBANTE -->
+        <div
+          class="modal fade"
+          id="proofModal"
+          tabindex="-1"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark text-light border-warning">
+              <div class="modal-header border-warning">
+                <h5 class="modal-title text-warning">
+                  <i data-feather="image" class="me-1"></i>Comprobante de Pago
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <div class="modal-body text-center">
+                <img
+                  src="img/comprobantes/example.jpg"
+                  alt="Comprobante"
+                  class="img-fluid rounded shadow"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="footer"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      defer
+    ></script>
+
+    <script src="js/app.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/loadsidebar.js" defer></script>
+    <script src="js/contabilidad.js" defer></script>
+  </body>
+</html>

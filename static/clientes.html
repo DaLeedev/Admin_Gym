@@ -98,6 +98,13 @@
             </li>
 
             <li class="sidebar-item">
+              <a class="sidebar-link" href="ventas.html">
+                <i class="align-middle" data-feather="shopping-cart"></i>
+                <span class="align-middle">Ventas</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
               <a class="sidebar-link" href="confirmacion-pagos.html">
                 <i class="align-middle" data-feather="check-circle"></i>
                 <span class="align-middle">Confirmación de Pagos</span>
@@ -462,11 +469,25 @@
                 <div class="col-md-6">
                   <label class="form-label">Estado</label>
                   <input
-                    id="dailyPaymentStatus"
+                    id="dailyPaymentStatusDisplay"
                     type="text"
                     class="form-control text-white border-0"
                     value="Completado"
                     readonly
+                  />
+                </div>
+
+                <div
+                  class="col-12"
+                  id="dailyComprobanteContainer"
+                  style="display: none"
+                >
+                  <label class="form-label">Subir Comprobante</label>
+                  <input
+                    type="file"
+                    id="dailyComprobantePago"
+                    class="form-control text-white border-0"
+                    accept="image/*,application/pdf"
                   />
                 </div>
 
@@ -480,6 +501,13 @@
                     readonly
                   />
                 </div>
+
+                <!-- Estado oculto para procesar -->
+                <input
+                  type="hidden"
+                  id="dailyPaymentStatus"
+                  value="Completado"
+                />
               </form>
 
               <div class="modal-footer border-secondary">
@@ -515,6 +543,7 @@
               <form id="clientForm" class="modal-body row g-3">
                 <input type="hidden" id="clientId" />
 
+                <!-- Foto y nombre -->
                 <div class="col-md-4 text-center">
                   <label class="form-label">Foto</label>
                   <input
@@ -547,6 +576,7 @@
                   />
                 </div>
 
+                <!-- Contacto -->
                 <div class="col-md-6">
                   <label class="form-label">Correo</label>
                   <input
@@ -555,7 +585,6 @@
                     class="form-control text-white border-0"
                   />
                 </div>
-
                 <div class="col-md-6">
                   <label class="form-label">Teléfono</label>
                   <input
@@ -565,6 +594,7 @@
                   />
                 </div>
 
+                <!-- Identificación y membresía -->
                 <div class="col-md-6">
                   <label class="form-label">Identificación</label>
                   <input
@@ -573,7 +603,6 @@
                     class="form-control text-white border-0"
                   />
                 </div>
-
                 <div class="col-md-6">
                   <label class="form-label">Tipo de membresía</label>
                   <select
@@ -587,6 +616,7 @@
                   </select>
                 </div>
 
+                <!-- Fechas -->
                 <div class="col-md-6">
                   <label class="form-label">Fecha inicio</label>
                   <input
@@ -595,7 +625,6 @@
                     class="form-control text-white border-0"
                   />
                 </div>
-
                 <div class="col-md-6">
                   <label class="form-label">Fecha fin</label>
                   <input
@@ -605,6 +634,7 @@
                   />
                 </div>
 
+                <!-- Método de pago -->
                 <div class="col-md-6">
                   <label class="form-label">Método de pago</label>
                   <select
@@ -619,17 +649,33 @@
                   </select>
                 </div>
 
+                <!-- Estado y comprobante -->
                 <div class="col-md-6">
                   <label class="form-label">Estado del pago</label>
-                  <select
-                    id="paymentStatus"
-                    class="form-select text-white border-0"
-                  >
-                    <option value="completado">Completado</option>
-                    <option value="pendiente">Pendiente</option>
-                  </select>
+                  <input
+                    id="paymentStatusDisplay"
+                    type="text"
+                    class="form-control text-white border-0"
+                    readonly
+                    value="Completado"
+                  />
                 </div>
 
+                <div
+                  class="col-12"
+                  id="comprobanteContainer"
+                  style="display: none"
+                >
+                  <label class="form-label">Subir Comprobante</label>
+                  <input
+                    type="file"
+                    id="comprobantePago"
+                    class="form-control text-white border-0"
+                    accept="image/*,application/pdf"
+                  />
+                </div>
+
+                <!-- Precio -->
                 <div class="col-md-6">
                   <label class="form-label">Precio</label>
                   <input
@@ -639,6 +685,9 @@
                     readonly
                   />
                 </div>
+
+                <!-- Estado oculto -->
+                <input type="hidden" id="paymentStatus" value="completado" />
               </form>
 
               <div class="modal-footer border-secondary">

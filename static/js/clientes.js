@@ -118,3 +118,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+const dailyPaymentMethod = document.getElementById("dailyPaymentMethod");
+const dailyComprobanteContainer = document.getElementById(
+  "dailyComprobanteContainer"
+);
+const dailyPaymentStatus = document.getElementById("dailyPaymentStatus");
+const dailyPaymentStatusDisplay = document.getElementById(
+  "dailyPaymentStatusDisplay"
+);
+
+dailyPaymentMethod.addEventListener("change", () => {
+  if (dailyPaymentMethod.value === "transferencia") {
+    dailyComprobanteContainer.style.display = "block"; // mostrar comprobante
+    dailyPaymentStatus.value = "Pendiente"; // estado oculto
+    dailyPaymentStatusDisplay.value = "Pendiente"; // mostrar al usuario
+  } else {
+    dailyComprobanteContainer.style.display = "none";
+    dailyPaymentStatus.value = "Completado";
+    dailyPaymentStatusDisplay.value = "Completado";
+  }
+});
+
+const paymentMethod = document.getElementById("paymentMethod");
+const comprobanteContainer = document.getElementById("comprobanteContainer");
+const paymentStatus = document.getElementById("paymentStatus");
+const paymentStatusDisplay = document.getElementById("paymentStatusDisplay");
+
+paymentMethod.addEventListener("change", () => {
+  if (paymentMethod.value === "transferencia") {
+    comprobanteContainer.style.display = "block";
+    paymentStatus.value = "pendiente";
+    paymentStatusDisplay.value = "Pendiente";
+  } else {
+    comprobanteContainer.style.display = "none";
+    paymentStatus.value = "completado";
+    paymentStatusDisplay.value = "Completado";
+  }
+});

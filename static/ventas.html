@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
+    />
+    <meta name="author" content="AdminKit" />
+    <meta
+      name="keywords"
+      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/ui-forms.html" />
+
+    <title>Forms | AdminKit Demo</title>
+
+    <link href="css/app.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- sidebar.html -->
+      <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="index.html">
+            <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
+          </a>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Páginas</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="index.html">
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Panel principal</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="profile.html">
+                <i class="align-middle" data-feather="user"></i>
+                <span class="align-middle">Cuenta</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="usuarios.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Usuarios</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="contabilidad.html">
+                <i class="align-middle" data-feather="user-plus"></i>
+                <span class="align-middle">Contabilidad</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">Componentes</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="membresia.html">
+                <i class="align-middle" data-feather="star"></i>
+                <span class="align-middle">Membresía</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="clientes.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Clientes</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="productos.html">
+                <i class="align-middle" data-feather="grid"></i>
+                <span class="align-middle">Productos</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item active">
+              <a class="sidebar-link" href="ventas.html">
+                <i class="align-middle" data-feather="shopping-cart"></i>
+                <span class="align-middle">Ventas</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="confirmacion-pagos.html">
+                <i class="align-middle" data-feather="check-circle"></i>
+                <span class="align-middle">Confirmación de Pagos</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="main">
+        <div id="navbar"></div>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <!-- 🔹 ENCABEZADO -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h1 class="h3 text-warning fw-bold mb-0">
+                <i data-feather="shopping-cart" class="me-2"></i>Gestión de
+                Ventas
+              </h1>
+
+              <button
+                class="btn btn-warning text-dark fw-bold shadow-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#nuevaVentaModal"
+              >
+                <i data-feather="plus-circle" class="me-1"></i>Nueva Venta
+              </button>
+            </div>
+
+            <!-- 🔹 TARJETAS DE RESUMEN -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <div
+                  class="card bg-black border-warning text-center p-3 shadow-sm"
+                >
+                  <h6 class="text-muted">Total Ventas</h6>
+                  <h3 id="totalVentas" class="text-warning mb-0 fw-bold">$0</h3>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div
+                  class="card bg-black border-warning text-center p-3 shadow-sm"
+                >
+                  <h6 class="text-muted">N° de Ventas</h6>
+                  <h3 id="numVentas" class="text-warning mb-0 fw-bold">0</h3>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div
+                  class="card bg-black border-warning text-center p-3 shadow-sm"
+                >
+                  <h6 class="text-muted">Pendientes por Confirmar</h6>
+                  <h3 id="ventasPendientes" class="text-warning mb-0 fw-bold">
+                    0
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- 🔹 FILTROS -->
+            <div class="card border-0 shadow-sm mb-4">
+              <div
+                class="card-header border-0 d-flex justify-content-between align-items-center"
+              >
+                <h5 class="text-warning mb-0">
+                  <i data-feather="filter" class="me-1"></i>Filtrar Ventas
+                </h5>
+              </div>
+              <div class="card-body">
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <select
+                      id="filterProducto"
+                      class="form-select text-light border-secondary bg-dark"
+                    >
+                      <option value="">Producto</option>
+                      <option>Proteína Whey</option>
+                      <option>Batido Detox</option>
+                      <option>Guantes</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <select
+                      id="filterEstado"
+                      class="form-select text-light border-secondary bg-dark"
+                    >
+                      <option value="">Estado</option>
+                      <option>Completada</option>
+                      <option>Pendiente</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      id="searchVenta"
+                      type="text"
+                      class="form-control text-light border-secondary bg-dark"
+                      placeholder="Buscar venta..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 🔹 TABLA DE VENTAS -->
+            <div class="card border-0 shadow-sm mb-4">
+              <div
+                class="card-header d-flex justify-content-between align-items-center border-0"
+              >
+                <h5 class="text-warning mb-0">
+                  <i data-feather="list" class="me-1"></i>Listado de Ventas
+                </h5>
+              </div>
+              <div class="card-body table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                  <thead class="text-warning border-secondary">
+                    <tr>
+                      <th>ID</th>
+                      <th>Producto</th>
+                      <th>Categoría</th>
+                      <th>Método</th>
+                      <th>Precio</th>
+                      <th>Fecha</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ventasTable" class="text-light">
+                    <tr>
+                      <td>#001</td>
+                      <td>Proteína Whey</td>
+                      <td>Proteínas</td>
+                      <td>Efectivo</td>
+                      <td>$150.000</td>
+                      <td>2025-10-10</td>
+                      <td>
+                        <span class="badge bg-success text-black"
+                          >Completada</span
+                        >
+                      </td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-light"
+                          data-bs-toggle="modal"
+                          data-bs-target="#detalleVentaModal"
+                        >
+                          <i data-feather="eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>#002</td>
+                      <td>Guantes</td>
+                      <td>Accesorios</td>
+                      <td>Transferencia</td>
+                      <td>$60.000</td>
+                      <td>2025-10-11</td>
+                      <td>
+                        <span class="badge bg-warning text-black"
+                          >Pendiente</span
+                        >
+                      </td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-light"
+                          data-bs-toggle="modal"
+                          data-bs-target="#detalleVentaModal"
+                        >
+                          <i data-feather="eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 🔹 GRAFICO -->
+            <div class="card border-0 shadow-sm">
+              <div
+                class="card-header border-0 d-flex justify-content-between align-items-center"
+              >
+                <h5 class="text-warning mb-0">
+                  <i data-feather="bar-chart-2" class="me-1"></i>Ventas por Mes
+                </h5>
+              </div>
+              <div class="card-body" style="height: 350px">
+                <canvas id="ventasChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- Modal Nueva Venta -->
+        <div
+          class="modal fade"
+          id="nuevaVentaModal"
+          tabindex="-1"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light border-warning">
+              <div class="modal-header border-warning">
+                <h5 class="modal-title text-warning">
+                  <i data-feather="plus-circle" class="me-1"></i>Nueva Venta
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+
+              <div class="modal-body">
+                <form id="ventaForm">
+                  <!-- Categoría y Producto -->
+                  <div class="row g-2 mb-3">
+                    <div class="col-6">
+                      <label class="form-label">Categoría</label>
+                      <select
+                        id="categoriaVenta"
+                        class="form-select text-light border-secondary"
+                      >
+                        <option value="">Seleccione</option>
+                        <option value="Proteínas">Proteínas</option>
+                        <option value="Batidos">Batidos</option>
+                        <option value="Accesorios">Accesorios</option>
+                      </select>
+                    </div>
+                    <div class="col-6">
+                      <label class="form-label">Producto</label>
+                      <select
+                        id="productoVenta"
+                        class="form-select text-light border-secondary"
+                      >
+                        <option value="">Seleccione producto</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Precio, Cantidad y Total -->
+                  <div class="row g-2 mb-3 align-items-end">
+                    <div class="col-4">
+                      <label class="form-label">Precio</label>
+                      <input
+                        type="text"
+                        id="precioVenta"
+                        class="form-control text-light border-secondary"
+                        readonly
+                      />
+                    </div>
+                    <div class="col-3">
+                      <label class="form-label">Cantidad</label>
+                      <input
+                        type="number"
+                        id="cantidadVenta"
+                        class="form-control text-light border-secondary"
+                        min="1"
+                        max="10"
+                        value="1"
+                      />
+                    </div>
+                    <div class="col-5">
+                      <label class="form-label">Total</label>
+                      <input
+                        type="text"
+                        id="totalVenta"
+                        class="form-control text-light border-secondary"
+                        readonly
+                        value="$0"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Método de pago -->
+                  <div class="mb-3">
+                    <label class="form-label">Método de Pago</label>
+                    <select
+                      id="metodoPago"
+                      class="form-select text-light border-secondary"
+                    >
+                      <option value="Efectivo">Efectivo</option>
+                      <option value="Transferencia">Transferencia</option>
+                    </select>
+                  </div>
+
+                  <!-- Comprobante de Transferencia (solo si aplica) -->
+                  <div
+                    class="mb-3"
+                    id="comprobanteContainer"
+                    style="display: none"
+                  >
+                    <label class="form-label">Subir Comprobante</label>
+                    <input
+                      type="file"
+                      id="comprobantePago"
+                      class="form-control text-light border-secondary"
+                      accept="image/*,application/pdf"
+                    />
+                  </div>
+
+                  <!-- Estado oculto -->
+                  <input type="hidden" id="estadoVenta" value="Completada" />
+                </form>
+              </div>
+
+              <div
+                class="modal-footer border-warning d-flex justify-content-between"
+              >
+                <button class="btn btn-outline-light" data-bs-dismiss="modal">
+                  Cancelar
+                </button>
+                <button
+                  class="btn btn-warning text-dark fw-bold"
+                  id="guardarVentaBtn"
+                >
+                  Guardar Venta
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="footer"></div>
+      </div>
+    </div>
+
+    <script src="js/app.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/loadsidebar.js" defer></script>
+    <script src="js/ventas.js" defer></script>
+  </body>
+</html>

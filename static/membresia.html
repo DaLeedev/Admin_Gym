@@ -98,6 +98,13 @@
             </li>
 
             <li class="sidebar-item">
+              <a class="sidebar-link" href="ventas.html">
+                <i class="align-middle" data-feather="shopping-cart"></i>
+                <span class="align-middle">Ventas</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
               <a class="sidebar-link" href="confirmacion-pagos.html">
                 <i class="align-middle" data-feather="check-circle"></i>
                 <span class="align-middle">Confirmación de Pagos</span>
@@ -119,16 +126,15 @@
                 <i data-feather="credit-card" class="me-2 tittle-color"></i
                 >Membresías
               </h1>
-                <!-- Nueva membresía -->
-                <button
-                  id="btnAddMembership"
-                  class="btn btn-warning tittle-color btn-sm p-2"
-                  data-bs-toggle="modal"
-                  data-bs-target="#membershipModal"
-                >
-                  <i data-feather="plus-circle" class="me-1"></i> Nueva
-                  membresía
-                </button>
+              <!-- Nueva membresía -->
+              <button
+                id="btnAddMembership"
+                class="btn btn-warning tittle-color btn-sm p-2"
+                data-bs-toggle="modal"
+                data-bs-target="#membershipModal"
+              >
+                <i data-feather="plus-circle" class="me-1"></i> Nueva membresía
+              </button>
             </div>
 
             <!-- Resumen de métricas -->
@@ -308,10 +314,7 @@
 
                   <div class="col-md-6">
                     <label class="form-label">Unidad de tiempo *</label>
-                    <select
-                      class="form-select text-white border-0"
-                      required
-                    >
+                    <select class="form-select text-white border-0" required>
                       <option value="dias">Días</option>
                       <option value="meses">Meses</option>
                     </select>
@@ -329,10 +332,7 @@
 
                   <div class="col-12">
                     <label class="form-label">Estado *</label>
-                    <select
-                      class="form-select text-white border-0"
-                      required
-                    >
+                    <select class="form-select text-white border-0" required>
                       <option value="activa">Activa</option>
                       <option value="inactiva">Inactiva</option>
                     </select>
@@ -481,7 +481,9 @@
                 </p>
               </div>
 
-              <div class="modal-footer border-secondary bg-dark justify-content-center">
+              <div
+                class="modal-footer border-secondary bg-dark justify-content-center"
+              >
                 <button
                   type="button"
                   class="btn btn-outline-secondary"
