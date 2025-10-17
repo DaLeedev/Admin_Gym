@@ -148,3 +148,16 @@
 .navbar input {
   direction: ltr;
 }
+
+
+
+.navbar-inicio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  z-index: 10; /* Siempre encima del video */
+  display: flex;
+  justify-content: flex-end;
+}

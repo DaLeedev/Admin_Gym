@@ -36,7 +36,7 @@
       <!-- sidebar.html -->
       <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
-          <a class="sidebar-brand" href="index.html">
+          <a class="sidebar-brand" href="dashboard.html">
             <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
           </a>
 
@@ -44,7 +44,7 @@
             <li class="sidebar-header">Páginas</li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="index.html">
+              <a class="sidebar-link" href="dashboard.html">
                 <i class="align-middle" data-feather="sliders"></i>
                 <span class="align-middle">Panel principal</span>
               </a>
@@ -295,6 +295,98 @@
           </div>
         </main>
 
+        <!-- 🧾 Modal Detalle de Venta -->
+        <div
+          class="modal fade"
+          id="detalleVentaModal"
+          tabindex="-1"
+          aria-labelledby="detalleVentaLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div
+              class="modal-content bg-dark text-light border-warning shadow-lg"
+            >
+              <div
+                class="modal-header border-0 d-flex justify-content-between align-items-center"
+              >
+                <h5
+                  class="modal-title text-warning fw-bold"
+                  id="detalleVentaLabel"
+                >
+                  <i data-feather="shopping-bag" class="me-1"></i> Detalle de la
+                  Venta
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <p><strong>ID:</strong> <span id="ventaId">#001</span></p>
+                    <p>
+                      <strong>Producto:</strong>
+                      <span id="ventaProducto">Proteína Whey</span>
+                    </p>
+                    <p>
+                      <strong>Categoría:</strong>
+                      <span id="ventaCategoria">Proteínas</span>
+                    </p>
+                  </div>
+                  <div class="col-md-6">
+                    <p>
+                      <strong>Método de pago:</strong>
+                      <span id="ventaMetodo">Efectivo</span>
+                    </p>
+                    <p>
+                      <strong>Precio:</strong>
+                      <span id="ventaPrecio">$150.000</span>
+                    </p>
+                    <p>
+                      <strong>Fecha:</strong>
+                      <span id="ventaFecha">2025-10-10</span>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="border-top border-secondary pt-3">
+                  <p>
+                    <strong>Estado:</strong>
+                    <span id="ventaEstado" class="badge bg-success text-black"
+                      >Completada</span
+                    >
+                  </p>
+                  <p>
+                    <strong>Descripción:</strong><br />
+                    <span id="ventaDescripcion"
+                      >Venta correspondiente al producto de alta demanda en
+                      línea de suplementos nutricionales.</span
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <div class="modal-footer border-0 d-flex justify-content-between">
+                <button
+                  type="button"
+                  class="btn btn-outline-light"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button type="button" class="btn btn-warning text-dark fw-bold">
+                  <i data-feather="printer" class="me-1"></i> Imprimir Recibo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Modal Nueva Venta -->
         <div
           class="modal fade"
@@ -375,9 +467,20 @@
                       />
                     </div>
                   </div>
+                  <div class="col-9">
+                    <label for="descripcionVenta" class="form-label"
+                      >Descripción</label
+                    >
+                    <textarea
+                      id="descripcionVenta"
+                      class="form-control text-light border-secondary"
+                      rows="3"
+                      placeholder="Escribe una breve descripción de la venta..."
+                    ></textarea>
+                  </div>
 
                   <!-- Método de pago -->
-                  <div class="mb-3">
+                  <div class="col-4">
                     <label class="form-label">Método de Pago</label>
                     <select
                       id="metodoPago"
