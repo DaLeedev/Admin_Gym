@@ -432,3 +432,68 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     }
   }
 }
+
+
+
+//Pag Inicio
+
+/* Reset y body */
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
+body { background: #000; color: #fff; overflow-x: hidden; }
+
+/* Preloader */
+#preloader {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background:#000; display:flex; justify-content:center; align-items:center; z-index:1000;
+}
+.spinner {
+  border: 4px solid #ffc107;
+  border-top: 4px solid transparent;
+  border-radius: 50%; width:50px; height:50px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* Navbar */
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 50px;
+}
+.logo h1 { color:#ffc107; font-size:2rem; font-weight:bold; }
+.btn-login {
+  color:#000; background:#ffc107; padding:10px 20px;
+  border-radius:50px; font-weight:bold; text-decoration:none;
+  transition: all 0.3s ease;
+}
+.btn-login:hover { background:#ffaa00; }
+
+/* Hero section */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; padding:0 20px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-logo { width:200px; margin-bottom:20px; animation: fadeIn 1s ease forwards; }
+.hero-slogan { font-size:1.8rem; color:#ffc107; margin-bottom:30px; animation: fadeIn 2s ease forwards; }
+.btn-main {
+  display:inline-block; background:#ffc107; color:#000; font-weight:bold;
+  padding:15px 30px; border-radius:50px; text-decoration:none;
+  font-size:1.1rem; animation: fadeIn 3s ease forwards;
+}
+.btn-main:hover { background:#ffaa00; }
+
+/* Slider */
+.slider { margin-top:30px; position: relative; height:50px; overflow:hidden; }
+.slide { position:absolute; width:100%; opacity:0; font-size:1.3rem; font-weight:bold; color:#fff; transition: all 0.8s ease; }
+.slide.active { opacity:1; }
+
+/* Animaciones */
+@keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+
+#preloader {
+  transition: opacity 0.5s ease; /* transición suave al ocultarse */
+}

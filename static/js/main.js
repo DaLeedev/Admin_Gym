@@ -225,3 +225,5 @@ function initSidebarToggle() {
     });
   }
 }
+
+// Feather icon
