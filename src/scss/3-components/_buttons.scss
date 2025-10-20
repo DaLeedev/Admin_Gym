@@ -23,3 +23,61 @@
   @include button-color($gray-800);
   @include button-color-hover($gray-800);
 }
+
+.pagination-modern {
+  list-style: none;
+}
+
+.page-btn {
+  background: #0b0c0e;
+  color: #f8f9fa;
+  border: 0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.page-btn:hover {
+  background: #ffc107;
+  color: #212529;
+  border-color: #ffc107;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(255, 193, 7, 0.4);
+}
+
+.page-btn.active {
+  background: #ffc107;
+  color: #212529;
+  border-color: #ffc107;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.6);
+}
+
+.page-btn:disabled,
+.page-btn[disabled] {
+  background: #1b1b1b;
+  color: #777;
+  border-color: #333;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.page-btn.prev,
+.page-btn.next {
+  font-weight: 700;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-btn.prev:hover,
+.page-btn.next:hover {
+  background: #ffc107;
+  color: #141414;
+}

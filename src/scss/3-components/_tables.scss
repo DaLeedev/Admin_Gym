@@ -1,13 +1,47 @@
 .table {
 	thead, tbody, tfoot, tr, td, th {
-		border-color: $table-border-color;
+		border-color: #777777;
 	}
-	
+
 	> :not(:last-child) > :last-child > * {
-		border-color: $table-border-color;
+		border-color: #777777;
 	}
 }
 
 .table > tbody > tr > td {
 	vertical-align: middle;
+}
+
+/* 🔸 Contenedor de scroll */
+.ventas-scroll {
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 0.5rem; /* bordes curvos en la parte del contenido */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 🔸 Encabezado fijo al hacer scroll */
+.ventas-scroll thead th {
+  position: sticky;
+  top: 0;
+  background-color: #1a1a1a; /* ajusta según tu tema */
+  z-index: 10;
+}
+
+/* 🔸 Espaciado general */
+.ventas-container {
+  position: relative;
+}
+
+/* 🔸 Opcional: barra de scroll más delgada */
+.ventas-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.ventas-scroll::-webkit-scrollbar-thumb {
+  background-color: #ffc107;
+  border-radius: 4px;
+}
+.ventas-scroll::-webkit-scrollbar-track {
+  background: transparent;
 }

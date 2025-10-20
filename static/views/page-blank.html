@@ -11,23 +11,22 @@
       name="description"
       content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
     />
-    <meta name="author" content="AdminKit" />
+    <meta name="author" content="Golden Gym" />
     <meta
       name="keywords"
-      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+      content="Golden Gym, gimnasio, administración, panel, membresías, clientes, ventas, dashboard, Bootstrap 5, AdminKit"
+    />
+    <meta
+      name="description"
+      content="Panel de administración de Golden Gym. Gestiona clientes, membresías, ventas y métricas del gimnasio de manera rápida y segura."
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="shortcut icon" href="../img/icons/golden_gym.png" />
 
-    <link
-      rel="canonical"
-      href="https://demo-basic.adminkit.io/pages-blank.html"
-    />
+    <title>Pagina No Encontrada</title>
 
-    <title>Blank Page | AdminKit Demo</title>
-
-    <link href="css/app.css" rel="stylesheet" />
+    <link href="../css/app.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -36,11 +35,10 @@
 
   <body>
     <div class="wrapper">
-      <!-- sidebar.html -->
       <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
           <a class="sidebar-brand" href="dashboard.html">
-            <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
+            <img src="../../img/icons/golden_gym.png" class="sidebar-logo" />
           </a>
 
           <ul class="sidebar-nav">
@@ -91,16 +89,56 @@
             </li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="ventas.html">
-                <i class="align-middle" data-feather="shopping-cart"></i>
-                <span class="align-middle">Ventas</span>
+              <a class="sidebar-link" href="productos.html">
+                <i class="align-middle" data-feather="grid"></i>
+                <span class="align-middle">Productos</span>
               </a>
             </li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="productos.html">
-                <i class="align-middle" data-feather="grid"></i>
-                <span class="align-middle">Productos</span>
+              <a
+                class="sidebar-link d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                href="#ventasMenu"
+                role="button"
+                aria-expanded="false"
+                aria-controls="ventasMenu"
+              >
+                <span>
+                  <i class="align-middle" data-feather="shopping-cart"></i>
+                  <span class="align-middle">Ventas</span>
+                </span>
+                <i data-feather="chevron-down" class="icon-sm"></i>
+              </a>
+
+              <div class="collapse" id="ventasMenu">
+                <ul class="sidebar-nav ps-4">
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/list-ventas.html">
+                      <i class="align-middle" data-feather="list"></i>
+                      <span class="align-middle">Listado de Ventas</span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/resumen-ventas.html">
+                      <i class="align-middle" data-feather="bar-chart-2"></i>
+                      <span class="align-middle">Resumen</span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/vender.html">
+                      <i class="align-middle" data-feather="bar-chart-2"></i>
+                      <span class="align-middle">Vender</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="confirmacion-pagos.html">
+                <i class="align-middle" data-feather="check-circle"></i>
+                <span class="align-middle">Confirmación de Pagos</span>
               </a>
             </li>
           </ul>
@@ -111,12 +149,11 @@
         <div id="navbar"></div>
 
         <main
-          class="content d-flex align-items-center justify-content-center min-vh-100 bg-dark text-light"
+          class="content d-flex align-items-center justify-content-center text-light"
         >
           <div class="container text-center">
-            <div class="card bg-dark border-0 shadow-lg p-5">
+            <div class="card border-0 shadow-lg p-5">
               <div class="card-body">
-                <!-- Ícono grande -->
                 <div class="mb-4">
                   <i
                     data-feather="alert-triangle"
@@ -125,7 +162,6 @@
                   ></i>
                 </div>
 
-                <!-- Título -->
                 <h1 class="display-4 fw-bold text-warning mb-3">
                   Página no encontrada
                 </h1>
@@ -134,10 +170,9 @@
                   fue movida. Estamos trabajando para mejorar tu experiencia 🚀
                 </p>
 
-                <!-- Botones -->
                 <div class="d-flex justify-content-center gap-3 flex-wrap">
                   <a
-                    href="/"
+                    href="dashboard.html"
                     class="btn btn-warning text-dark px-4 py-2 fw-semibold shadow-sm rounded-pill"
                   >
                     <i data-feather="home" class="me-2"></i> Ir al inicio
@@ -151,7 +186,6 @@
                 </div>
               </div>
 
-              <!-- Animación decorativa tipo “tecnológica” -->
               <div class="mt-5">
                 <div
                   class="d-flex justify-content-center align-items-center gap-2"
@@ -169,8 +203,6 @@
       </div>
     </div>
 
-    <script src="js/app.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/loadsidebar.js"></script>
+    <script src="../js/app.js"></script>
   </body>
 </html>

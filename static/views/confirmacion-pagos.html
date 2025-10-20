@@ -11,23 +11,22 @@
       name="description"
       content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
     />
-    <meta name="author" content="AdminKit" />
+    <meta name="author" content="Golden Gym" />
     <meta
       name="keywords"
-      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+      content="Golden Gym, gimnasio, administración, panel, membresías, clientes, ventas, dashboard, Bootstrap 5, AdminKit"
+    />
+    <meta
+      name="description"
+      content="Panel de administración de Golden Gym. Gestiona clientes, membresías, ventas y métricas del gimnasio de manera rápida y segura."
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="shortcut icon" href="../img/icons/golden_gym.png" />
 
-    <link
-      rel="canonical"
-      href="https://demo-basic.adminkit.io/charts-chartjs.html"
-    />
+    <title>Confirmación de Pagos - Golden Gym</title>
 
-    <title>Chart.js | AdminKit Demo</title>
-
-    <link href="css/app.css" rel="stylesheet" />
+    <link href="../css/app.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -40,7 +39,7 @@
       <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
           <a class="sidebar-brand" href="dashboard.html">
-            <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
+            <img src="../../img/icons/golden_gym.png" class="sidebar-logo" />
           </a>
 
           <ul class="sidebar-nav">
@@ -96,12 +95,44 @@
                 <span class="align-middle">Productos</span>
               </a>
             </li>
-
             <li class="sidebar-item">
-              <a class="sidebar-link" href="ventas.html">
-                <i class="align-middle" data-feather="shopping-cart"></i>
-                <span class="align-middle">Ventas</span>
+              <a
+                class="sidebar-link d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                href="#ventasMenu"
+                role="button"
+                aria-expanded="false"
+                aria-controls="ventasMenu"
+              >
+                <span>
+                  <i class="align-middle" data-feather="shopping-cart"></i>
+                  <span class="align-middle">Ventas</span>
+                </span>
+                <i data-feather="chevron-down" class="icon-sm"></i>
               </a>
+
+              <div class="collapse" id="ventasMenu">
+                <ul class="sidebar-nav ps-4">
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/list-ventas.html">
+                      <i class="align-middle" data-feather="list"></i>
+                      <span class="align-middle">Listado de Ventas</span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/resumen-ventas.html">
+                      <i class="align-middle" data-feather="bar-chart-2"></i>
+                      <span class="align-middle">Resumen</span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/vender.html">
+                      <i class="align-middle" data-feather="bar-chart-2"></i>
+                      <span class="align-middle">Vender</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
 
             <li class="sidebar-item active">
@@ -119,11 +150,10 @@
 
         <main class="content">
           <div class="container-fluid p-0">
-            <!-- ENCABEZADO -->
             <div class="d-flex justify-content-between align-items-center mb-4">
-              <h1 class="h3 text-warning fw-bold mb-0">
-                <i data-feather="check-circle" class="me-2"></i>Confirmación de
-                Pagos
+              <h1 class="h3 text-white fw-bold mb-0">
+                <i data-feather="check-circle" class="me-2 tittle-color"></i
+                >Confirmación de Pagos
               </h1>
 
               <button
@@ -134,7 +164,6 @@
               </button>
             </div>
 
-            <!-- TARJETAS DE RESUMEN -->
             <div class="row g-3 mb-4">
               <div class="col-md-4">
                 <div
@@ -318,9 +347,6 @@
       defer
     ></script>
 
-    <script src="js/app.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/loadsidebar.js" defer></script>
-    <script src="js/confimacion-pagos.js" defer></script>
+    <script src="../js/app.js"></script>
   </body>
 </html>

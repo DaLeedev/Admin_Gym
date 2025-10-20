@@ -1,3 +1,6 @@
+/* ==========================================================================
+   VARIABLES
+   ========================================================================== */
 $modal-zindex: 1050;
 $modal-backdrop-color: rgba(0, 0, 0, 0.5);
 $modal-transition: 0.3s;
@@ -7,7 +10,13 @@ $modal-header-bg: $dark;
 $modal-footer-bg: $dark;
 $modal-max-width: 500px;
 
+/* ==========================================================================
+   ESTRUCTURA PRINCIPAL
+   ========================================================================== */
 
+.tittle-color{
+  color: $bg-secondary;
+}
 
 .main {
   display: flex;
@@ -20,11 +29,10 @@ $modal-max-width: 500px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-// ------------------------ Dashboard Calendar -------------------------------
 
-
-
-/* ---------------------- MODAL------------------------- */
+/* ==========================================================================
+   MODALES PERSONALIZADOS
+   ========================================================================== */
 .modal {
   display: none;
   position: fixed;
@@ -52,7 +60,6 @@ $modal-max-width: 500px;
     transform: translateY(-50px);
 
     .modal-content {
-      position: relative;
       display: flex;
       flex-direction: column;
       background-color: $modal-bg;
@@ -60,349 +67,160 @@ $modal-max-width: 500px;
       pointer-events: all;
       box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
 
-      .modal-header {
+      .modal-header,
+      .modal-footer {
+        background-color: $dark;
+        padding: 1rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1rem;
-        border-bottom: 1px solid #dee2e6;
-        background-color: $modal-header-bg;
+        border-color: #dee2e6;
+      }
 
-        .modal-title {
-          margin: 0;
-          font-size: 1.25rem;
-        }
+      .modal-title {
+        font-size: 1.25rem;
+        margin: 0;
+      }
 
-        .close {
-          background: none;
-          border: none;
-          font-size: 1.5rem;
-          cursor: pointer;
-        }
+      .close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
       }
 
       .modal-body {
-        position: relative;
         padding: 1rem;
 
         #input {
           background-color: $black;
         }
       }
-
-      .modal-footer {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 0.75rem;
-        border-top: 1px solid #dee2e6;
-        background-color: $modal-footer-bg;
-
-        .btn + .btn {
-          margin-left: 0.5rem;
-        }
-      }
     }
   }
 }
 
-/* Animación modal show */
 .modal.show .modal-dialog {
   transform: translateY(0);
 }
 
-
-
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(69%) sepia(99%) saturate(719%) hue-rotate(9deg) brightness(104%) contrast(104%);
-  cursor: pointer;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
-}
-input[type="date"]::-webkit-calendar-picker-indicator:hover {
-  opacity: 1;
-}
-
-
-
-.filter-btn.active {
-  background-color: #ffc1072a !important;
-  color: #000 !important;
-  border-color: #ffc10777 !important;
-}
-
-
-
-
-.fade-in-row {
-  opacity: 0;
-  transform: translateY(5px);
-  animation: fadeInRow 0.4s ease forwards;
-}
-
-@keyframes fadeInRow {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
-/* 🔢 Cambiar color y tamaño de los números */
+/* ==========================================================================
+   FLATPICKR (Calendario)
+   ========================================================================== */
 .flatpickr-day {
-  color: #fff !important; /* color del texto (números) */
+  color: #fff !important;
   font-weight: 600;
   background-color: transparent;
   transition: all 0.3s ease;
 }
-
-/* 📅 Hover moderno al pasar el mouse */
 .flatpickr-day:hover {
-  background-color: #ffcc00 !important; /* color de fondo hover */
+  background-color: #ffcc00 !important;
   color: #000 !important;
   transform: scale(1.1);
   border-radius: 8px;
 }
-
-/* 🔘 Día seleccionado */
 .flatpickr-day.selected {
   background-color: $bg-secondary !important;
   color: #000 !important;
   font-weight: 700;
   border-radius: 50%;
 }
-
-/* 🚫 Días deshabilitados */
 .flatpickr-day.disabled {
   color: #666 !important;
   opacity: 0.4;
 }
-
-/* 🗓️ Encabezado del mes */
 .flatpickr-months .flatpickr-month {
   background-color: $bg-secondary !important;
-  color: #000000 !important;
+  color: #000 !important;
   font-size: 12px;
   font-weight: 800 !important;
   border-radius: 6px;
   padding-inline: 4px !important;
 }
-
 .flatpickr-weekdays {
   background-color: transparent !important;
-  border-radius: 8px 8px 0 0;
   color: red !important;
 }
-
 .flatpickr-prev-month,
 .flatpickr-next-month {
-  color: #fffb00 !important; /* amarillo principal */
-  font-size: 16px !important; /* tamaño del ícono más pequeño */
-  line-height: 1 !important;
-  padding: 6px !important; /* reduce el área del botón */
+  color: #fffb00 !important;
+  font-size: 16px !important;
+  padding: 6px !important;
   width: 22px !important;
   height: 28px !important;
-  background-color: rgba(63, 63, 63, 0.253) !important; /* fondo sutil */
+  background-color: rgba(63, 63, 63, 0.253) !important;
   border-radius: 30% !important;
   transition: all 0.25s ease-in-out;
   margin-top: 7px;
 }
-
-/* Hover moderno */
 .flatpickr-prev-month:hover,
 .flatpickr-next-month:hover {
   color: #000 !important;
   transform: scale(1.1);
   box-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
 }
-
-
 .flatpickr-weekday {
-  color: #ffffff !important;
+  color: #fff !important;
   font-size: 13px !important;
   letter-spacing: 0.5px;
-  background: transparent !important;
 }
 
-
-
-
-
-
-
-/* 🎨 Estilos oscuros para formularios del panel */
+/* ==========================================================================
+   FORMULARIOS Y INPUTS
+   ========================================================================== */
 .form-control,
 .form-select {
-  background-color: #181818; /* Fondo oscuro */
-  color: $gray-500; /* Texto claro */
-  border: 1px solid #3d2f00; /* Borde gris tenue */
+  background-color: #0e0e0e;
+  color: $gray-500;
+  border: 1px solid #3d2f00;
   transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
 }
-
-/* Placeholder más claro */
 .form-control::placeholder {
   color: #a1a1a1;
 }
-
-/* Hover o focus con acento amarillo */
 .form-control:focus,
 .form-select:focus {
-  border-color: #ffc107a9; /* Amarillo Bootstrap */
+  border-color: #ffc107a9;
   box-shadow: 0 0 0 0.1rem rgba(255, 193, 7, 0.25);
-  background-color: #000000;
+  background-color: #000;
   color: #fff;
 }
-
-
-// ------------------------------ Cuenta ----------------------------------
-
-.tittle-color{
-  color: $bg-secondary ;
-}
-
-/* Botones del formulario */
-.btn-primary {
-  background-color: $bg-secondary;
-  border-color: $bg-secondary;
-  color: #000;
-  font-weight: 600;
-}
-.btn-primary:hover {
-  background-color: $bg-secondary;
-  border-color: $bg-secondary;
-}
-
-/* Fondo de inputs deshabilitados */
 .form-control:disabled {
   background-color: #121213;
   color: #aaa;
 }
 
-#passwordFields {
-  animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
-// ----------------- Usuarios y Roles -------------------------------------
-
-/* Page layout tweaks */
-.content { padding-bottom: 1rem; }
-
-/* Cards */
-.card {
-  border: 1px solid rgba(255, 193, 7, 0.06);
-  border-radius: 12px;
-}
-
-.card-header { background: transparent; }
-
-/* Inputs / selects (dark) */
-.form-control, .form-select {
-  background: #141414;
-  border: 1px solid rgba(255,255,255,0.02);
-  border-radius: 8px;
-  padding: .5rem .75rem;
-}
-
-.form-control:focus, .form-select:focus {
-  outline: none;
-  border-color: $bg-secondary;
-  box-shadow: 0 4px 18px rgba(255,193,7,0.08);
-}
-
-/* Buttons */
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
+.btn-primary,
 .btn-warning {
   background: $bg-secondary;
+  border-color: $bg-secondary;
   color: #000 !important;
+  font-weight: 600;
   border: none;
-  font-weight: 600;
+  transition: all 0.2s ease-in-out;
 }
-.btn-warning:hover { background: darken($bg-secondary, 15%); transform: translateY(-1px); }
-
-/* Roles list */
-#rolesList .list-group-item {
-  background: transparent;
-  color: #e6e6e6;
-  border: 1px solid rgba(255,255,255,0.03);
-  border-radius: 8px;
-  margin-bottom: .5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: .6rem .75rem;
-}
-.role-badge {
-  background: rgba(255,193,7,0.12);
-  color: $bg-secondary;
-  padding: .25rem .5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: .8rem;
+.btn-primary:hover,
+.btn-warning:hover {
+  background: darken($bg-secondary, 15%);
+  transform: translateY(-1px);
 }
 
-/* Users table */
-.table-dark {
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.03);
-}
-.table-dark thead th { background: transparent; border-bottom: 1px solid rgba(255,255,255,0.02); }
-
-/* Action buttons in table */
-.table-actions .btn {
-  padding: .28rem .5rem;
-  font-size: .82rem;
-}
-
-/* Inline form */
-#userFormWrap {
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.03);
-}
-
-/* Empty state */
-#emptyState { color: $dark; padding: 2rem 0; }
-
-/* Small responsive tweaks */
-@media (max-width: 768px) {
-  .card { border-radius: 8px; }
-  .btn-warning { font-size: .9rem; }
-}
-
-
-.animation-item{
-
-
-  &:hover{
-    background: #1f1f1f !important;
-  }
-}
-
-// .table-hover:hover{
-//   background: #1f1f1f !important;
-// }
-
-
-
-
+/* ==========================================================================
+   SECCIONES DE USUARIOS Y ROLES
+   ========================================================================== */
 .content {
+  padding-bottom: 1rem;
+
   .card {
+    border: 1px solid rgba(255, 193, 7, 0.06);
+    border-radius: 12px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 0 15px rgba(255, 193, 7, 0.2);
@@ -427,77 +245,121 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     background-color: #1f1f1f;
     border: none;
     color: #fff;
+
     &:hover {
       background-color: #2a2a2a;
     }
   }
 }
 
+/* Roles list */
+#rolesList .list-group-item {
+  background: transparent;
+  color: #e6e6e6;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.75rem;
+}
+.role-badge {
+  background: rgba(255, 193, 7, 0.12);
+  color: $bg-secondary;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
 
+/* ==========================================================================
+   TABLAS Y TARJETAS
+   ========================================================================== */
+.table-dark {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.table-dark thead th {
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+.table-actions .btn {
+  padding: 0.28rem 0.5rem;
+  font-size: 0.82rem;
+}
 
-//Pag Inicio
+/* ==========================================================================
+   ANIMACIONES Y EFECTOS
+   ========================================================================== */
+.filter-btn.active {
+  background-color: #ffc1072a !important;
+  color: #000 !important;
+  border-color: #ffc10777 !important;
+}
 
-/* Reset y body */
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
-body { background: #000; color: #fff; overflow-x: hidden; }
+.fade-in-row {
+  opacity: 0;
+  transform: translateY(5px);
+  animation: fadeInRow 0.4s ease forwards;
+}
 
-/* Preloader */
+@keyframes fadeInRow {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animation-item:hover {
+  background: #1f1f1f !important;
+}
+
+#passwordFields {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   PAGINA DE INICIO (VIDEO + PRELOADER)
+   ========================================================================== */
 #preloader {
-  position: fixed; top:0; left:0; width:100%; height:100%;
-  background:#000; display:flex; justify-content:center; align-items:center; z-index:1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.5s ease;
 }
 .spinner {
   border: 4px solid #ffc107;
   border-top: 4px solid transparent;
-  border-radius: 50%; width:50px; height:50px;
-  animation: spin 1s linear infinite;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 0.5s linear infinite;
 }
-@keyframes spin { 100% { transform: rotate(360deg); } }
-
-/* Navbar */
-.navbar {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 20px 50px;
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
-.logo h1 { color:#ffc107; font-size:2rem; font-weight:bold; }
-.btn-login {
-  color:#000; background:#ffc107; padding:10px 20px;
-  border-radius:50px; font-weight:bold; text-decoration:none;
-  transition: all 0.3s ease;
-}
-.btn-login:hover { background:#ffaa00; }
-
-/* Hero section */
-.hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  text-align: center; padding:0 20px;
-  position: relative;
-  overflow: hidden;
-}
-.hero-logo { width:200px; margin-bottom:20px; animation: fadeIn 1s ease forwards; }
-.hero-slogan { font-size:1.8rem; color:#ffc107; margin-bottom:30px; animation: fadeIn 2s ease forwards; }
-.btn-main {
-  display:inline-block; background:#ffc107; color:#000; font-weight:bold;
-  padding:15px 30px; border-radius:50px; text-decoration:none;
-  font-size:1.1rem; animation: fadeIn 3s ease forwards;
-}
-.btn-main:hover { background:#ffaa00; }
-
-/* Slider */
-.slider { margin-top:30px; position: relative; height:50px; overflow:hidden; }
-.slide { position:absolute; width:100%; opacity:0; font-size:1.3rem; font-weight:bold; color:#fff; transition: all 0.8s ease; }
-.slide.active { opacity:1; }
-
-/* Animaciones */
-@keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
-
-
-#preloader {
-  transition: opacity 0.5s ease; /* transición suave al ocultarse */
-}
-
 
 .video-bg {
   position: relative;
@@ -514,7 +376,7 @@ body { background: #000; color: #fff; overflow-x: hidden; }
   width: 94%;
   height: 94%;
   object-fit: cover;
-  border-radius: 20px; /* opcional para que no sea cuadrado exacto */
+  border-radius: 20px;
   z-index: 1;
 }
 
@@ -525,5 +387,35 @@ body { background: #000; color: #fff; overflow-x: hidden; }
   width: 100%;
   height: 100%;
   z-index: 2;
-  pointer-events: none; /* que no interfiera con clicks */
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .card {
+    border-radius: 8px;
+  }
+  .btn-warning {
+    font-size: 0.9rem;
+  }
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(78%) sepia(99%) saturate(956%) hue-rotate(358deg) brightness(104%) contrast(103%);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   BACKGROUND FILTERS
+   ========================================================================== */
+
+.btn-dark{
+  background-color: #121213;
+}
+
+.border-warning{
+  border-color: rgb(112, 101, 0) !important;
 }

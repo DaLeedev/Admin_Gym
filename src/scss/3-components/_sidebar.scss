@@ -4,7 +4,6 @@
   transition: $sidebar-transition;
   direction: ltr;
   background: $sidebar-bg;
-  margin-top: 20px;
 }
 
 .sidebar-content {
@@ -28,7 +27,7 @@ a.sidebar-link {
   display: block;
   padding: $sidebar-link-padding;
   font-weight: $sidebar-link-font-weight;
-  transition: background .1s ease-in-out;
+  transition: .1s ease-in-out;
   position: relative;
   text-decoration: none;
   cursor: pointer;

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+     <meta
+      name="description"
+      content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
+    />
+    <meta name="author" content="Golden Gym" />
+    <meta
+      name="keywords"
+      content="Golden Gym, gimnasio, administración, panel, membresías, clientes, ventas, dashboard, Bootstrap 5, AdminKit"
+    />
+    <meta
+      name="description"
+      content="Panel de administración de Golden Gym. Gestiona clientes, membresías, ventas y métricas del gimnasio de manera rápida y segura."
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+    <title>Forms | AdminKit Demo</title>
+
+    <link href="../../css/app.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- sidebar.html -->
+      <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="../dashboard.html">
+            <img src="../../img/icons/golden_gym.png" class="sidebar-logo" />
+          </a>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Páginas</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="../dashboard.html">
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Panel principal</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="../profile.html">
+                <i class="align-middle" data-feather="user"></i>
+                <span class="align-middle">Cuenta</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="../usuarios.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Usuarios</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="../contabilidad.html">
+                <i class="align-middle" data-feather="user-plus"></i>
+                <span class="align-middle">Contabilidad</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">Componentes</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="../membresia.html">
+                <i class="align-middle" data-feather="star"></i>
+                <span class="align-middle">Membresía</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="../clientes.html">
+                <i class="align-middle" data-feather="users"></i>
+                <span class="align-middle">Clientes</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="../productos.html">
+                <i class="align-middle" data-feather="grid"></i>
+                <span class="align-middle">Productos</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item active">
+              <a
+                class="sidebar-link d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                href="#ventasMenu"
+                role="button"
+                aria-expanded="false"
+                aria-controls="ventasMenu"
+              >
+                <span>
+                  <i class="align-middle" data-feather="shopping-cart"></i>
+                  <span class="align-middle">Ventas</span>
+                </span>
+                <i data-feather="chevron-down" class="icon-sm"></i>
+              </a>
+
+              <div class="collapse" id="ventasMenu">
+                <ul class="sidebar-nav ps-4">
+                  <li class="sidebar-item active p-1">
+                    <a class="sidebar-link" href="list-ventas.html">
+                      <i class="align-middle" data-feather="list"></i>
+                      <span class="align-middle">Listado de Ventas</span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="resumen-ventas.html">
+                      <i class="align-middle" data-feather="bar-chart-2"></i>
+                      <span class="align-middle">Resumen</span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="vender.html">
+                      <i class="align-middle" data-feather="bar-chart-2"></i>
+                      <span class="align-middle">Vender</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="../confirmacion-pagos.html">
+                <i class="align-middle" data-feather="check-circle"></i>
+                <span class="align-middle">Confirmación de Pagos</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="main">
+        <div id="navbar"></div>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h1 class="h3 text-white fw-bold mb-0">
+                <i data-feather="list" class="me-2 tittle-color"></i>Listado de
+                Ventas
+              </h1>
+            </div>
+
+            <!-- FILTROS -->
+            <div class="card border-0 shadow-sm mb-4">
+              <div
+                class="card-header border-0 d-flex justify-content-between align-items-center"
+              >
+                <h5 class="text-warning mb-0">
+                  <i data-feather="filter" class="me-1"></i>Filtros de Búsqueda
+                </h5>
+              </div>
+              <div class="card-body">
+                <div class="row g-2 align-items-end">
+                  <div class="col-md-3">
+                    <label class="form-label text-light">Categoría</label>
+                    <select
+                      id="filterCategoria"
+                      class="form-select text-light border-secondary"
+                    >
+                      <option value="">Todas</option>
+                      <option>Proteínas</option>
+                      <option>Batidos</option>
+                      <option>Accesorios</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label class="form-label text-light">Fecha</label>
+                    <input
+                      type="date"
+                      id="filterFecha"
+                      class="form-control text-light border-secondary"
+                    />
+                  </div>
+
+                  <div class="col-md-4">
+                    <label class="form-label text-light">Buscar</label>
+                    <input
+                      type="text"
+                      id="searchVenta"
+                      class="form-control text-light border-secondary"
+                      placeholder="Buscar por producto, método o estado..."
+                    />
+                  </div>
+
+                  <div class="col-md-2">
+                    <button
+                      id="btnBuscar"
+                      class="btn btn-warning text-dark fw-bold w-100 p-2"
+                    >
+                      <i data-feather="search"></i> Buscar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TABLA DE VENTAS CON PAGINACIÓN -->
+            <div class="card border-0 shadow-sm mb-4">
+              <div class="card-body table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                  <thead class="text-warning border-secondary">
+                    <tr>
+                      <th>ID</th>
+                      <th>Producto</th>
+                      <th>Categoría</th>
+                      <th>Método</th>
+                      <th>Precio</th>
+                      <th>Fecha</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ventasTable" class="text-light">
+                    <!-- Se genera dinámicamente -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- PAGINACIÓN MODERNA -->
+              <div
+                class="card-footer border-0 d-flex justify-content-between align-items-center py-3 px-3"
+              >
+                <nav aria-label="Paginación de ventas">
+                  <ul
+                    class="pagination-modern d-flex align-items-center gap-2 mb-0"
+                  >
+                    <li class="page-item">
+                      <button class="page-btn prev" aria-label="Anterior">
+                        &laquo;
+                      </button>
+                    </li>
+                    <li class="page-item active">
+                      <button class="page-btn active">1</button>
+                    </li>
+                    <li class="page-item">
+                      <button class="page-btn">2</button>
+                    </li>
+                    <li class="page-item">
+                      <button class="page-btn">3</button>
+                    </li>
+                    <li class="page-item">
+                      <button class="page-btn next" aria-label="Siguiente">
+                        &raquo;
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+
+                <span
+                  id="paginationInfo"
+                  class="text-light small fw-light opacity-75"
+                >
+                  Mostrando 1–10 de 150 ventas
+                </span>
+              </div>
+            </div>
+          </div>
+        </main>
+
+
+        <div id="footer"></div>
+      </div>
+    </div>
+
+    <script src="../../js/app.js"></script>
+  </body>
+</html>

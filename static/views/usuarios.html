@@ -7,40 +7,36 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta
-      name="description"
-      content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
-    />
-    <meta name="author" content="AdminKit" />
+    <meta name="author" content="Golden Gym" />
     <meta
       name="keywords"
-      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+      content="Golden Gym, gimnasio, administración, panel, membresías, clientes, ventas, dashboard, Bootstrap 5, AdminKit"
+    />
+    <meta
+      name="description"
+      content="Panel de administración de Golden Gym. Gestiona clientes, membresías, ventas y métricas del gimnasio de manera rápida y segura."
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="shortcut icon" href="../img/icons/golden_gym.png" />
 
-    <link
-      rel="canonical"
-      href="https://demo-basic.adminkit.io/upgrade-to-pro.html"
-    />
 
-    <title>Upgrade to Pro | AdminKit Demo</title>
+    <title>Usuarios - Golden Gym</title>
 
-    <link href="css/app.css" rel="stylesheet" />
+    <link href="../css/app.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
   </head>
 
   <body>
     <div class="wrapper">
-      <!-- sidebar.html -->
       <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
           <a class="sidebar-brand" href="dashboard.html">
-            <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
+            <img src="../../img/icons/golden_gym.png" class="sidebar-logo" />
           </a>
 
           <ul class="sidebar-nav">
@@ -98,10 +94,43 @@
             </li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="ventas.html">
-                <i class="align-middle" data-feather="shopping-cart"></i>
-                <span class="align-middle">Ventas</span>
+              <a
+                class="sidebar-link d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                href="#ventasMenu"
+                role="button"
+                aria-expanded="false"
+                aria-controls="ventasMenu"
+              >
+                <span>
+                  <i class="align-middle" data-feather="shopping-cart"></i>
+                  <span class="align-middle">Ventas</span>
+                </span>
+                <i data-feather="chevron-down" class="icon-sm"></i>
               </a>
+
+              <div class="collapse" id="ventasMenu">
+                <ul class="sidebar-nav ps-4">
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/list-ventas.html">
+                      <i class="align-middle" data-feather="list"></i>
+                      <span class="align-middle">Listado de Ventas</span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/resumen-ventas.html">
+                      <i class="align-middle" data-feather="bar-chart-2"></i>
+                      <span class="align-middle">Resumen</span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/vender.html">
+                      <i class="align-middle" data-feather="bar-chart-2"></i>
+                      <span class="align-middle">Vender</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
 
             <li class="sidebar-item">
@@ -117,11 +146,10 @@
       <div class="main">
         <div id="navbar"></div>
 
-        <!-- main users page - insertar dentro de tu layout (ej. @section('content')) -->
         <main class="content">
           <div class="container-fluid p-0">
             <div class="d-flex align-items-center justify-content-between mb-4">
-              <h1 class="h3 text-white mb-0">
+              <h1 class="h3 text-white mb-0 fw-bold">
                 <i data-feather="users" class="me-2 tittle-color"></i>Usuarios &
                 Roles
               </h1>
@@ -129,9 +157,8 @@
                 <div class="input-group input-group-sm">
                   <span
                     class="input-group-text bg-secondary border-0 text-muted"
-                  >
-                    <i data-feather="search" class="feather-sm"></i>
-                  </span>
+                    ><i data-feather="search" class="feather-sm"></i
+                  ></span>
                   <input
                     id="searchUsers"
                     class="form-control form-control-sm bg-dark text-white border-0"
@@ -139,10 +166,9 @@
                   />
                 </div>
                 <button
-                  id="btnOpenAddUser"
                   class="btn btn-warning tittle-color btn-sm"
                   data-bs-toggle="modal"
-                  data-bs-target="#addUserModal"
+                  data-bs-target="#addEditUserModal"
                 >
                   <i data-feather="user-plus" class="me-1"></i> Nuevo usuario
                 </button>
@@ -161,9 +187,7 @@
                     </h6>
                     <small class="text-muted">Gestión rápida</small>
                   </div>
-
                   <div class="card-body">
-                    <!-- Crear rol -->
                     <div class="mb-3">
                       <label class="form-label text-white mb-1"
                         >Crear nuevo rol</label
@@ -172,7 +196,12 @@
                         <input
                           id="newRoleName"
                           class="form-control form-control-sm text-white border-0"
-                          placeholder="Ej. Recepción"
+                          placeholder="Nombre del rol, ej. Recepción"
+                        />
+                        <input
+                          id="newRoleDescription"
+                          class="form-control form-control-sm text-white border-0"
+                          placeholder="Descripción del rol"
                         />
                         <button
                           id="btnCreateRole"
@@ -184,8 +213,6 @@
                     </div>
 
                     <hr class="border-secondary" />
-
-                    <!-- Lista de roles -->
                     <ul
                       id="rolesList"
                       class="list-group list-group-flush small"
@@ -197,13 +224,15 @@
                         <div>
                           <button
                             class="btn btn-sm btn-outline-light me-1 editRole"
-                            data-role="Administrador"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addEditRoleModal"
                           >
                             <i data-feather="edit"></i>
                           </button>
                           <button
                             class="btn btn-sm btn-outline-danger deleteRole"
-                            data-role="Administrador"
+                            data-bs-toggle="modal"
+                            data-bs-target="#deleteUserModal"
                           >
                             <i data-feather="trash-2"></i>
                           </button>
@@ -216,13 +245,15 @@
                         <div>
                           <button
                             class="btn btn-sm btn-outline-light me-1 editRole"
-                            data-role="Entrenador"
+                            data-bs-toggle="modal"
+                            data-bs-target="#addEditRoleModal"
                           >
                             <i data-feather="edit"></i>
                           </button>
                           <button
                             class="btn btn-sm btn-outline-danger deleteRole"
-                            data-role="Entrenador"
+                            data-bs-toggle="modal"
+                            data-bs-target="#deleteUserModal"
                           >
                             <i data-feather="trash-2"></i>
                           </button>
@@ -244,7 +275,6 @@
                     </h6>
                     <small id="usersCount" class="text-muted">3 usuarios</small>
                   </div>
-
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table table-hover align-middle mb-0">
@@ -262,8 +292,8 @@
                               <i
                                 data-feather="user"
                                 class="me-1 tittle-color"
-                              ></i>
-                              Laura Martínez
+                              ></i
+                              >Laura Martínez
                             </td>
                             <td>laura.martinez@gym.com</td>
                             <td>
@@ -273,14 +303,16 @@
                             </td>
                             <td class="text-end">
                               <button
-                                class="btn btn-sm btn-outline-light me-1 editUser"
-                                data-user="Laura Martínez"
+                                class="btn btn-sm btn-outline-light me-1 editRole"
+                                data-bs-toggle="modal"
+                                data-bs-target="#addEditUserModal"
                               >
                                 <i data-feather="edit"></i>
                               </button>
                               <button
-                                class="btn btn-sm btn-outline-danger deleteUser"
-                                data-user="Laura Martínez"
+                                class="btn btn-sm btn-outline-danger deleteRole"
+                                data-bs-toggle="modal"
+                                data-bs-target="#deleteUserModal"
                               >
                                 <i data-feather="trash-2"></i>
                               </button>
@@ -291,23 +323,23 @@
                               <i
                                 data-feather="user"
                                 class="me-1 text-warning"
-                              ></i>
-                              Juan Pérez
+                              ></i
+                              >Juan Pérez
                             </td>
                             <td>juan.perez@gym.com</td>
-                            <td>
-                              <span class="badge">Entrenador</span>
-                            </td>
+                            <td><span class="badge">Entrenador</span></td>
                             <td class="text-end">
                               <button
-                                class="btn btn-sm btn-outline-light me-1 editUser"
-                                data-user="Juan Pérez"
+                                class="btn btn-sm btn-outline-light me-1 editRole"
+                                data-bs-toggle="modal"
+                                data-bs-target="#addEditUserModal"
                               >
                                 <i data-feather="edit"></i>
                               </button>
                               <button
-                                class="btn btn-sm btn-outline-danger deleteUser"
-                                data-user="Juan Pérez"
+                                class="btn btn-sm btn-outline-danger deleteRole"
+                                data-bs-toggle="modal"
+                                data-bs-target="#deleteUserModal"
                               >
                                 <i data-feather="trash-2"></i>
                               </button>
@@ -322,65 +354,135 @@
             </div>
           </div>
         </main>
-        <!-- Modal: Agregar Nuevo Usuario -->
+
+        <!-- Modal Agregar / Editar Rol -->
         <div
           class="modal fade"
-          id="addUserModal"
+          id="addEditRoleModal"
           tabindex="-1"
-          aria-labelledby="addUserModalLabel"
+          aria-labelledby="addEditRoleModalLabel"
           aria-hidden="true"
         >
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-dark border-0 shadow-lg">
               <!-- Encabezado -->
               <div class="modal-header border-secondary">
-                <h5 class="modal-title tittle-color" id="addUserModalLabel">
+                <h5 class="modal-title tittle-color" id="addEditRoleModalLabel">
+                  <i data-feather="shield" class="me-1"></i> Nuevo rol
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                  aria-label="Cerrar"
+                ></button>
+              </div>
+
+              <!-- Cuerpo -->
+              <div class="modal-body">
+                <form id="formAddEditRole">
+                  <input type="hidden" id="roleId" />
+
+                  <div class="mb-3">
+                    <label for="roleName" class="form-label text-white"
+                      >Nombre del rol</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control text-white border-0"
+                      id="roleName"
+                      placeholder="Ej. Recepción"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="roleDescription" class="form-label text-white"
+                      >Descripción</label
+                    >
+                    <textarea
+                      class="form-control text-white border-0"
+                      id="roleDescription"
+                      rows="3"
+                      placeholder="Descripción del rol"
+                    ></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  form="formAddEditRole"
+                  class="btn btn-warning tittle-color"
+                >
+                  <i data-feather="save" class="me-1"></i> Guardar rol
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Agregar / Editar Usuario -->
+        <div
+          class="modal fade"
+          id="addEditUserModal"
+          tabindex="-1"
+          aria-labelledby="addEditUserModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 shadow-lg">
+              <div class="modal-header border-secondary">
+                <h5 class="modal-title tittle-color" id="addEditUserModalLabel">
                   <i data-feather="user-plus" class="me-1"></i> Nuevo usuario
                 </h5>
                 <button
                   type="button"
                   class="btn-close btn-close-white"
                   data-bs-dismiss="modal"
-                  aria-label="Close"
                 ></button>
               </div>
-
-              <!-- Cuerpo -->
               <div class="modal-body">
-                <form id="formAddUser">
+                <form id="formAddEditUser">
+                  <input type="hidden" id="userId" />
                   <div class="mb-3">
                     <label for="userName" class="form-label text-white"
                       >Nombre completo</label
                     >
                     <input
                       type="text"
-                      class="form-control bg-dark text-white border-secondary"
+                      class="form-control text-white border-0"
                       id="userName"
                       placeholder="Ej. Laura Martínez"
                       required
                     />
                   </div>
-
                   <div class="mb-3">
                     <label for="userEmail" class="form-label text-white"
                       >Correo electrónico</label
                     >
                     <input
                       type="email"
-                      class="form-control bg-dark text-white border-secondary"
+                      class="form-control text-white border-0"
                       id="userEmail"
                       placeholder="usuario@correo.com"
                       required
                     />
                   </div>
-
                   <div class="mb-3">
                     <label for="userRole" class="form-label text-white"
                       >Rol</label
                     >
                     <select
                       id="userRole"
-                      class="form-select bg-dark text-white border-secondary"
+                      class="form-select text-white border-0"
                       required
                     >
                       <option value="" selected disabled>
@@ -391,14 +493,13 @@
                       <option value="Recepcion">Recepción</option>
                     </select>
                   </div>
-
                   <div class="mb-3">
                     <label for="userPassword" class="form-label text-white"
                       >Contraseña</label
                     >
                     <input
                       type="password"
-                      class="form-control bg-dark text-white border-secondary"
+                      class="form-control text-white border-0"
                       id="userPassword"
                       placeholder="********"
                       required
@@ -406,22 +507,62 @@
                   </div>
                 </form>
               </div>
-
-              <!-- Pie -->
-              <div class="modal-footer border-secondary">
+              <div class="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-outline-light"
+                  class="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  form="formAddUser"
+                  form="formAddEditUser"
                   class="btn btn-warning tittle-color"
                 >
                   <i data-feather="save" class="me-1"></i> Guardar usuario
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Eliminar Usuario -->
+        <div
+          class="modal fade"
+          id="deleteUserModal"
+          tabindex="-1"
+          aria-labelledby="deleteUserModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark border-0 shadow-lg">
+              <div class="modal-header border-secondary">
+                <h5 class="modal-title tittle-color" id="deleteUserModalLabel">
+                  <i data-feather="trash-2" class="me-1"></i> Eliminar usuario
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p class="text-white">
+                  ¿Estás seguro que deseas eliminar al usuario
+                  <strong id="deleteUserName"></strong>?
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <button type="button" class="btn btn-danger">
+                  <i data-feather="trash-2" class="me-1"></i> Eliminar
                 </button>
               </div>
             </div>
@@ -432,9 +573,6 @@
       </div>
     </div>
 
-    <script src="js/main.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/users.js" defer></script>
-    <script src="js/loadsidebar.js"></script>
+    <script src="../js/app.js" defer></script>
   </body>
 </html>

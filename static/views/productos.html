@@ -11,20 +11,23 @@
       name="description"
       content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
     />
-    <meta name="author" content="AdminKit" />
+    <meta name="author" content="Golden Gym" />
     <meta
       name="keywords"
-      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+      content="Golden Gym, gimnasio, administración, panel, membresías, clientes, ventas, dashboard, Bootstrap 5, AdminKit"
+    />
+    <meta
+      name="description"
+      content="Panel de administración de Golden Gym. Gestiona clientes, membresías, ventas y métricas del gimnasio de manera rápida y segura."
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="shortcut icon" href="../img/icons/golden_gym.png" />
 
-    <link rel="canonical" href="https://demo-basic.adminkit.io/ui-forms.html" />
 
-    <title>Forms | AdminKit Demo</title>
+    <title>Inventario - Golden Gym</title>
 
-    <link href="css/app.css" rel="stylesheet" />
+    <link href="../css/app.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -33,11 +36,10 @@
 
   <body>
     <div class="wrapper">
-      <!-- sidebar.html -->
       <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
           <a class="sidebar-brand" href="dashboard.html">
-            <img src="./img/icons/golden_gym.png" class="sidebar-logo" />
+            <img src="../../img/icons/golden_gym.png" class="sidebar-logo" />
           </a>
 
           <ul class="sidebar-nav">
@@ -95,10 +97,43 @@
             </li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="ventas.html">
-                <i class="align-middle" data-feather="shopping-cart"></i>
-                <span class="align-middle">Ventas</span>
+              <a
+                class="sidebar-link d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse"
+                href="#ventasMenu"
+                role="button"
+                aria-expanded="false"
+                aria-controls="ventasMenu"
+              >
+                <span>
+                  <i class="align-middle" data-feather="shopping-cart"></i>
+                  <span class="align-middle">Ventas</span>
+                </span>
+                <i data-feather="chevron-down" class="icon-sm"></i>
               </a>
+
+              <div class="collapse" id="ventasMenu">
+                <ul class="sidebar-nav ps-4">
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/list-ventas.html">
+                      <i class="align-middle" data-feather="list"></i>
+                      <span class="align-middle">Listado de Ventas</span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/resumen-ventas.html">
+                      <i class="align-middle" data-feather="bar-chart-2"></i>
+                      <span class="align-middle">Resumen</span>
+                    </a>
+                  </li>
+                  <li class="sidebar-item">
+                    <a class="sidebar-link" href="ventas/vender.html">
+                      <i class="align-middle" data-feather="bar-chart-2"></i>
+                      <span class="align-middle">Vender</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
 
             <li class="sidebar-item">
@@ -116,11 +151,10 @@
 
         <main class="content">
           <div class="container-fluid p-0">
-            <!-- Encabezado -->
             <div class="d-flex justify-content-between align-items-center mb-4">
-              <h1 class="h3 text-warning fw-bold mb-0">
-                <i data-feather="package" class="me-2"></i>Inventario de
-                Productos
+              <h1 class="h3 text-white fw-bold mb-0">
+                <i data-feather="package" class="me-2 tittle-color"></i>
+                Inventario de Productos
               </h1>
 
               <div class="d-flex gap-2">
@@ -136,6 +170,7 @@
                   class="btn btn-warning text-dark fw-bold shadow-sm"
                   data-bs-toggle="modal"
                   data-bs-target="#productModal"
+                  data-mode="create"
                 >
                   <i data-feather="plus-circle" class="me-1"></i>Nuevo Producto
                 </button>
@@ -158,7 +193,7 @@
                       <div class="col-md-4">
                         <select
                           id="filterCategory"
-                          class="form-select text-light border-secondary bg-dark"
+                          class="form-select text-light border-secondary"
                         >
                           <option value="">Tipo de producto</option>
                           <option>Proteínas</option>
@@ -171,7 +206,7 @@
                       <div class="col-md-4">
                         <select
                           id="filterStatus"
-                          class="form-select text-light border-secondary bg-dark"
+                          class="form-select text-light border-secondary"
                         >
                           <option value="">Disponibilidad</option>
                           <option>Activo</option>
@@ -183,7 +218,7 @@
                         <input
                           id="searchProduct"
                           type="text"
-                          class="form-control text-light border-secondary bg-dark"
+                          class="form-control text-light border-secondary"
                           placeholder="Buscar producto..."
                         />
                       </div>
@@ -193,34 +228,31 @@
               </div>
 
               <!-- TARJETAS DE RESUMEN -->
-              <div class="col-md-4">
-                <div class="row g-2">
-                  <div class="col-6">
-                    <div
-                      class="card bg-black border-warning text-center p-3 shadow-sm"
-                    >
-                      <h6 class="text-muted">Total Productos</h6>
-                      <h3 id="totalProducts" class="text-warning mb-0 fw-bold">
-                        3
-                      </h3>
+              <div class="col-md-4 d-flex align-items-center">
+                <div class="w-100">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <div
+                        class="card bg-black border-warning text-center p-3 shadow-sm"
+                      >
+                        <h6 class="text-muted">Total Productos</h6>
+                        <h3
+                          id="totalProducts"
+                          class="text-warning mb-0 fw-bold"
+                        >
+                          3
+                        </h3>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-6">
-                    <div
-                      class="card bg-black border-warning text-center p-3 shadow-sm"
-                    >
-                      <h6 class="text-muted">Stock Total</h6>
-                      <h3 id="totalStock" class="text-warning mb-0 fw-bold">
-                        53
-                      </h3>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div
-                      class="card bg-black border-warning text-center p-3 shadow-sm"
-                    >
-                      <h6 class="text-muted">Ventas del Mes</h6>
-                      <h3 class="text-success mb-0 fw-bold">$4.250.000</h3>
+                    <div class="col-6">
+                      <div
+                        class="card bg-black border-warning text-center p-3 shadow-sm"
+                      >
+                        <h6 class="text-muted">Stock Total</h6>
+                        <h3 id="totalStock" class="text-warning mb-0 fw-bold">
+                          53
+                        </h3>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -267,7 +299,8 @@
                         <button
                           class="btn btn-sm btn-outline-light me-1 edit-btn"
                           data-bs-toggle="modal"
-                          data-bs-target="#editProductModal"
+                          data-bs-target="#productModal"
+                          data-mode="edit"
                         >
                           <i data-feather="edit"></i>
                         </button>
@@ -298,34 +331,8 @@
                         <button
                           class="btn btn-sm btn-outline-light me-1 edit-btn"
                           data-bs-toggle="modal"
-                          data-bs-target="#editProductModal"
-                        >
-                          <i data-feather="edit"></i>
-                        </button>
-                        <button
-                          class="btn btn-sm btn-outline-danger delete-btn"
-                          data-bs-toggle="modal"
-                          data-bs-target="#deleteProductModal"
-                        >
-                          <i data-feather="trash-2"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>#003</td>
-                      <td>Batido Natural Detox</td>
-                      <td>Batidos</td>
-                      <td><span class="badge text-black bg-danger">0</span></td>
-                      <td>$25.000</td>
-                      <td>33</td>
-                      <td>
-                        <span class="badge text-black bg-danger">Agotado</span>
-                      </td>
-                      <td>
-                        <button
-                          class="btn btn-sm btn-outline-light me-1 edit-btn"
-                          data-bs-toggle="modal"
-                          data-bs-target="#editProductModal"
+                          data-bs-target="#productModal"
+                          data-mode="edit"
                         >
                           <i data-feather="edit"></i>
                         </button>
@@ -343,24 +350,57 @@
               </div>
             </div>
 
-            <!-- GRAFICO -->
-            <div class="card border-0 shadow-sm">
+            <!-- LISTADO DE CATEGORÍAS -->
+            <div class="card border-0 shadow-sm mb-4">
               <div
-                class="card-header border-0 d-flex justify-content-between align-items-center"
+                class="card-header d-flex justify-content-between align-items-center border-0"
               >
                 <h5 class="text-warning mb-0">
-                  <i data-feather="bar-chart-2" class="me-1"></i>Ventas por
-                  Categoría
+                  <i data-feather="folder" class="me-1"></i>Listado de
+                  Categorías
                 </h5>
               </div>
-              <div class="card-body" style="height: 350px">
-                <canvas id="salesChart"></canvas>
+              <div class="card-body table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                  <thead class="text-warning border-secondary">
+                    <tr>
+                      <th>ID</th>
+                      <th>Nombre</th>
+                      <th>Descripción</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="categoryTable" class="text-light">
+                    <tr>
+                      <td>#C001</td>
+                      <td>Proteínas</td>
+                      <td>Suplementos en polvo y batidos</td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-light me-1 edit-category-btn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#newCategoryModal"
+                          data-mode="edit"
+                        >
+                          <i data-feather="edit"></i>
+                        </button>
+                        <button
+                          class="btn btn-sm btn-outline-danger delete-category-btn"
+                          data-bs-toggle="modal"
+                          data-bs-target="#deleteCategoryModal"
+                        >
+                          <i data-feather="trash-2"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </main>
 
-        <!-- MODAL: Nueva Categoría -->
+        <!-- MODAL Nueva / Editar Categoría -->
         <div
           class="modal fade"
           id="newCategoryModal"
@@ -373,9 +413,12 @@
               class="modal-content bg-dark text-light border-secondary shadow-lg"
             >
               <div class="modal-header border-secondary">
-                <h5 class="modal-title text-warning" id="newCategoryModalLabel">
-                  <i data-feather="folder-plus" class="me-1"></i>Agregar Nueva
-                  Categoría
+                <h5
+                  class="modal-title text-warning fw-bold"
+                  id="newCategoryModalLabel"
+                >
+                  <i data-feather="folder-plus" class="me-1"></i>
+                  <span id="categoryModalTitle">Agregar Nueva Categoría</span>
                 </h5>
                 <button
                   type="button"
@@ -389,13 +432,12 @@
                 <form id="newCategoryForm">
                   <div class="mb-3">
                     <label for="categoryName" class="form-label text-muted"
-                      >Nombre de la categoría</label
+                      >Nombre</label
                     >
                     <input
                       type="text"
                       id="categoryName"
-                      class="form-control bg-black border-secondary text-light"
-                      placeholder="Ejemplo: Suplementos"
+                      class="form-control bg-black border-0 text-light"
                       required
                     />
                   </div>
@@ -403,13 +445,12 @@
                     <label
                       for="categoryDescription"
                       class="form-label text-muted"
-                      >Descripción (opcional)</label
+                      >Descripción</label
                     >
                     <textarea
                       id="categoryDescription"
-                      class="form-control bg-black border-secondary text-light"
+                      class="form-control bg-black border-0 text-light"
                       rows="2"
-                      placeholder="Breve descripción..."
                     ></textarea>
                   </div>
                 </form>
@@ -424,23 +465,21 @@
                   Cancelar
                 </button>
                 <button
-                  type="submit"
-                  form="newCategoryForm"
+                  id="saveCategoryBtn"
                   class="btn btn-warning text-dark fw-bold"
                 >
-                  <i data-feather="save" class="me-1"></i>Guardar Categoría
+                  <i data-feather="save" class="me-1"></i>Guardar
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- MODAL EDITAR -->
-        <div class="modal fade" id="editProductModal" tabindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content bg-dark text-white border-warning">
-              <div class="modal-header">
-                <h5 class="modal-title text-warning">Editar Producto</h5>
+        <div class="modal fade" id="deleteCategoryModal" tabindex="-1">
+          <div class="modal-dialog modal-dark">
+            <div class="modal-content bg-dark text-white border-0">
+              <div class="modal-header border-secondary">
+                <h5 class="modal-title text-danger">Eliminar Categoría</h5>
                 <button
                   type="button"
                   class="btn-close btn-close-white"
@@ -448,29 +487,98 @@
                 ></button>
               </div>
               <div class="modal-body">
-                <div class="mb-3">
-                  <label class="form-label">Nombre</label>
-                  <input id="editName" type="text" class="form-control" />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Categoría</label>
-                  <input id="editCategory" type="text" class="form-control" />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Precio</label>
-                  <input id="editPrice" type="number" class="form-control" />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Stock</label>
-                  <input id="editStock" type="number" class="form-control" />
-                </div>
+                ¿Estás seguro de que deseas eliminar esta categoría?
               </div>
-              <div class="modal-footer">
+              <div class="modal-footer border-0">
                 <button class="btn btn-secondary" data-bs-dismiss="modal">
                   Cancelar
                 </button>
-                <button class="btn btn-warning text-dark fw-bold">
-                  Guardar Cambios
+                <button class="btn btn-danger fw-bold">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL Crear / Editar Producto -->
+        <div class="modal fade" id="productModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark text-light border-warning">
+              <div class="modal-header border-secondary">
+                <h5
+                  class="modal-title text-warning fw-bold"
+                  id="productModalTitle"
+                >
+                  <i data-feather="package"></i> Nuevo Producto
+                </h5>
+                <button
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="productForm" class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Nombre del Producto</label>
+                    <input
+                      type="text"
+                      class="form-control text-light border-0"
+                      id="nombreProducto"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Categoría</label>
+                    <select
+                      id="categoriaProducto"
+                      class="form-select text-light border-0"
+                      required
+                    >
+                      <option>Proteínas</option>
+                      <option>Bebidas</option>
+                      <option>Ropa</option>
+                      <option>Accesorios</option>
+                      <option>Batidos</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label">Stock</label>
+                    <input
+                      type="number"
+                      class="form-control text-light border-0"
+                      id="stockProducto"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label">Precio</label>
+                    <input
+                      type="number"
+                      class="form-control text-light border-0"
+                      id="precioProducto"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label">Estado</label>
+                    <select
+                      id="estadoProducto"
+                      class="form-select text-light border-0"
+                    >
+                      <option>Activo</option>
+                      <option>Inactivo</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer border-secondary">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">
+                  Cancelar
+                </button>
+                <button
+                  id="guardarProducto"
+                  class="btn btn-warning text-dark fw-bold"
+                >
+                  Guardar
                 </button>
               </div>
             </div>
@@ -502,97 +610,10 @@
           </div>
         </div>
 
-        <!-- MODAL NUEVO PRODUCTO -->
-        <div class="modal fade" id="productModal" tabindex="-1">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content bg-dark text-light border-warning">
-              <div class="modal-header border-secondary">
-                <h5 class="modal-title text-warning fw-bold">
-                  <i data-feather="package"></i> Nuevo Producto
-                </h5>
-                <button
-                  class="btn-close btn-close-white"
-                  data-bs-dismiss="modal"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form id="productForm" class="row g-3">
-                  <div class="col-md-6">
-                    <label class="form-label">Nombre del Producto</label>
-                    <input
-                      type="text"
-                      class="form-control text-light border-secondary"
-                      id="nombreProducto"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Categoría</label>
-                    <select
-                      id="categoriaProducto"
-                      class="form-select text-light border-secondary"
-                      required
-                    >
-                      <option>Proteínas</option>
-                      <option>Bebidas</option>
-                      <option>Ropa</option>
-                      <option>Accesorios</option>
-                      <option>Batidos</option>
-                    </select>
-                  </div>
-                  <div class="col-md-4">
-                    <label class="form-label">Stock</label>
-                    <input
-                      type="number"
-                      class="form-control text-light border-secondary"
-                      id="stockProducto"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-4">
-                    <label class="form-label">Precio</label>
-                    <input
-                      type="number"
-                      class="form-control text-light border-secondary"
-                      id="precioProducto"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-4">
-                    <label class="form-label">Estado</label>
-                    <select
-                      id="estadoProducto"
-                      class="form-select text-light border-secondary"
-                    >
-                      <option>Activo</option>
-                      <option>Inactivo</option>
-                    </select>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer border-secondary">
-                <button class="btn btn-secondary" data-bs-dismiss="modal">
-                  Cancelar
-                </button>
-                <button
-                  id="guardarProducto"
-                  class="btn btn-warning text-dark fw-bold"
-                >
-                  Guardar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div id="footer"></div>
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/app.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/loadsidebar.js" defer></script>
-    <script src="js/productos.js" defer></script>
+    <script src="../js/app.js"></script>
   </body>
 </html>
