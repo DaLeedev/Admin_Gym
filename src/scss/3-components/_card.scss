@@ -1,6 +1,15 @@
 .card {
   margin-bottom: $grid-gutter-width;
   box-shadow: $card-shadow;
+  select{
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: $gray-400;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+  }
 }
 
 .card-header {
@@ -46,6 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 .total {
   background-color: $total-bg;
   color: $black !important;
+  
   .icon-bg {
     background-color: rgb(0, 0, 0, 0.8) !important;
     color: $bg-secondary ;
@@ -64,4 +74,8 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.25rem 0.5rem;
     border-radius: 0.3rem;
   }
+}
+
+.color-icon {
+  color: $bg-secondary
 }

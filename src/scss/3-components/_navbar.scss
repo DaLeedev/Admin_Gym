@@ -2,6 +2,12 @@
   border-bottom: $navbar-border-bottom;
   box-shadow: $navbar-box-shadow;
   transition: all 0.3s ease;
+  .user-name {
+    color: $white;
+    &:hover {
+      color: $bg-secondary;
+    }
+  }
 }
 
 .navbar .avatar {
@@ -13,7 +19,7 @@
   direction: ltr;
 }
 
-.rounded{
+.rounded {
   border-radius: 1.2rem !important;
 }
 
@@ -45,7 +51,7 @@
 
 .nav-icon,
 .nav-flag {
-  padding: .1rem .8rem;
+  padding: 0.1rem 0.8rem;
   display: block;
   font-size: 1.5rem;
   color: $gray-600;
@@ -81,7 +87,7 @@
     top: 0;
     right: -8px;
     text-align: center;
-    transition: top .1s ease-out;
+    transition: top 0.1s ease-out;
     font-size: 0.675rem;
     color: $white;
   }
@@ -104,7 +110,7 @@
 }
 
 .txt-color-terce {
-  color: $bg-secondary
+  color: $bg-secondary;
 }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -119,7 +125,7 @@
   }
 
   .nav-icon {
-    padding: .1rem .75rem;
+    padding: 0.1rem 0.75rem;
   }
 
   .dropdown,
@@ -144,12 +150,6 @@
   height: 20px;
   object-fit: cover;
 }
-
-.navbar input {
-  direction: ltr;
-}
-
-
 
 .navbar-inicio {
   position: absolute;
