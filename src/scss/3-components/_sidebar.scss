@@ -50,7 +50,7 @@ a.sidebar-link {
 
 .sidebar-link:hover {
   color: $sidebar-link-hover-color;
-  background: $sidebar-link-hover-bg;
+  // background: $sidebar-link-hover-bg;
   border-left-color: $sidebar-link-hover-border-left-color;
   font-weight: 600;
 
@@ -62,7 +62,7 @@ a.sidebar-link {
 
 .sidebar-item.active > .sidebar-link,
 .sidebar-item.active .sidebar-link:hover {
-  color: $white;
+  color: $sidebar-link-active-color;
   font-weight: 500;
   // background: $sidebar-link-active-bg;
   border-left-color: $sidebar-link-active-border-left-color;
