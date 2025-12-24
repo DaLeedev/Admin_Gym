@@ -37,3 +37,16 @@
     border-bottom-right-radius: $card-border-radius;
   }
 }
+
+.card-body,
+h1, h2, h3, h4, h5, h6 {
+  color: $gray-400;
+}
+
+.total {
+  background-color: $total-bg;
+  color: $black !important;
+  .card-title {
+    color: $black;
+  }
+}

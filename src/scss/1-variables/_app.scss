@@ -136,9 +136,13 @@ $social-colors: (
   "bitbucket": #0052cc,
 ) !default;
 
-// Body
-$body-bg: #161515 !default;
+// Backgrounds and colors
+$body-bg: #1a1a1a !default;
 $body-color: white !default;
+$sidebar-bg: #0a0a0a !default;
+$navbar-bg: #1a1a1a !default;
+$footer-bg: $bg-nav-footer !default;
+$total-bg: #9dff0033  !default;
 
 $bg-subitems: #1a1a1a;
 
@@ -202,11 +206,6 @@ $navbar-brand-font-weight: $font-weight-normal !default;
 $navbar-brand-font-size: 1.15rem !default;
 $navbar-brand-icon-color: $bg-secondary !default;
 
-$navbar-bg: $bg-nav-footer !default;
-
-// Footer
-$footer-bg: $bg-nav-footer !default;
-
 // Forms
 $input-bg: $white !default;
 $input-disabled-bg: $gray-200 !default;
@@ -237,12 +236,12 @@ $input-height-lg: calc(
 ) !default;
 
 // Cards
-$card-bg: #272727 !default;
+$card-bg: $sidebar-bg !default;
 $card-border-radius: 0.25rem !default;
 $card-inner-border-radius: $card-border-radius !default;
 $card-border-width: 0 !default;
 $card-border-color: transparent !default;
-$card-cap-bg: #272727 !default;
+$card-cap-bg: $sidebar-bg !default;
 $card-shadow: 0 0 0.875rem 0 rgba($dark, 0.05) !default;
 $card-title-font-size: $font-size-lg !default;
 $card-title-font-weight: $font-weight-bold !default;
@@ -265,7 +264,7 @@ $table-hover-bg: rgba($black, 0.0375) !default;
 $sidebar-width: 260px !default;
 $sidebar-transition: margin-left 0.35s ease-in-out, left 0.35s ease-in-out,
   margin-right 0.35s ease-in-out, right 0.35s ease-in-out !default;
-$sidebar-bg: #0a0a0a !default;
+
 
 // Sidebar brand
 $sidebar-brand-padding-y: 0.5rem !default;
