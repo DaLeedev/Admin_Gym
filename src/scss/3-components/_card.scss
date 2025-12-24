@@ -46,7 +46,22 @@ h1, h2, h3, h4, h5, h6 {
 .total {
   background-color: $total-bg;
   color: $black !important;
+  .icon-bg {
+    background-color: rgb(0, 0, 0, 0.8) !important;
+    color: $bg-secondary ;
+  }
   .card-title {
     color: $black;
+    font-size: larger;
+    font-weight: $font-weight-bold;
+  }
+  h1{
+    color: $black !important;
+  }
+
+  .bg-filtros {
+    background-color: rgb(0, 0, 0, 0.9) !important;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.3rem;
   }
 }
