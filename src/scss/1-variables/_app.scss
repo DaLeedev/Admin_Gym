@@ -265,7 +265,7 @@ $table-hover-bg: rgba($black, 0.0375) !default;
 $sidebar-width: 260px !default;
 $sidebar-transition: margin-left 0.35s ease-in-out, left 0.35s ease-in-out,
   margin-right 0.35s ease-in-out, right 0.35s ease-in-out !default;
-$sidebar-bg: #1a1a1a !default;
+$sidebar-bg: #0a0a0a !default;
 
 // Sidebar brand
 $sidebar-brand-padding-y: 0.5rem !default;
@@ -282,7 +282,7 @@ $sidebar-header-color: $gray-400 !default;
 // Sidebar link
 $sidebar-link-padding: 0.625rem 1.625rem !default;
 $sidebar-link-font-weight: 400 !default;
-$sidebar-link-bg: #1a1a1a !default;
+$sidebar-link-bg: $sidebar-bg !default;
 $sidebar-link-color: rgba($gray-200, 0.5) !default;
 $sidebar-link-border-left-color: transparent !default;
 
