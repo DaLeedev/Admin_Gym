@@ -40,19 +40,19 @@
 }
 
 .page-btn:hover {
-  background: #ffc107;
+  background: $bg-secondary;
   color: #212529;
-  border-color: #ffc107;
+  border-color: $bg-secondary;
   transform: translateY(-2px);
-  box-shadow: 0 2px 6px rgba(255, 193, 7, 0.4);
+  box-shadow: 0 2px 6px $bg-secondary;
 }
 
 .page-btn.active {
-  background: #ffc107;
+  background: $bg-secondary;
   color: #212529;
-  border-color: #ffc107;
+  border-color: $bg-secondary;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.6);
+  box-shadow: 0 2px 8px $bg-secondary;
 }
 
 .page-btn:disabled,
@@ -78,6 +78,6 @@
 
 .page-btn.prev:hover,
 .page-btn.next:hover {
-  background: #ffc107;
+  background: $bg-secondary;
   color: #141414;
 }

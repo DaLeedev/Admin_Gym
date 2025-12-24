@@ -39,7 +39,7 @@
   width: 6px;
 }
 .ventas-scroll::-webkit-scrollbar-thumb {
-  background-color: #ffc107;
+  background-color: $bg-secondary;
   border-radius: 4px;
 }
 .ventas-scroll::-webkit-scrollbar-track {
