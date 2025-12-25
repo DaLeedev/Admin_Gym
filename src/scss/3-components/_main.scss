@@ -114,7 +114,7 @@ $modal-max-width: 500px;
   transition: all 0.3s ease;
 }
 .flatpickr-day:hover {
-  background-color: #ffcc00 !important;
+  background-color: $bg-secondary !important;
   color: #000 !important;
   transform: scale(1.1);
   border-radius: 8px;
@@ -141,23 +141,16 @@ $modal-max-width: 500px;
   background-color: transparent !important;
   color: red !important;
 }
-.flatpickr-prev-month,
-.flatpickr-next-month {
-  color: #fffb00 !important;
-  font-size: 16px !important;
-  padding: 6px !important;
-  width: 22px !important;
-  height: 28px !important;
-  background-color: rgba(63, 63, 63, 0.253) !important;
-  border-radius: 30% !important;
-  transition: all 0.25s ease-in-out;
-  margin-top: 7px;
-}
-.flatpickr-prev-month:hover,
-.flatpickr-next-month:hover {
-  color: #000 !important;
-  transform: scale(1.1);
-  box-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+.calendar-card {
+
+  .flatpickr-months {
+    position: relative;
+  }
+
+  .flatpickr-prev-month,
+  .flatpickr-next-month {
+    display: none;
+  }
 }
 .flatpickr-weekday {
   color: #fff !important;
@@ -170,11 +163,10 @@ $modal-max-width: 500px;
    ========================================================================== */
 .form-control,
 .form-select {
-  background-color: #0e0e0e;
+  background-color: #222222 !important;
   color: $gray-500;
-  border: 1px solid #3d2f00;
   transition: all 0.2s ease-in-out;
-  border-radius: 8px;
+  border-radius: 8px !important;
   padding: 0.5rem 0.75rem;
 }
 .form-control::placeholder {
@@ -182,8 +174,8 @@ $modal-max-width: 500px;
 }
 .form-control:focus,
 .form-select:focus {
-  border-color: #ffc107a9;
-  box-shadow: 0 0 0 0.1rem rgba(255, 193, 7, 0.25);
+  border-color: #b3ff00d8;
+  box-shadow: 0 0 0 2px #b3ff0075;
   background-color: #000;
   color: #fff;
 }
