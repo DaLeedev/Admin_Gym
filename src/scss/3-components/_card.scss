@@ -6,9 +6,10 @@
     outline: none;
     box-shadow: none;
     border-radius: 0;
-    color: $gray-400;
+    color: $bg-secondary;
     font-weight: $font-weight-semibold;
     cursor: pointer;
+    background-color: $sidebar-bg;
   }
 }
 
@@ -55,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
 .total {
   background-color: $total-bg;
   color: $black !important;
-  
+
   .icon-bg {
     background-color: rgb(0, 0, 0, 0.8) !important;
     color: $bg-secondary ;
@@ -72,10 +73,25 @@ h1, h2, h3, h4, h5, h6 {
   .bg-filtros {
     background-color: rgb(0, 0, 0, 0.9) !important;
     padding: 0.25rem 0.5rem;
-    border-radius: 0.3rem;
+    border-radius: 0.4rem;
   }
 }
 
 .color-icon {
   color: $bg-secondary
+}
+
+.btn-detalles{
+  background: $bg-secondary;
+  border-color: $bg-secondary;
+  color: #000 !important;
+  font-weight: 600;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  border-radius: 0.3rem;
+
+  &:hover {
+    background: darken($bg-secondary, 15%);
+    transform: translateY(-1px);
+  }
 }

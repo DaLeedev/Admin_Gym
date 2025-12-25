@@ -170,11 +170,10 @@ $modal-max-width: 500px;
    ========================================================================== */
 .form-control,
 .form-select {
-  background-color: #222222;
+  background-color: #222222 !important;
   color: $gray-500;
-  border: 1px solid #3d2f00;
   transition: all 0.2s ease-in-out;
-  border-radius: 8px;
+  border-radius: 8px !important;
   padding: 0.5rem 0.75rem;
 }
 .form-control::placeholder {
@@ -182,8 +181,8 @@ $modal-max-width: 500px;
 }
 .form-control:focus,
 .form-select:focus {
-  border-color: #ffc107a9;
-  box-shadow: 0 0 0 0.1rem rgba(255, 193, 7, 0.25);
+  border-color: #b3ff00d8;
+  box-shadow: 0 0 0 2px #b3ff0075;
   background-color: #000;
   color: #fff;
 }
