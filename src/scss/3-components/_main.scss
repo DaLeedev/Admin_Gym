@@ -114,7 +114,7 @@ $modal-max-width: 500px;
   transition: all 0.3s ease;
 }
 .flatpickr-day:hover {
-  background-color: #ffcc00 !important;
+  background-color: $bg-secondary !important;
   color: #000 !important;
   transform: scale(1.1);
   border-radius: 8px;
@@ -141,23 +141,16 @@ $modal-max-width: 500px;
   background-color: transparent !important;
   color: red !important;
 }
-.flatpickr-prev-month,
-.flatpickr-next-month {
-  color: #fffb00 !important;
-  font-size: 16px !important;
-  padding: 6px !important;
-  width: 22px !important;
-  height: 28px !important;
-  background-color: rgba(63, 63, 63, 0.253) !important;
-  border-radius: 30% !important;
-  transition: all 0.25s ease-in-out;
-  margin-top: 7px;
-}
-.flatpickr-prev-month:hover,
-.flatpickr-next-month:hover {
-  color: #000 !important;
-  transform: scale(1.1);
-  box-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+.calendar-card {
+
+  .flatpickr-months {
+    position: relative;
+  }
+
+  .flatpickr-prev-month,
+  .flatpickr-next-month {
+    display: none;
+  }
 }
 .flatpickr-weekday {
   color: #fff !important;
