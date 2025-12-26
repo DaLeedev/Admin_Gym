@@ -94,3 +94,27 @@
     border-color: #a6ff00;
   }
 }
+
+.btn.btn-detalles {
+  background: $bg-secondary;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  border-radius: 0.3rem;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: darken($bg-secondary, 15%);
+    color: #000;
+  }
+
+  /* 👇 SOLO esto para neutralizar Bootstrap */
+  &:focus {
+    background: $bg-secondary;
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+
+

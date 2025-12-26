@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .bg-filtros {
-    background-color: rgb(0, 0, 0, 0.9) !important;
+    background-color: $sidebar-bg !important;
     padding: 0.25rem 0.5rem;
     border-radius: 0.4rem;
   }
@@ -82,17 +82,4 @@ h1, h2, h3, h4, h5, h6 {
   color: $bg-secondary
 }
 
-.btn-detalles{
-  background: $bg-secondary;
-  border-color: $bg-secondary;
-  color: #000 !important;
-  font-weight: 600;
-  border: none;
-  transition: all 0.2s ease-in-out;
-  border-radius: 0.3rem;
 
-  &:hover {
-    background: darken($bg-secondary, 15%);
-    transform: translateY(-1px);
-  }
-}
