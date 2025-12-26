@@ -4,6 +4,7 @@
   transition: $sidebar-transition;
   direction: ltr;
   background: $sidebar-bg;
+  z-index: 2;
 }
 
 .sidebar-content {

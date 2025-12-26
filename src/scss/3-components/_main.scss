@@ -396,9 +396,11 @@ $modal-max-width: 500px;
 
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(78%) sepia(99%) saturate(956%) hue-rotate(358deg) brightness(104%) contrast(103%);
+    filter: invert(81%) sepia(71%) saturate(1900%) hue-rotate(33deg) brightness(107%) contrast(106%);
   cursor: pointer;
+  font-size: 1rem;
 }
+
 
 /* ==========================================================================
    BACKGROUND FILTERS
