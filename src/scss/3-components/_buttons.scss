@@ -94,3 +94,18 @@
     border-color: #a6ff00;
   }
 }
+
+.btn-detalles{
+  background: $bg-secondary;
+  border-color: $bg-secondary;
+  color: #000 !important;
+  font-weight: 600;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  border-radius: 0.3rem;
+
+  &:hover {
+    background: darken($bg-secondary, 15%);
+    transform: translateY(-1px);
+  }
+}
