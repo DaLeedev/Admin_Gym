@@ -1,11 +1,9 @@
 .card {
   margin-bottom: $grid-gutter-width;
-  box-shadow: $card-shadow;
   z-index: 2;
-  select{
+  select {
     background-color: transparent;
     outline: none;
-    box-shadow: none;
     border-radius: 0;
     color: $bg-secondary;
     font-weight: $font-weight-semibold;
@@ -33,7 +31,7 @@
 .card-img-bottom {
   @include img-fluid;
 
-  @media all and (-ms-high-contrast:none) {
+  @media all and (-ms-high-contrast: none) {
     height: 100%;
   }
 }
@@ -50,7 +48,12 @@
 }
 
 .card-body,
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $gray-400;
 }
 
@@ -60,14 +63,14 @@ h1, h2, h3, h4, h5, h6 {
 
   .icon-bg {
     background-color: rgb(0, 0, 0, 0.8) !important;
-    color: $bg-secondary ;
+    color: $bg-secondary;
   }
   .card-title {
     color: $black;
     font-size: larger;
     font-weight: $font-weight-bold;
   }
-  h1{
+  h1 {
     color: $black !important;
   }
 
@@ -79,7 +82,5 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .color-icon {
-  color: $bg-secondary
+  color: $bg-secondary;
 }
-
-
