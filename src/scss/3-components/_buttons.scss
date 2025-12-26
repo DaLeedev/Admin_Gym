@@ -81,3 +81,16 @@
   background: $bg-secondary;
   color: #141414;
 }
+
+.btn-outline-custom {
+  color: #a6ff00; /* color del texto */
+  border: 1px solid #a6ff00; /* borde personalizado */
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #a6ff00; /* fondo al hover */
+    color: #000; /* letras negras */
+    border-color: #a6ff00;
+  }
+}
